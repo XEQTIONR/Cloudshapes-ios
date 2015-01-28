@@ -45,15 +45,15 @@
         [request setHTTPBody:postData];
     
     
-        NSHTTPURLResponse *urlRespose = nil;
+        NSHTTPURLResponse *urlResponse = nil;
         NSError *error = nil;
-        NSData *responseData =[NSURLConnection sendSynchronousRequest:request returningResponse:&urlRespose error:&error];
+        NSData *responseData =[NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
         NSString *result =[[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
-        NSLog(@"Response code: %lu", [urlRespose statusCode]);
+        NSLog(@"Response code: %lu", [urlResponse statusCode]);
         NSString *responseBody = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
         NSLog(@"RESPONSE BODY : %@", responseBody);
     
-        if ([urlRespose statusCode]>=200 && [urlRespose statusCode]<300) {
+        if ([urlResponse statusCode]>=200 && [urlResponse statusCode]<300) {
            // NSLog(@"Response: %@", result);
         }
         //NSLog(@"Response: %@", result);

@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Cloudshapes. All rights reserved.
 //
 
+@import Foundation;
 #import "CSLoginViewController.h"
 
 @interface CSLoginViewController ()
@@ -16,7 +17,7 @@
 
 
 - (IBAction)login:(id)sender {
- /*
+ 
     NSString *username = [self.txtusername text ];
     NSString *password = [self.txtpassword text ];
     NSLog(@"Username : %@    Password : %@", username,password);
@@ -27,12 +28,33 @@
     NSString *postLength = [NSString stringWithFormat:@"%lu", [loginData length]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
     
-    [request setURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/CSregisteruser_dev.php"]];
+    [request setURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/login_printr.php"]]; // change to the login script name here
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPBody:loginData];
-   */ 
+    
+    NSHTTPURLResponse *urlResponse = nil;
+    NSError *error = nil;
+    NSData *loginResponseData =[NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+    //NSDictionary
+    NSArray *jsonData = [NSJSONSerialization JSONObjectWithData:loginResponseData options:kNilOptions error:&error];
+    if ([urlResponse statusCode]>=200 && [urlResponse statusCode]<300) {
+        // NSLog(@"Response: %@", result);
+    }
+    //NSLog(@"Response: %@", result);
+    if (error == nil)
+    {NSLog(@"NO ERRORS");}
+    if (jsonData == nil)
+    {NSLog(@"NIL RESULT");}
+    else
+    {
+        NSLog(@"%@", jsonData);
+        NSLog(@"AND R1:");      //jsonData is a NSArray -->NSDictionary previously
+        //NSString *r1 = [jsonData objectForKey:@"useremail"];
+        NSLog(@"USERS EMAIL : %@", [jsonData objectAtIndex:0]);
+    }
+    
 }
 
 - (void)viewDidLoad {
