@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Register View Controller-->
+        <!--Title-->
         <scene sceneID="e8S-qP-04g">
             <objects>
                 <viewController id="qcn-xX-9FY" customClass="CSRegisterViewController" sceneMemberID="viewController">
@@ -121,6 +121,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="JTo-HA-6Nu"/>
                     <connections>
                         <outlet property="txtConfirmPassword" destination="Jam-OA-Ola" id="fOr-o1-QwU"/>
                         <outlet property="txtDateOfBirth" destination="hq9-Jf-Ygt" id="48Y-YP-wDX"/>
@@ -134,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nBY-LL-lkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1837.5" y="-1484"/>
+            <point key="canvasLocation" x="-1837.5" y="-1500"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SVS-h5-bRf">
@@ -152,10 +153,10 @@
             </objects>
             <point key="canvasLocation" x="-3114" y="-2338"/>
         </scene>
-        <!--Login-->
+        <!--LOGIN-->
         <scene sceneID="phP-SZ-X93">
             <objects>
-                <viewController title="Login" id="f6y-oD-rSu" customClass="CSLoginViewController" sceneMemberID="viewController">
+                <viewController id="f6y-oD-rSu" customClass="CSLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qYs-ou-nhR"/>
                         <viewControllerLayoutGuide type="bottom" id="YTQ-jo-m8z"/>
@@ -173,7 +174,7 @@
                                     <rect key="frame" x="113" y="527" width="184" height="30"/>
                                 </variation>
                                 <connections>
-                                    <segue destination="qcn-xX-9FY" kind="show" id="CFa-A9-zgf"/>
+                                    <segue destination="qcn-xX-9FY" kind="show" id="v2j-70-PwY"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ld-AK-u0f">
@@ -204,18 +205,6 @@
                                     <action selector="login:" destination="f6y-oD-rSu" eventType="touchUpInside" id="8Ph-gL-xC2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FYI-Wk-cJe">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Test Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="260" y="159" width="117" height="30"/>
-                                </variation>
-                                <connections>
-                                    <segue destination="218-lQ-oAP" kind="show" id="9E8-n6-ySt"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -224,7 +213,6 @@
                                 <exclude reference="9ld-AK-u0f"/>
                                 <exclude reference="0D5-ys-b7I"/>
                                 <exclude reference="FQH-ef-Lhh"/>
-                                <exclude reference="FYI-Wk-cJe"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -233,14 +221,14 @@
                                 <include reference="9ld-AK-u0f"/>
                                 <include reference="0D5-ys-b7I"/>
                                 <include reference="FQH-ef-Lhh"/>
-                                <include reference="FYI-Wk-cJe"/>
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="9VB-ji-V3v"/>
+                    <navigationItem key="navigationItem" title="LOGIN" id="9VB-ji-V3v"/>
                     <connections>
                         <outlet property="txtpassword" destination="0D5-ys-b7I" id="Cdu-1B-g4Q"/>
                         <outlet property="txtusername" destination="9ld-AK-u0f" id="mG4-cB-38D"/>
+                        <segue destination="218-lQ-oAP" kind="presentation" identifier="enterSegue" id="AEF-jr-vNM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JnD-Gc-jQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -258,7 +246,28 @@
                     <view key="view" contentMode="scaleToFill" id="xh3-kO-Su2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uW-UL-rl8">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="179" y="179" width="57" height="21"/>
+                                </variation>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="4uW-UL-rl8"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="4uW-UL-rl8"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="6k3-dp-N4s"/>
                 </viewController>
@@ -277,7 +286,28 @@
                     <view key="view" contentMode="scaleToFill" id="xRl-L4-GQp">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2S-HM-Byy">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="170" y="181" width="57" height="21"/>
+                                </variation>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="u2S-HM-Byy"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="u2S-HM-Byy"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="7W3-qP-KFE"/>
                 </viewController>
@@ -316,13 +346,34 @@
                     <view key="view" contentMode="scaleToFill" id="ScH-j2-zdJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKw-Do-Wrm">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="164" y="182" width="57" height="21"/>
+                                </variation>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="lKw-Do-Wrm"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="lKw-Do-Wrm"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="YTs-PX-rO7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tpi-lW-LqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1060.5" y="-1484"/>
+            <point key="canvasLocation" x="-1039.5" y="-1484"/>
         </scene>
     </scenes>
 </document>

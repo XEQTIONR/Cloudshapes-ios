@@ -28,7 +28,7 @@
     NSString *postLength = [NSString stringWithFormat:@"%lu", [loginData length]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
     
-    [request setURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/login_printr.php"]]; // change to the login script name here
+    [request setURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/login_printr.php"]]; // current login script works
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -50,9 +50,21 @@
     else
     {
         NSLog(@"%@", jsonData);
-        NSLog(@"AND R1:");      //jsonData is a NSArray -->NSDictionary previously
+        //NSLog(@"AND R1:");      //jsonData is a NSArray -->NSDictionary previously
+        NSLog(@"jsonData.count = %lu", [jsonData count]);
+        if([jsonData count])
+        {
+        NSDictionary *jsonDictionary = [jsonData objectAtIndex:0];
         //NSString *r1 = [jsonData objectForKey:@"useremail"];
-        NSLog(@"USERS EMAIL : %@", [jsonData objectAtIndex:0]);
+        NSLog(@"USERS EMAIL : %@", [jsonDictionary objectForKey:@"useremail"]);
+            [self performSegueWithIdentifier:@"enterSegue" sender: self];
+        }
+        else
+        {
+            NSLog(@"User Authentication Failed");
+            UIAlertView *authenticationFailedAlert = [[UIAlertView alloc] initWithTitle:@"Login Failed" message:@"Username or Password Incorrect." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [authenticationFailedAlert show];
+        }
     }
     
 }
