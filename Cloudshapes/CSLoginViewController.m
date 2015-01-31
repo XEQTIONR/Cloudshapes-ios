@@ -37,7 +37,6 @@
     NSHTTPURLResponse *urlResponse = nil;
     NSError *error = nil;
     NSData *loginResponseData =[NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
-    //NSDictionary
     NSArray *jsonData = [NSJSONSerialization JSONObjectWithData:loginResponseData options:kNilOptions error:&error];
     if ([urlResponse statusCode]>=200 && [urlResponse statusCode]<300) {
         // NSLog(@"Response: %@", result);
@@ -52,11 +51,48 @@
         NSLog(@"%@", jsonData);
         //NSLog(@"AND R1:");      //jsonData is a NSArray -->NSDictionary previously
         NSLog(@"jsonData.count = %lu", [jsonData count]);
-        if([jsonData count])
+        if([jsonData count]) // set to count==1?
         {
-        NSDictionary *jsonDictionary = [jsonData objectAtIndex:0];
+            NSDictionary *jsonDictionary = [jsonData objectAtIndex:0];
         //NSString *r1 = [jsonData objectForKey:@"useremail"];
-        NSLog(@"USERS EMAIL : %@", [jsonDictionary objectForKey:@"useremail"]);
+            NSLog(@"USERS EMAIL : %@", [jsonDictionary objectForKey:@"useremail"]);
+            
+        // save  user data to NSUserDefaults
+        // only userid for now. We query all other info using userid. Changes possible later.
+
+            NSUserDefaults *appDefaults =[NSUserDefaults standardUserDefaults]; //Get app defaults (singleton class NSUserDefaults)
+            
+            
+            //Modify app defaults to set User
+            NSString *userId = [jsonDictionary objectForKey:@"userid"];
+            NSString *userFName = [jsonDictionary
+                                   objectForKey:@"userfname"];
+            NSString *userLName = [jsonDictionary
+                                   objectForKey:@"userlname"];
+            NSString *userName = [jsonDictionary
+                                  objectForKey:@"userdisplayname"];
+            NSString *userPoints = [jsonDictionary
+                                    objectForKey:@"userpoints"];
+            
+            
+            NSLog(@"userId:%@ userFName:%@ userLName:%@ userName:%@ userPoints:%@", userId,userFName,userLName,userName,userPoints);
+            
+            
+            
+            [appDefaults setObject:userId forKey: @"userid"];
+            [appDefaults setObject:userFName forKey:@"userfname"];
+            [appDefaults setObject:userLName forKey:@"userlname"];
+            [appDefaults setObject:userName forKey:@"userdisplayname"];
+            [appDefaults setObject:userPoints forKey:@"userpoints"];
+            [appDefaults synchronize];
+            
+            NSLog(@"App Defaults after setting :   userid:%@ userfname:%@ userlname:%@ username:%@ userpoints:%@",
+                  [appDefaults objectForKey:@"userid"],
+                  [appDefaults objectForKey:@"userfname"],
+                  [appDefaults objectForKey:@"userlname"],
+                  [appDefaults objectForKey:@"userdisplayname"],
+                  [appDefaults objectForKey:@"userpoints"]);
+            
             [self performSegueWithIdentifier:@"enterSegue" sender: self];
         }
         else

@@ -12,7 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lastNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dobLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userPointsLabel;
 
 
 

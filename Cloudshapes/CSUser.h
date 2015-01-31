@@ -10,6 +10,11 @@
 
 @interface CSUser : NSObject
 
+@property (nonatomic,strong) NSString *userFName;
+@property (nonatomic,strong) NSString *userLName;
+@property (nonatomic,strong) NSString *userName;
+@property (nonatomic,strong) NSString *userPoints;
+
 //@property (nonatomic) NSInteger *userId;
 +(CSUser *)currentAppUser;
 -(void) setUserFNameTo : (NSString *)userfname

@@ -8,8 +8,7 @@
 
 #import "CSUser.h"
 @interface CSUser()
-@property (nonatomic,strong) NSString* userFName;
-@property (nonatomic,strong) NSString* userLName;
+
 @end
 
 @implementation CSUser
@@ -27,10 +26,16 @@ static CSUser *sharedCSUser = nil;
 
 -(id) init
 {
-    if (self = [super init])
+    if (self = [super init]) //??? Look this up to be sure
     {
-       //dummy initialization
-        [self setUserFNameTo:@"Icky" andUserLNameTo:@"Vicky"];
+        NSUserDefaults *globalAppDefaults = [[NSUserDefaults alloc] init];
+        [self setUserFName:[globalAppDefaults objectForKey:@"userfname"]];
+        [self setUserLName:[globalAppDefaults objectForKey:@"userlname"]];
+        [self setUserName:[globalAppDefaults objectForKey:@"userdisplayname"]];
+        [self setUserPoints:[globalAppDefaults objectForKey:@"userpoints"]];
+        //self setUserFName:
+        //dummy initialization
+       // [self setUserFNameTo:@"Icky" andUserLNameTo:@"Vicky"];
     }
     return self;
 }

@@ -9,7 +9,7 @@
 #import "CSUserProfileViewController.h"
 #import "CSUser.h"
 @interface CSUserProfileViewController ()
-@property (strong, nonatomic) CSUser *thisUser;
+//@property (strong, nonatomic) CSUser *thisUser;
 @end
 
 @implementation CSUserProfileViewController
@@ -34,8 +34,10 @@
     //[self.thisUser setUserFNameTo:@"Viktor" andUserLNameTo:@"Novorski"];
     
     
-    self.firstNameLabel.text = [[CSUser currentAppUser] sendFname];//[self.thisUser sendFname];
-    self.lastNameLabel.text = [[CSUser currentAppUser] sendLname];
+    self.firstNameLabel.text = [[CSUser currentAppUser]userFName];//[self.thisUser sendFname];
+    self.lastNameLabel.text = [[CSUser currentAppUser] userLName];
+    self.userNameLabel.text = [[CSUser currentAppUser] userName];
+    self.userPointsLabel.text = [[CSUser currentAppUser] userPoints];
     
     
 }
