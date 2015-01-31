@@ -14,6 +14,7 @@
 
 @implementation CSUserProfileViewController
 
+/*
 - (CSUser *) thisUser
 {
     if (!_thisUser)
@@ -21,18 +22,20 @@
         _thisUser = [[CSUser alloc] init];
     }
     return _thisUser;
-}
+}*/
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     
     // Do any additional setup after loading the view.
     
-    [self.thisUser setUserFNameTo:@"Viktor" andUserLNameTo:@"Novorski"];
+    //[self.thisUser setUserFNameTo:@"Viktor" andUserLNameTo:@"Novorski"];
     
-    self.firstNameLabel.text = [self.thisUser sendFname];
-    self.lastNameLabel.text = [self.thisUser sendLname];
+    
+    self.firstNameLabel.text = [[CSUser currentAppUser] sendFname];//[self.thisUser sendFname];
+    self.lastNameLabel.text = [[CSUser currentAppUser] sendLname];
     
     
 }

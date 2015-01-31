@@ -14,6 +14,26 @@
 
 @implementation CSUser
 
+static CSUser *sharedCSUser = nil;
+
++(CSUser *)currentAppUser
+{
+    if (sharedCSUser == nil)
+    {
+        sharedCSUser = [[super alloc] init];
+    }
+    return sharedCSUser;
+}
+
+-(id) init
+{
+    if (self = [super init])
+    {
+       //dummy initialization
+        [self setUserFNameTo:@"Icky" andUserLNameTo:@"Vicky"];
+    }
+    return self;
+}
 - (void) setUserFNameTo : (NSString *) userfname
          andUserLNameTo : (NSString *) userlname
 {

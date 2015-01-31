@@ -11,7 +11,7 @@
 @interface CSUser : NSObject
 
 //@property (nonatomic) NSInteger *userId;
-
++(CSUser *)currentAppUser;
 -(void) setUserFNameTo : (NSString *)userfname
         andUserLNameTo : (NSString *)userlname;
 
