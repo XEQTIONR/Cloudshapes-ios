@@ -235,86 +235,6 @@
             </objects>
             <point key="canvasLocation" x="-1837.5" y="-2338"/>
         </scene>
-        <!--Item 1-->
-        <scene sceneID="7kg-Pe-VzV">
-            <objects>
-                <viewController id="8ft-eG-YzF" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="TjU-l1-Wlr"/>
-                        <viewControllerLayoutGuide type="bottom" id="JVY-ge-brz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="xh3-kO-Su2">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uW-UL-rl8">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="179" y="179" width="57" height="21"/>
-                                </variation>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="4uW-UL-rl8"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="4uW-UL-rl8"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="6k3-dp-N4s"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K9h-5e-68z" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="433.5" y="-1484"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="aef-Kx-YNm">
-            <objects>
-                <viewController id="UAj-sG-Vz2" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Y7B-Fn-EPQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="9yr-K3-Pmd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="xRl-L4-GQp">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2S-HM-Byy">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="170" y="181" width="57" height="21"/>
-                                </variation>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="u2S-HM-Byy"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="u2S-HM-Byy"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="7W3-qP-KFE"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TfH-Z8-Ild" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-340.5" y="-1484"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="fBC-RO-oge">
             <objects>
@@ -326,9 +246,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="8ft-eG-YzF" kind="relationship" relationship="viewControllers" id="tDI-rM-Urv"/>
                         <segue destination="bMG-TW-PTe" kind="relationship" relationship="viewControllers" id="lg1-h6-1Kh"/>
-                        <segue destination="UAj-sG-Vz2" kind="relationship" relationship="viewControllers" id="IaY-Ks-a5M"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ty-j3-bd9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -338,7 +256,7 @@
         <!--Item-->
         <scene sceneID="YPj-xq-wmw">
             <objects>
-                <viewController id="bMG-TW-PTe" sceneMemberID="viewController">
+                <viewController id="bMG-TW-PTe" customClass="CSUserProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pTC-p4-BAP"/>
                         <viewControllerLayoutGuide type="bottom" id="ITJ-B5-e35"/>
@@ -353,7 +271,34 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="164" y="182" width="57" height="21"/>
+                                    <rect key="frame" x="145" y="197" width="57" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aeg-Na-V3g">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="179" y="252" width="42" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="om5-Ix-DxG">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="179" y="300" width="42" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xO-yQ-UCM">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="219" y="197" width="42" height="21"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -361,19 +306,31 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="lKw-Do-Wrm"/>
+                                <exclude reference="Aeg-Na-V3g"/>
+                                <exclude reference="om5-Ix-DxG"/>
+                                <exclude reference="9xO-yQ-UCM"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="lKw-Do-Wrm"/>
+                                <include reference="Aeg-Na-V3g"/>
+                                <include reference="om5-Ix-DxG"/>
+                                <include reference="9xO-yQ-UCM"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="YTs-PX-rO7"/>
+                    <connections>
+                        <outlet property="dobLabel" destination="om5-Ix-DxG" id="1wk-g5-uPP"/>
+                        <outlet property="firstNameLabel" destination="lKw-Do-Wrm" id="aUf-7S-GCp"/>
+                        <outlet property="lastNameLabel" destination="9xO-yQ-UCM" id="d1R-ke-BNp"/>
+                        <outlet property="userNameLabel" destination="Aeg-Na-V3g" id="XdU-qC-BYA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tpi-lW-LqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1039.5" y="-1484"/>
+            <point key="canvasLocation" x="-340.5" y="-1470"/>
         </scene>
     </scenes>
 </document>
