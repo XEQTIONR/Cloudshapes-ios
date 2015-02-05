@@ -18,6 +18,7 @@
 		8EC993851A6CD2B300074886 /* CSRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC993841A6CD2B300074886 /* CSRegisterViewController.m */; };
 		8ECDD3031A79C07F0051C9C6 /* CSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECDD3021A79C07F0051C9C6 /* CSUser.m */; };
 		8ECDD3061A79C4A30051C9C6 /* CSUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECDD3051A79C4A30051C9C6 /* CSUserProfileViewController.m */; };
+		8ED342741A835E8F00836D34 /* CSPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED342731A835E8F00836D34 /* CSPhotoViewController.m */; };
 		8EDD106D1A6F229900140559 /* CSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDD106C1A6F229900140559 /* CSLoginViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,8 @@
 		8ECDD3021A79C07F0051C9C6 /* CSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSUser.m; sourceTree = "<group>"; };
 		8ECDD3041A79C4A30051C9C6 /* CSUserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSUserProfileViewController.h; sourceTree = "<group>"; };
 		8ECDD3051A79C4A30051C9C6 /* CSUserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSUserProfileViewController.m; sourceTree = "<group>"; };
+		8ED342721A835E8F00836D34 /* CSPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPhotoViewController.h; sourceTree = "<group>"; };
+		8ED342731A835E8F00836D34 /* CSPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPhotoViewController.m; sourceTree = "<group>"; };
 		8EDD106B1A6F229900140559 /* CSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSLoginViewController.h; sourceTree = "<group>"; };
 		8EDD106C1A6F229900140559 /* CSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSLoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,12 +110,14 @@
 				8E9BBF4D1A6515E5009D6F09 /* Frameworks */,
 				8EDD106B1A6F229900140559 /* CSLoginViewController.h */,
 				8EDD106C1A6F229900140559 /* CSLoginViewController.m */,
+				8ED342721A835E8F00836D34 /* CSPhotoViewController.h */,
+				8ED342731A835E8F00836D34 /* CSPhotoViewController.m */,
 				8EC993831A6CD2B300074886 /* CSRegisterViewController.h */,
 				8EC993841A6CD2B300074886 /* CSRegisterViewController.m */,
-				8ECDD3041A79C4A30051C9C6 /* CSUserProfileViewController.h */,
-				8ECDD3051A79C4A30051C9C6 /* CSUserProfileViewController.m */,
 				8ECDD3011A79C07F0051C9C6 /* CSUser.h */,
 				8ECDD3021A79C07F0051C9C6 /* CSUser.m */,
+				8ECDD3041A79C4A30051C9C6 /* CSUserProfileViewController.h */,
+				8ECDD3051A79C4A30051C9C6 /* CSUserProfileViewController.m */,
 				8EB576AB1A65149E00ED19D7 /* Main.storyboard */,
 				8EB576AE1A65149E00ED19D7 /* Images.xcassets */,
 				8EB576B01A65149E00ED19D7 /* LaunchScreen.xib */,
@@ -252,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EDD106D1A6F229900140559 /* CSLoginViewController.m in Sources */,
+				8ED342741A835E8F00836D34 /* CSPhotoViewController.m in Sources */,
 				8ECDD3061A79C4A30051C9C6 /* CSUserProfileViewController.m in Sources */,
 				8EB576A71A65149E00ED19D7 /* AppDelegate.m in Sources */,
 				8EB576A41A65149E00ED19D7 /* main.m in Sources */,

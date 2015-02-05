@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Title-->
+        <!--Register View Controller-->
         <scene sceneID="e8S-qP-04g">
             <objects>
-                <viewController id="qcn-xX-9FY" customClass="CSRegisterViewController" sceneMemberID="viewController">
+                <viewController title="Register View Controller" id="qcn-xX-9FY" customClass="CSRegisterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6FA-zP-08K"/>
                         <viewControllerLayoutGuide type="bottom" id="qoB-Nt-Z1V"/>
@@ -135,7 +135,60 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nBY-LL-lkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1837.5" y="-1500"/>
+            <point key="canvasLocation" x="-3007.5" y="-1726"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="stZ-aI-M2d">
+            <objects>
+                <viewController id="Bor-3Y-cQK" customClass="CSPhotoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kR5-zP-RlQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="jOa-3u-0T5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QKU-pl-YyS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Lz-tc-2Kb">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="177" y="516" width="46" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="pickProfilePhoto:" destination="Bor-3Y-cQK" eventType="touchUpInside" id="nTw-2n-HqY"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tNk-oW-Jht">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="3Lz-tc-2Kb"/>
+                                <exclude reference="tNk-oW-Jht"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="3Lz-tc-2Kb"/>
+                                <include reference="tNk-oW-Jht"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="currentPhoto" destination="tNk-oW-Jht" id="ZNv-Ws-YPz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fp7-AX-SAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1239" y="-1726"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SVS-h5-bRf">
@@ -151,12 +204,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DXt-BH-Ykl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3114" y="-2338"/>
+            <point key="canvasLocation" x="-4284" y="-2564"/>
         </scene>
-        <!--LOGIN-->
+        <!--Login View Controller-->
         <scene sceneID="phP-SZ-X93">
             <objects>
-                <viewController id="f6y-oD-rSu" customClass="CSLoginViewController" sceneMemberID="viewController">
+                <viewController title="Login View Controller" id="f6y-oD-rSu" customClass="CSLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qYs-ou-nhR"/>
                         <viewControllerLayoutGuide type="bottom" id="YTQ-jo-m8z"/>
@@ -233,7 +286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JnD-Gc-jQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1837.5" y="-2338"/>
+            <point key="canvasLocation" x="-3007.5" y="-2564"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="fBC-RO-oge">
@@ -251,7 +304,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ty-j3-bd9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-340.5" y="-2338"/>
+            <point key="canvasLocation" x="-2205" y="-2564"/>
         </scene>
         <!--Item-->
         <scene sceneID="YPj-xq-wmw">
@@ -271,16 +324,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="92" y="252" width="208" height="21"/>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="om5-Ix-DxG">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="179" y="300" width="42" height="21"/>
+                                    <rect key="frame" x="170" y="289" width="61" height="21"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xO-yQ-UCM">
@@ -289,7 +333,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="219" y="197" width="124" height="21"/>
+                                    <rect key="frame" x="234" y="197" width="124" height="21"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKw-Do-Wrm">
@@ -298,25 +342,56 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="61" y="197" width="141" height="21"/>
+                                    <rect key="frame" x="92" y="197" width="141" height="21"/>
                                 </variation>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6oh-0C-17f">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="140" y="47" width="121" height="123"/>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="om5-Ix-DxG">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="170" y="351" width="42" height="21"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9i-MU-VTP">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="202" y="449" width="46" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="Bor-3Y-cQK" kind="show" id="8Mt-Iu-Qah"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Aeg-Na-V3g"/>
-                                <exclude reference="om5-Ix-DxG"/>
                                 <exclude reference="9xO-yQ-UCM"/>
                                 <exclude reference="lKw-Do-Wrm"/>
+                                <exclude reference="6oh-0C-17f"/>
+                                <exclude reference="om5-Ix-DxG"/>
+                                <exclude reference="X9i-MU-VTP"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="Aeg-Na-V3g"/>
-                                <include reference="om5-Ix-DxG"/>
                                 <include reference="9xO-yQ-UCM"/>
                                 <include reference="lKw-Do-Wrm"/>
+                                <include reference="6oh-0C-17f"/>
+                                <include reference="om5-Ix-DxG"/>
+                                <include reference="X9i-MU-VTP"/>
                             </mask>
                         </variation>
                     </view>
@@ -326,11 +401,16 @@
                         <outlet property="lastNameLabel" destination="9xO-yQ-UCM" id="d1R-ke-BNp"/>
                         <outlet property="userNameLabel" destination="Aeg-Na-V3g" id="XdU-qC-BYA"/>
                         <outlet property="userPointsLabel" destination="om5-Ix-DxG" id="P3g-h4-qfe"/>
+                        <outlet property="userProfilePicture" destination="6oh-0C-17f" id="WqX-2m-64t"/>
+                        <segue destination="Bor-3Y-cQK" kind="presentation" id="TEE-07-jjg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tpi-lW-LqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-340.5" y="-1470"/>
+            <point key="canvasLocation" x="-2205" y="-1726"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="TEE-07-jjg"/>
+    </inferredMetricsTieBreakers>
 </document>

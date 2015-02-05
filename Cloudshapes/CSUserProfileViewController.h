@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lastNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userPointsLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *userProfilePicture;
 
 
 
