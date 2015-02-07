@@ -51,15 +51,19 @@
         NSLog(@"%@", jsonData);
         //NSLog(@"AND R1:");      //jsonData is a NSArray -->NSDictionary previously
         NSLog(@"jsonData.count = %lu", [jsonData count]);
-        if([jsonData count]) // set to count==1?
+        
+        
+        
+        if([jsonData count]) //JsonData array should contain a single user
         {
-            NSDictionary *jsonDictionary = [jsonData objectAtIndex:0];
-        //NSString *r1 = [jsonData objectForKey:@"useremail"];
+            NSDictionary *jsonDictionary = [jsonData objectAtIndex:0]; // First and only object in Array
+        
             NSLog(@"USERS EMAIL : %@", [jsonDictionary objectForKey:@"useremail"]);
             
         // save  user data to NSUserDefaults
         // only userid for now. We query all other info using userid. Changes possible later.
 
+            //Singleton  - Same object returned when creating a new variable
             NSUserDefaults *appDefaults =[NSUserDefaults standardUserDefaults]; //Get app defaults (singleton class NSUserDefaults)
             
             

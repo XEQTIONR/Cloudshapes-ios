@@ -151,11 +151,11 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Lz-tc-2Kb">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Pick Photo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="177" y="516" width="46" height="30"/>
+                                    <rect key="frame" x="159" y="445" width="94" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="pickProfilePhoto:" destination="Bor-3Y-cQK" eventType="touchUpInside" id="nTw-2n-HqY"/>
@@ -164,21 +164,35 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tNk-oW-Jht">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="423"/>
                                 </variation>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l34-BB-xTY">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Upload Photo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="159" y="497" width="104" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="uploadProfilePhoto:" destination="Bor-3Y-cQK" eventType="touchUpInside" id="3RI-6D-7YQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="3Lz-tc-2Kb"/>
                                 <exclude reference="tNk-oW-Jht"/>
+                                <exclude reference="l34-BB-xTY"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="3Lz-tc-2Kb"/>
                                 <include reference="tNk-oW-Jht"/>
+                                <include reference="l34-BB-xTY"/>
                             </mask>
                         </variation>
                     </view>
@@ -402,7 +416,7 @@
                         <outlet property="userNameLabel" destination="Aeg-Na-V3g" id="XdU-qC-BYA"/>
                         <outlet property="userPointsLabel" destination="om5-Ix-DxG" id="P3g-h4-qfe"/>
                         <outlet property="userProfilePicture" destination="6oh-0C-17f" id="WqX-2m-64t"/>
-                        <segue destination="Bor-3Y-cQK" kind="presentation" id="TEE-07-jjg"/>
+                        <segue destination="Bor-3Y-cQK" kind="presentation" identifier="" id="TEE-07-jjg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tpi-lW-LqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
