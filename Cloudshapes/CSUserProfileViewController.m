@@ -8,13 +8,17 @@
 
 #import "CSUserProfileViewController.h"
 #import "CSUser.h"
-@interface CSUserProfileViewController ()
+
+//@protocol CSPictureDelegate;
+
+@interface CSUserProfileViewController () 
 //@property (strong, nonatomic) CSUser *thisUser;
 @end
 
 @implementation CSUserProfileViewController
 
 /*
+ 
 - (CSUser *) thisUser
 {
     if (!_thisUser)
@@ -24,6 +28,19 @@
     return _thisUser;
 }*/
 
+
+- (void)setProfilePicture:(UIImage *)image
+{
+    NSLog(@"Set profile picture activated");
+    self.userProfilePicture.image = image;
+    [self.userProfilePicture reloadInputViews];
+    
+    if(self.userProfilePicture.image == image)
+        NSLog(@"Picture Assigned");
+    else
+        NSLog(@"Picture not assigned");
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -42,19 +59,27 @@
     
 }
 
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"Segue: %@", segue.description);
+    CSPhotoViewController *photoViewController = [segue destinationViewController];
+    photoViewController.photoDelegate = self;
+    
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end
+

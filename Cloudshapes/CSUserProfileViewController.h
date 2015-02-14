@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface CSUserProfileViewController : UIViewController
+#import "CSPhotoViewController.h"
+@interface CSUserProfileViewController: UIViewController <CSPictureDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lastNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;

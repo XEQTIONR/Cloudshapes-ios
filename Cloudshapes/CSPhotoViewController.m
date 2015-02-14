@@ -18,6 +18,7 @@
 
 - (IBAction)pickProfilePhoto:(id)sender
 {
+
     self.imagePicker = [[UIImagePickerController alloc] init];
     self.imagePicker.delegate = self;
     
@@ -50,30 +51,6 @@
 -(void) uploadPhoto:(UIImage *)image
 {
     
-    /*
-    NSData *imageData = UIImageJPEGRepresentation(image, 0.9);
-    NSString *urlString = @"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/upload.php";
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:urlString]];
-    [request setHTTPMethod:@"POST"];
-    
-    NSString *boundary = @"---------------------------6251453646545616536172636";
-    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary %@", boundary];
-    [request addValue:contentType forHTTPHeaderField:@"Content-Type"];
-    
-    NSMutableData *body = [NSMutableData data];
-    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithString:@"Content-Disposition: form-data; name=\"userfile\"; filename=\".jpg\"\r\n"]dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithString:@"Content-Type:application/octet-stream\r\n\r\n"]dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[NSData dataWithData:imageData]];
-    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [request setHTTPBody:body];
-    
-    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
-    
-    NSLog(@"return String %@", returnString);
-    */
     
     
     
@@ -163,70 +140,13 @@
         NSLog(@"%@", result);
     }
     
+    [self.photoDelegate setProfilePicture:image];
+    
     NSLog(@"Debug info:");
     NSLog(@"Response code: %lu", [urlResponse statusCode]);
     
     
-    /*
- 
-    //NSString *imageTitle = @"thisimageuploaded";
-    NSData *imageData = UIImageJPEGRepresentation(image, 0.9); // 0.9 as in 90%.. Wonder why no []
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    
-    //boundary for data
-    NSString *boundary =@"----BoundaryRandomString xC1rHU7SjK3UpHwrqGtYuiH";
-    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
-    
-    
-    // setting HTTP Request Properties
-    
-    [request setHTTPMethod:@"POST"];
-    [request setURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/uploadimage.php"]];
-    [request addValue:contentType forHTTPHeaderField:@"Content-Type"];
-    
-    
-    //setting HTTP Body
-    
-                    //initilize body
-    NSMutableData *body = [[NSMutableData alloc] initWithData:imageData];
-                    //boundary
-    [body appendData:[[NSString stringWithFormat:@"\r\n--%@", boundary] dataUsingEncoding:NSASCIIStringEncoding]];
-                    //add the title
-    [body appendData:[@"Content-Disposition: form-data; name=\"userfile\"; filename=\"ipodfile.jpg\"\r\n\r\n" dataUsingEncoding:NSASCIIStringEncoding]];
-    [body appendData:[@"Content-Type: application/octet-stream \r\n" dataUsingEncoding:NSASCIIStringEncoding]];
-                    //image data
-    [body appendData:imageData];
-                    //boundary
-    [body appendData:[[NSString stringWithFormat:@"\r\n--%@", boundary] dataUsingEncoding:NSASCIIStringEncoding]];
-    
-    
-    
-    //// setting the body of the post request after appending data to the body
-    [request setHTTPBody:body];
-    
-    
-    
-    // Connecting to the web
-    ////note to self : Implement response and error-handling
-    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSASCIIStringEncoding];
-    
-    
-    
-    //Log our
-    NSLog(returnString);
-    
-   
-    
-    
-    
-    //add boundary to where the file starts
-    //[body appendData:[[NSString stringWithFormat:@"\r\n--%@", boundary] dataUsingEncoding:NSASCIIStringEncoding]];
-    
-    //form field???
-    
- */
+
 }
 
 
@@ -242,8 +162,6 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
