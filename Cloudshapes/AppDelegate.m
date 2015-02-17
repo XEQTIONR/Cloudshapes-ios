@@ -16,6 +16,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    NSUserDefaults *appDefaults = [NSUserDefaults standardUserDefaults];
+    
+    if([appDefaults objectForKey:@"userid"])
+    {
+        self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+        UIViewController *viewController = // determine the initial view controller here and instantiate it with
+    [storyboard instantiateViewControllerWithIdentifier:@"MainTabBar"];
+    
+    self.window.rootViewController = viewController;
+    [self.window makeKeyAndVisible];
+    
+    }
     return YES;
 }
 

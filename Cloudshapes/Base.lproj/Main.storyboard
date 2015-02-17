@@ -302,10 +302,10 @@
             </objects>
             <point key="canvasLocation" x="-3007.5" y="-2564"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="fBC-RO-oge">
             <objects>
-                <tabBarController id="218-lQ-oAP" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBar" title="Main Tab Bar Controller" id="218-lQ-oAP" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="jzW-mD-liu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -483,16 +483,16 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="54" y="23" width="320" height="21"/>
+                                                <rect key="frame" x="54" y="24" width="176" height="21"/>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIV-st-Ayt">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIV-st-Ayt">
                                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="54" y="59" width="320" height="73"/>
+                                                <rect key="frame" x="54" y="42" width="320" height="89"/>
                                             </variation>
                                         </label>
                                     </subviews>
@@ -524,7 +524,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZT5-cG-Evn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-414" y="-2149"/>
+            <point key="canvasLocation" x="-414" y="-2153"/>
         </scene>
     </scenes>
 </document>

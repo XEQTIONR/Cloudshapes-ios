@@ -88,6 +88,7 @@
     
     cell.postText.text = [object objectForKey:@"posttext"];
     cell.userFNName.text = [object objectForKey:@"postcreatoruserid"];
+    //[cell sizeToFit]; //fucks up the content aligning with cells
     return cell;
 }
 
