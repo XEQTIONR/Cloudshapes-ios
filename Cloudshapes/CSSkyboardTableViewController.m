@@ -8,6 +8,9 @@
 
 #import "CSSkyboardTableViewController.h"
 #import "CSSkyboardTableViewCell.h"
+#import "TestTableViewCell.h"
+#define LARGE_HEIGHT 1000
+
 @interface CSSkyboardTableViewController ()
 
 @end
@@ -82,17 +85,57 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CSSkyboardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Post Cell" forIndexPath:indexPath];
     
+    NSLog(@"cellForRowAtIndexPath:%ld called",indexPath.row);
+
+     NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Arial-ItalicMT" size:60]};
+    
+    //CSSkyboardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Post Cell" forIndexPath:indexPath];
+    
+    TestTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Test Cell" forIndexPath:indexPath];
     NSDictionary *object = [self.posts objectAtIndex:indexPath.row];
     
-    cell.postText.text = [object objectForKey:@"posttext"];
-    cell.userFNName.text = [object objectForKey:@"postcreatoruserid"];
+    //cell.postText.text = [object objectForKey:@"posttext"];
+    //cell.userFNName.text = [object objectForKey:@"postcreatoruserid"];
+    
+    cell.heading.text = [object objectForKey:@"posttext"];
     //[cell sizeToFit]; //fucks up the content aligning with cells
+    
+   /* __unused CGSize maximumLabelSize = CGSizeMake(296, LARGE_HEIGHT);
+    
+    NSLog(@"cell.post.text = %@", cell.postText.text);
+    CGSize expectedLabelSize = [cell.postText.text sizeWithAttributes:attributes];
+    NSLog(@"Expected label height %f", expectedLabelSize.height);
+    CGRect newFrame = cell.postText.frame;
+    newFrame.size.height = expectedLabelSize.height;
+    cell.postText.frame = newFrame;
+    */
+    
+   /*    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:60]};
+    // NSString class method: boundingRectWithSize:options:attributes:context is
+    // available only on ios7.0 sdk.
+    CGRect rect = [cell.postText.text boundingRectWithSize:CGSizeMake(cell.postText.bounds.size.width, CGFLOAT_MAX)
+                                     options:NSStringDrawingUsesLineFragmentOrigin
+                                  attributes:attributes
+                                     context:nil];
+    
+    //rect.origin.x = cell.postText.bounds.origin.x + 5;
+    rect.origin.y = cell.postText.bounds.origin.y + 5;
+    
+    [[object objectForKey:@"posttext" ] drawWithRect:rect
+                             options:NSStringDrawingUsesLineFragmentOrigin
+                          attributes:attributes
+                             context:nil];*/
     return cell;
 }
 
-
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  //  [tableView:tableView cellForRowAtIndexPath:indexPath].postText
+    NSLog(@"heightForRowAtIndexPath:%ld called",indexPath.row);
+    
+    return(50.0 + 50.0*indexPath.row*indexPath.row);
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

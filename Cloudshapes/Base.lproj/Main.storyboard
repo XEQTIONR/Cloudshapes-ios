@@ -405,7 +405,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6oh-0C-17f">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="504"/>
+                                    <rect key="frame" x="0.0" y="64" width="400" height="329"/>
                                 </variation>
                             </imageView>
                         </subviews>
@@ -442,7 +442,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tpi-lW-LqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="498" y="-2952"/>
+            <point key="canvasLocation" x="519" y="-2952"/>
         </scene>
         <!--Item-->
         <scene sceneID="cfI-Ot-VV6">
@@ -513,6 +513,12 @@
                                     <outlet property="postText" destination="xIV-st-Ayt" id="1i3-by-NLA"/>
                                     <outlet property="userFNName" destination="z8f-Bs-BGI" id="Evv-c8-sJf"/>
                                 </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Test Cell" rowHeight="140" id="meA-la-vuH" customClass="TestTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="meA-la-vuH" id="CCC-HK-KLw">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
