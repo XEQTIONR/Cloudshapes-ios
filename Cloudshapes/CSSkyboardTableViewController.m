@@ -134,7 +134,31 @@
   //  [tableView:tableView cellForRowAtIndexPath:indexPath].postText
     NSLog(@"heightForRowAtIndexPath:%ld called",indexPath.row);
     
-    return(50.0 + 50.0*indexPath.row*indexPath.row);
+    
+    //Calculate height of the row here.
+    
+    static TestTableViewCell *SomeCell;
+    NSDictionary *object = [self.posts objectAtIndex:indexPath.row];
+    
+
+    
+    if (!SomeCell) {
+        SomeCell = [tableView dequeueReusableCellWithIdentifier:@"Test Cell" forIndexPath:indexPath];
+        SomeCell.frame =CGRectMake(0, 0, tableView.frame.size.width-tableView.contentInset.left-tableView.contentInset.right, SomeCell.frame.size.height);
+        [SomeCell layoutIfNeeded];
+        
+        SomeCell.heading.text = [object objectForKey:@"posttext"];
+    }
+    
+    
+    
+        CGSize expectedSize = [SomeCell.text boundingRectWithSize:CGSizeMake(151, 104) options:(NSStringDrawingUsesLineFragmentOrigin) attributes:@{NSFontAttributeName: SomeCell.font} context:nil].size;
+    
+    return (50.0 + currentCell.heading.frame.size.height);
+    
+
+    //return 70;
+    //return(50.0 + 50.0*indexPath.row*indexPath.row);
 }
 /*
 // Override to support conditional editing of the table view.
