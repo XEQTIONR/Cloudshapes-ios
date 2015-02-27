@@ -53,7 +53,7 @@
         }
     }
     
-
+    self.prototypeCell = [self.tableView dequeueReusableCellWithIdentifier:@"Test Cell"];
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -141,8 +141,8 @@
     {
         self.prototypeCell.heading.text = [object objectForKey:@"posttext"];
         [self.prototypeCell layoutSubviews];
-        
-        return MAX(self.prototypeCell.testCellHeight, 88.0f);
+        NSLog(@"prorotypecell .testcellheight : %f", self.prototypeCell.testCellHeight);
+        return MAX(self.prototypeCell.testCellHeight, 40.0f); //<-- this float is the min height of the cell
     }
     
     @catch (NSException *e)
