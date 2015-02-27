@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8E64B6D21A9FBCB60017A079 /* TestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E64B6D11A9FBCB60017A079 /* TestTableViewCell.m */; };
+		8E84CB4D1AA04383007A396A /* Scarlett-Johansson2-400.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E84CB4C1AA04383007A396A /* Scarlett-Johansson2-400.jpg */; };
 		8E9BBF4F1A651606009D6F09 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9BBF4E1A651606009D6F09 /* FacebookSDK.framework */; };
 		8EB32F0A1A7A0031002749F8 /* TSC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB32F091A7A0031002749F8 /* TSC.m */; };
 		8EB576A41A65149E00ED19D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB576A31A65149E00ED19D7 /* main.m */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		8E64B6D01A9FBCB60017A079 /* TestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableViewCell.h; sourceTree = "<group>"; };
 		8E64B6D11A9FBCB60017A079 /* TestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableViewCell.m; sourceTree = "<group>"; };
+		8E84CB4C1AA04383007A396A /* Scarlett-Johansson2-400.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Scarlett-Johansson2-400.jpg"; sourceTree = "<group>"; };
 		8E9BBF4E1A651606009D6F09 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		8EB32F081A7A0031002749F8 /* TSC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSC.h; sourceTree = "<group>"; };
 		8EB32F091A7A0031002749F8 /* TSC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSC.m; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				8EB576B01A65149E00ED19D7 /* LaunchScreen.xib */,
 				8EB576A11A65149E00ED19D7 /* Supporting Files */,
 				8EB32F081A7A0031002749F8 /* TSC.h */,
+				8E84CB4C1AA04383007A396A /* Scarlett-Johansson2-400.jpg */,
 				8EB32F091A7A0031002749F8 /* TSC.m */,
 			);
 			path = Cloudshapes;
@@ -254,6 +257,7 @@
 				8EB576AD1A65149E00ED19D7 /* Main.storyboard in Resources */,
 				8EB576B21A65149E00ED19D7 /* LaunchScreen.xib in Resources */,
 				8EB576AF1A65149E00ED19D7 /* Images.xcassets in Resources */,
+				8E84CB4D1AA04383007A396A /* Scarlett-Johansson2-400.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,14 @@
 
 @interface TestTableViewCell : UITableViewCell
 
+
+//stub property that we are using to test dynamic height
 @property (nonatomic,strong) UILabel *heading;
+
+
+//public properties
 @property float testCellHeight;
+
+
+@property (nonatomic,strong) UIImageView *profilePictureView;
 @end
