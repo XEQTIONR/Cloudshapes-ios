@@ -29,7 +29,7 @@
     NSLog(@"Expected height: %f", expectedSize.height);
     
     // this code places the UILabel on each Cell
-    _heading.frame = CGRectMake(0, 0, 151, expectedSize.height+10);
+    _heading.frame = CGRectMake(0, 0, self.bounds.size.width, expectedSize.height+10);
     _heading.numberOfLines = 0;
     self.testCellHeight = expectedSize.height+10;
     NSLog(@"testcellheight in layout subview %f", self.testCellHeight);
