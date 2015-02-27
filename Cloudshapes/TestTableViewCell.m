@@ -26,6 +26,8 @@
 @property (nonatomic)         NSInteger  postLikeCount;
 @property (nonatomic)         NSInteger  postCommentCount;
 
+//interactive contents -- buttons and such
+
 
 
 @end
@@ -39,8 +41,16 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        
         _heading = [[UILabel alloc] init];
         _profilePictureView = [[UIImageView alloc] init];
+        _likesButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        _commentsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        
+        
+        _heading.backgroundColor = [UIColor orangeColor];
+        _likesButton.backgroundColor = [UIColor purpleColor];
+        _commentsButton.backgroundColor = [UIColor redColor];
     }
     return self;
 }
@@ -59,6 +69,7 @@
     _profilePictureView.frame = CGRectMake(0, 0, width/5.0, width/5.0);
     _profilePictureView.image = [UIImage imageNamed:@"Scarlett-Johansson2-400.jpg"];
     self.testCellHeight = _profilePictureView.frame.size.height;
+    [self addSubview:_profilePictureView];
     // this code places the UILabel on each Cell
     
     _heading.frame = CGRectMake(0, self.testCellHeight, width, expectedSize.height);//^**
@@ -68,8 +79,18 @@
     NSLog(@"self.bounds.size.width2: %f", self.bounds.size.width);
     [self addSubview:_heading];
     
+    //_likesButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    _likesButton.frame = CGRectMake(0, self.testCellHeight, width/2, 30.0);
+    [_likesButton setTitle:@"Likes" forState:UIControlStateNormal];
+    
+    _commentsButton.frame = CGRectMake(width/2, self.testCellHeight, width/2, 30.0);
+    [_commentsButton setTitle:@"Comments" forState:UIControlStateNormal];
+    self.testCellHeight += 30.0;
+    [self addSubview:_likesButton];
+    [self addSubview:_commentsButton];
 
-    [self addSubview:_profilePictureView];
+
+    
     
 }
 

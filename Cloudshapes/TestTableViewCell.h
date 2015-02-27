@@ -20,4 +20,7 @@
 
 
 @property (nonatomic,strong) UIImageView *profilePictureView;
+@property (nonatomic,strong) UILabel *fullNameLabel;
+@property UIButton *likesButton;
+@property UIButton *commentsButton;
 @end
