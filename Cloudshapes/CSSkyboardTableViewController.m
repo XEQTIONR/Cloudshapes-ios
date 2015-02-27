@@ -88,7 +88,7 @@
     
     NSLog(@"cellForRowAtIndexPath:%ld called",indexPath.row);
 
-     NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Arial-ItalicMT" size:60]};
+     __unused NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Arial-ItalicMT" size:60]};
     
     //CSSkyboardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Post Cell" forIndexPath:indexPath];
     
@@ -131,79 +131,25 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  //  [tableView:tableView cellForRowAtIndexPath:indexPath].postText
-    NSLog(@"heightForRowAtIndexPath:%ld called",indexPath.row);
+    NSLog(@"heightForRowAtIndexPath:%lu called", indexPath.row);
+    //  [tableView:tableView cellForRowAtIndexPath:indexPath].postText
     
-    
-    //Calculate height of the row here.
-    
-    static TestTableViewCell *SomeCell;
     NSDictionary *object = [self.posts objectAtIndex:indexPath.row];
-    
 
     
-    if (!SomeCell) {
-        SomeCell = [tableView dequeueReusableCellWithIdentifier:@"Test Cell" forIndexPath:indexPath];
-        SomeCell.frame =CGRectMake(0, 0, tableView.frame.size.width-tableView.contentInset.left-tableView.contentInset.right, SomeCell.frame.size.height);
-        [SomeCell layoutIfNeeded];
+    @try
+    {
+        self.prototypeCell.heading.text = [object objectForKey:@"posttext"];
+        [self.prototypeCell layoutSubviews];
         
-        SomeCell.heading.text = [object objectForKey:@"posttext"];
+        return MAX(self.prototypeCell.testCellHeight, 88.0f);
     }
     
-    
-    
-        CGSize expectedSize = [SomeCell.text boundingRectWithSize:CGSizeMake(151, 104) options:(NSStringDrawingUsesLineFragmentOrigin) attributes:@{NSFontAttributeName: SomeCell.font} context:nil].size;
-    
-    return (50.0 + currentCell.heading.frame.size.height);
-    
-
-    //return 70;
-    //return(50.0 + 50.0*indexPath.row*indexPath.row);
+    @catch (NSException *e)
+    {
+        NSLog(@"Exception: %@", e);
+        return 100.0f;
+    }
 }
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
-
-

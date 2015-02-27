@@ -11,5 +11,5 @@
 @interface TestTableViewCell : UITableViewCell
 
 @property (nonatomic,strong) UILabel *heading;
-
+@property float testCellHeight;
 @end

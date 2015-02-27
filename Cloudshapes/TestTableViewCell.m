@@ -25,10 +25,11 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    CGSize expectedSize = [_heading.text boundingRectWithSize:CGSizeMake(151, 104) options:(NSStringDrawingUsesLineFragmentOrigin) attributes:@{NSFontAttributeName: _heading.font} context:nil].size;
+    CGSize expectedSize = [_heading.text boundingRectWithSize:CGSizeMake(151, 300) options:(NSStringDrawingUsesLineFragmentOrigin) attributes:@{NSFontAttributeName: _heading.font} context:nil].size;
     NSLog(@"Expected height: %f", expectedSize.height);
-    _heading.frame = CGRectMake(0, 0, 151, expectedSize.height);
+    _heading.frame = CGRectMake(0, 0, 151, expectedSize.height+10);
     _heading.numberOfLines = 0;
+    self.testCellHeight = expectedSize.height+10;
     [self addSubview:_heading];
     
 }
