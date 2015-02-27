@@ -25,14 +25,18 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    CGSize expectedSize = [_heading.text boundingRectWithSize:CGSizeMake(151, 300) options:(NSStringDrawingUsesLineFragmentOrigin) attributes:@{NSFontAttributeName: _heading.font} context:nil].size;
+    CGFloat width = MAX(375,self.bounds.size.width);
+    //why does changing width to self.bounds.size.width not work?? here but works in ^**
+    //maybe because prototypes dont have bounds
+    CGSize expectedSize = [_heading.text boundingRectWithSize:CGSizeMake(width, 2000)  options:(NSStringDrawingUsesLineFragmentOrigin) attributes:@{NSFontAttributeName: _heading.font} context:nil].size;
     NSLog(@"Expected height: %f", expectedSize.height);
-    
+    NSLog(@"Self.bounds.size.width: %f", self.bounds.size.width);
     // this code places the UILabel on each Cell
-    _heading.frame = CGRectMake(0, 0, self.bounds.size.width, expectedSize.height+10);
+    _heading.frame = CGRectMake(0, 0, width, expectedSize.height);//^**
     _heading.numberOfLines = 0;
-    self.testCellHeight = expectedSize.height+10;
+    self.testCellHeight = expectedSize.height;
     NSLog(@"testcellheight in layout subview %f", self.testCellHeight);
+    NSLog(@"self.bounds.size.width2: %f", self.bounds.size.width);
     [self addSubview:_heading];
     
 }

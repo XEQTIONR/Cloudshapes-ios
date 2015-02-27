@@ -142,7 +142,8 @@
         self.prototypeCell.heading.text = [object objectForKey:@"posttext"];
         [self.prototypeCell layoutSubviews];
         NSLog(@"prorotypecell .testcellheight : %f", self.prototypeCell.testCellHeight);
-        return MAX(self.prototypeCell.testCellHeight, 40.0f); //<-- this float is the min height of the cell
+        //return MAX(self.prototypeCell.testCellHeight, 40.0f); //<-- this float is the min height of the cell
+        return self.prototypeCell.testCellHeight;
     }
     
     @catch (NSException *e)
