@@ -7,8 +7,6 @@
 //
 
 #import "CSSkyboardTableViewController.h"
-#import "CSSkyboardTableViewCell.h"
-#import "TestTableViewCell.h"
 #define LARGE_HEIGHT 1000
 
 @interface CSSkyboardTableViewController ()
@@ -53,7 +51,7 @@
         }
     }
     
-    self.prototypeCell = [self.tableView dequeueReusableCellWithIdentifier:@"Test Cell"];
+    self.prototypeCell = [self.tableView dequeueReusableCellWithIdentifier:@"Post Cell"];
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -72,13 +70,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-//#warning Potentially incomplete method implementation.
+
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
     return self.posts.count;
 }
@@ -87,45 +85,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSLog(@"cellForRowAtIndexPath:%ld called",indexPath.row);
-
-     __unused NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Arial-ItalicMT" size:60]};
     
-    //CSSkyboardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Post Cell" forIndexPath:indexPath];
     
-    TestTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Test Cell" forIndexPath:indexPath];
+    CSSkyboardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Post Cell" forIndexPath:indexPath];
     NSDictionary *object = [self.posts objectAtIndex:indexPath.row];
-    
-    //cell.postText.text = [object objectForKey:@"posttext"];
-    //cell.userFNName.text = [object objectForKey:@"postcreatoruserid"];
-    
     cell.heading.text = [object objectForKey:@"posttext"];
-    //[cell sizeToFit]; //fucks up the content aligning with cells
     
-   /* __unused CGSize maximumLabelSize = CGSizeMake(296, LARGE_HEIGHT);
     
-    NSLog(@"cell.post.text = %@", cell.postText.text);
-    CGSize expectedLabelSize = [cell.postText.text sizeWithAttributes:attributes];
-    NSLog(@"Expected label height %f", expectedLabelSize.height);
-    CGRect newFrame = cell.postText.frame;
-    newFrame.size.height = expectedLabelSize.height;
-    cell.postText.frame = newFrame;
-    */
-    
-   /*    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:60]};
-    // NSString class method: boundingRectWithSize:options:attributes:context is
-    // available only on ios7.0 sdk.
-    CGRect rect = [cell.postText.text boundingRectWithSize:CGSizeMake(cell.postText.bounds.size.width, CGFLOAT_MAX)
-                                     options:NSStringDrawingUsesLineFragmentOrigin
-                                  attributes:attributes
-                                     context:nil];
-    
-    //rect.origin.x = cell.postText.bounds.origin.x + 5;
-    rect.origin.y = cell.postText.bounds.origin.y + 5;
-    
-    [[object objectForKey:@"posttext" ] drawWithRect:rect
-                             options:NSStringDrawingUsesLineFragmentOrigin
-                          attributes:attributes
-                             context:nil];*/
     return cell;
 }
 
@@ -134,15 +100,15 @@
     NSLog(@"heightForRowAtIndexPath:%lu called", indexPath.row);
     //  [tableView:tableView cellForRowAtIndexPath:indexPath].postText
     
+    
     NSDictionary *object = [self.posts objectAtIndex:indexPath.row];
-
     
     @try
     {
         self.prototypeCell.heading.text = [object objectForKey:@"posttext"];
         [self.prototypeCell layoutSubviews];
-        NSLog(@"prorotypecell .testcellheight : %f", self.prototypeCell.testCellHeight);
-        //return MAX(self.prototypeCell.testCellHeight, 40.0f); //<-- this float is the min height of the cell
+        NSLog(@"prototypecell .testcellheight : %f", self.prototypeCell.testCellHeight);
+
         return self.prototypeCell.testCellHeight;
     }
     

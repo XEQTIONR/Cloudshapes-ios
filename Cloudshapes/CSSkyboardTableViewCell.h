@@ -9,7 +9,22 @@
 #import <UIKit/UIKit.h>
 
 @interface CSSkyboardTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *userFNName;
-@property (weak, nonatomic) IBOutlet UILabel *postText;
+
+//stub property that we are using to test dynamic height
+@property (nonatomic,strong) UILabel *heading;
+
+
+//public properties
+@property float testCellHeight;
+
+
+@property (nonatomic,strong) UIImageView *profilePictureView;
+@property (nonatomic,strong) UIImageView *postTypePictureView;
+@property (nonatomic,strong) UILabel *fullNameLabel;
+@property UIButton *likesButton;
+@property UIButton *commentsButton;
+
+
+
 
 @end

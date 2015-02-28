@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TestTableViewCell.h"
+#import "CSSkyboardTableViewCell.h"
+
 @interface CSSkyboardTableViewController : UITableViewController
-//@property (weak, nonatomic) IBOutlet UILabel *userFullName;
-//@property (weak, nonatomic) IBOutlet UILabel *postText;
 @property (strong, nonatomic) NSArray *posts; // our skyboard model
-@property (strong, nonatomic) TestTableViewCell *prototypeCell;
+@property (strong, nonatomic) CSSkyboardTableViewCell *prototypeCell;
 @end
