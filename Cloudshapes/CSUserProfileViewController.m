@@ -73,9 +73,13 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSLog(@"Segue: %@", segue.description);
-    CSPhotoViewController *photoViewController = [segue destinationViewController];
-    photoViewController.photoDelegate = self;
     
+    // a little introspection to determine which segue (Required for multiple segue from the same root View Controller)
+    if ([[segue destinationViewController] isKindOfClass:[CSPhotoViewController class]])
+    {
+        CSPhotoViewController *photoViewController = [segue destinationViewController];
+        photoViewController.photoDelegate = self;
+    }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
