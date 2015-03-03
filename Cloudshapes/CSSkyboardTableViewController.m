@@ -22,7 +22,7 @@
     if(!self.posts)
     {
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-        [request setURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/getskyboarddata.php"]];
+        [request setURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/getskyboarddata2.php"]];
         [request setHTTPMethod:@"POST"];
         [request setValue:0 forHTTPHeaderField:@"Content-Length"];
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -90,8 +90,8 @@
     CSSkyboardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Post Cell" forIndexPath:indexPath];
     NSDictionary *object = [self.posts objectAtIndex:indexPath.row];
     cell.heading.text = [object objectForKey:@"posttext"];
-    
-    
+    cell.fullNameLabel.text = [[object objectForKey:@"userfname"] stringByAppendingString: [object objectForKey:@"userlname"]];
+
     return cell;
 }
 

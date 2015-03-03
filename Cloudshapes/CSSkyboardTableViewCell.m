@@ -18,6 +18,7 @@
     if (self) {
         
         _heading = [[UILabel alloc] init];
+        _fullNameLabel = [[UILabel alloc]init];
         _profilePictureView = [[UIImageView alloc] init];
         _postTypePictureView= [[UIImageView alloc] init];
         _likesButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -53,6 +54,15 @@
     //Making the picture circular
     _profilePictureView.layer.cornerRadius = _profilePictureView.bounds.size.width/2;
     _profilePictureView.clipsToBounds = YES;
+    
+    _fullNameLabel.frame = CGRectMake(_profilePictureView.frame.size.width,
+                                      0,
+                                      width - (_profilePictureView.frame.size.width
+                                               + _postTypePictureView.frame.size.width),
+                                      _profilePictureView.frame.size.height);
+    _fullNameLabel.numberOfLines = 1;
+    [self addSubview:_fullNameLabel];
+    
     
     self.testCellHeight = _profilePictureView.frame.size.height;
     [self addSubview:_profilePictureView];
