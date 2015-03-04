@@ -86,7 +86,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="40" y="464" width="308" height="30"/>
+                                    <rect key="frame" x="40" y="214" width="308" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="registerButtonClicked:" destination="qcn-xX-9FY" eventType="touchUpInside" id="nZe-QX-bfe"/>
@@ -135,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nBY-LL-lkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3007.5" y="-1726"/>
+            <point key="canvasLocation" x="-3025.5" y="-1782"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="stZ-aI-M2d">
