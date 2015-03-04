@@ -19,6 +19,8 @@
 - (IBAction)pickProfilePhoto:(id)sender
 {
 
+
+    
     self.imagePicker = [[UIImagePickerController alloc] init];
     self.imagePicker.delegate = self;
     
@@ -53,6 +55,14 @@
     
     
     
+    NSUserDefaults *appDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *zeroFillUserId = [appDefaults objectForKey:@"userid"];
+    NSLog(@"Current zeroFillUser id is %@", zeroFillUserId);
+    NSInteger intUserId = [zeroFillUserId integerValue];
+    NSLog(@"intUserId is %ld", intUserId);
+    NSString *stringFormattedUserId = [NSString stringWithFormat:@"%ld",intUserId];
+    NSLog(@"stringFormattedUserId is %@", stringFormattedUserId);
+    
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/uploadtest3.php"]];
     
@@ -82,6 +92,10 @@
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=%@\r\n\r\n", @"imageCaption"] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", @"SomeCaption"] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=%@\r\n\r\n", @"userId"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"%@\r\n", stringFormattedUserId] dataUsingEncoding:NSUTF8StringEncoding]];
     NSLog(@"%@", body);
     
     //add image data
@@ -115,8 +129,12 @@
     
 //set content length
     NSString *postLength =[NSString stringWithFormat:@"%lu", [body length]];
+    NSString *bodyString;
+    BOOL ok = YES;
+    [NSString stringEncodingForData:body encodingOptions:kNilOptions convertedString:&bodyString usedLossyConversion:&ok];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     NSLog(@"post length : %@", postLength);
+    NSLog(@"BODY DECODED: %@", bodyString);
     
 /////////
     NSHTTPURLResponse *urlResponse = nil;
