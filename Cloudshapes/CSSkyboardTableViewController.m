@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"Skyboard TVC viewDidLoadCalled..........");
     [super viewDidLoad];
     
     if(!self.posts)
@@ -51,7 +52,9 @@
         }
     }
     
+    NSLog(@"BEFORE self.prototypeCell dequeReusable Idebtifier POST CELL");
     self.prototypeCell = [self.tableView dequeueReusableCellWithIdentifier:@"Post Cell"];
+    NSLog(@"AFTER self.prototypeCell dequeReusable Idebtifier POST CELL");
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -84,19 +87,36 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSLog(@"cellForRowAtIndexPath:%ld called",indexPath.row);
+    NSLog(@"------------------------- SkyboardTableViewController  cellFRAIP BEGIN");
+    
+    NSLog(@"cellForRowAtIndexPath:%ld called BEFORE DEQUE",indexPath.row);
     
     
     CSSkyboardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Post Cell" forIndexPath:indexPath];
+    NSLog(@"AFTER DEQUE");
     NSDictionary *object = [self.posts objectAtIndex:indexPath.row];
     cell.heading.text = [object objectForKey:@"posttext"];
     cell.fullNameLabel.text = [[object objectForKey:@"userfname"] stringByAppendingString: [object objectForKey:@"userlname"]];
 
-    return cell;
-}
 
+    cell.postType = [object objectForKey:@"posttype"];
+ 
+ if([cell.postType isEqualToString:@"Thought"])
+ {
+ NSLog(@"THOUGHT IDENTIFIED");
+ cell.profilePictureView.image = [UIImage imageNamed:@"POST_T_icon.png"];
+ }
+ 
+    //[cell layoutSubviews];
+ 
+ 
+NSLog(@"------------------------- SkyboardTableViewController  cellFRAIP END RETURN cell");
+ return cell;
+ 
+}
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"-------------------------heightFRAIP BEGIN");
     NSLog(@"heightForRowAtIndexPath:%lu called", indexPath.row);
     //  [tableView:tableView cellForRowAtIndexPath:indexPath].postText
     
@@ -106,9 +126,18 @@
     @try
     {
         self.prototypeCell.heading.text = [object objectForKey:@"posttext"];
-        [self.prototypeCell layoutSubviews];
-        NSLog(@"prototypecell .testcellheight : %f", self.prototypeCell.testCellHeight);
+        self.prototypeCell.postType = [object objectForKey:@"posttype"]; // we pass the post type now rather than later
+        
+        if ([self.prototypeCell.postType isEqualToString:@"Thought"])
+        {
+            self.prototypeCell.postTypePictureView.image = [UIImage imageNamed:@"POST_T_icon.png"];
+        }
 
+
+        NSLog(@"self.protoypecell.posttype = %@", self.prototypeCell.postType);
+        [self.prototypeCell layoutSubviews];//LAYOUT SUBVIEWS
+                NSLog(@"prototypecell .testcellheight : %f", self.prototypeCell.testCellHeight);
+NSLog(@"-------------------------heightFRAIP END RETURN HEIGHT\n\n\n\n\n");
         return self.prototypeCell.testCellHeight;
     }
     

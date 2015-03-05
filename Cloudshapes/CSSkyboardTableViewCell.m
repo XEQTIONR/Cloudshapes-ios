@@ -16,7 +16,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        
+        NSLog(@"Alloc Init all UI Components");
         _heading = [[UILabel alloc] init];
         _fullNameLabel = [[UILabel alloc]init];
         _profilePictureView = [[UIImageView alloc] init];
@@ -24,7 +24,8 @@
         _likesButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         _commentsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         
-        
+        _profilePictureView.backgroundColor = [UIColor redColor];
+        _postTypePictureView.backgroundColor = [UIColor blueColor];
         _heading.backgroundColor = [UIColor orangeColor];
         _likesButton.backgroundColor = [UIColor purpleColor];
         _commentsButton.backgroundColor = [UIColor redColor];
@@ -34,6 +35,7 @@
 
 - (void)layoutSubviews
 {
+    NSLog(@"    ------------------------- SkyboardTVCell  layoutSubview BEGIN{");
     [super layoutSubviews];
     
 #pragma mark - FIX THIS 
@@ -42,16 +44,38 @@
     //why does changing width to self.bounds.size.width not work?? here but works in ^**
     //maybe because prototypes dont have bounds
     CGSize expectedSize = [_heading.text boundingRectWithSize:CGSizeMake(width, 2000)  options:(NSStringDrawingUsesLineFragmentOrigin) attributes:@{NSFontAttributeName: _heading.font} context:nil].size;
+
     NSLog(@"Expected height: %f", expectedSize.height);
     NSLog(@"Self.bounds.size.width: %f", self.bounds.size.width);
     
     _postTypePictureView.frame = CGRectMake((width - width/10.0), 0, width/10.0, width/10.0);
-    _postTypePictureView.image = [UIImage imageNamed:@"Scarlett-Johansson2-400.jpg"];
+    NSLog(@"POST TYPE IS :    %@    ", _postType);
+    NSLog(@"_heading.text is %@", _heading.text);
+    NSLog(@"_fullNameLabel is %@", _fullNameLabel.text);
+   
+    if([_postType isEqualToString:@"Thought"])
+    {
+        NSLog(@"THOUGHT IDENTIFIED");
+        _postTypePictureView.image = [UIImage imageNamed:@"POST_T_icon.png"];
+    }
+    if (!_postTypePictureView.image)
+    {
+        NSLog(@"PICTURE NIL");
+
+       // _postTypePictureView.image = [UIImage imageNamed:@"POST_T_icon.png"]; //@"Scarlett-Johansson2-400.jpg"
+    }
+    else
+    {
+        NSLog(@"PICTURE NOT NIL");
+        //_postTypePictureView.image = [UIImage imageNamed:@"POST_T_icon.png"]; //@"Scarlett-Johansson2-400.jpg"
+    }
+///////////////////////////CHECK HERE
+    //NSLog(@"heading : %@", _heading.text);
     [self addSubview:_postTypePictureView];
-                                            
+    
     _profilePictureView.frame = CGRectMake(0, 0, width/5.0, width/5.0);
     _profilePictureView.image = [UIImage imageNamed:@"Scarlett-Johansson2-400.jpg"];
-    //Making the picture circular
+         //Making the picture circular
     _profilePictureView.layer.cornerRadius = _profilePictureView.bounds.size.width/2;
     _profilePictureView.clipsToBounds = YES;
     
@@ -86,7 +110,7 @@
     [self addSubview:_commentsButton];
     
     
-    
+    NSLog(@"    -------------------------}SkyboardTVCell layoutSubview END");
     
 }
 

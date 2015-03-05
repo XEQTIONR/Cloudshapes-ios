@@ -16,6 +16,7 @@
 
 //public properties
 @property float testCellHeight;
+@property (nonatomic, strong)NSString *postType;
 
 
 @property (nonatomic,strong) UIImageView *profilePictureView;
