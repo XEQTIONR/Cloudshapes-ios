@@ -64,7 +64,7 @@
     NSLog(@"stringFormattedUserId is %@", stringFormattedUserId);
     
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/uploadtest4.php"]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/uploadtest10.php"]];
     
     NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
     
@@ -156,6 +156,46 @@
     else
     {
         NSLog(@"%@", result);
+    }
+    
+    //need a better check here LATER
+    if (![result isEqualToString:@""])
+    {
+        
+        
+        NSUserDefaults *appDefaults = [NSUserDefaults standardUserDefaults];
+        
+        
+        NSString *uploaderId = [appDefaults objectForKey:@"userid"];
+        NSString *uploadAddress = [NSString stringWithString:result];
+        
+       // NSString *uploadAddressTest = @"NONESCAPINGSTRING";
+        
+        
+        //NSString *inputString2 = [NSString stringWithFormat:@"userFirstName=%@&userLastName=%@", uploaderId,uploadAddress];
+        NSString *inputString2 = [NSString stringWithFormat:@"uploaderID=%@&uploadLocation=%@", uploaderId,uploadAddress];
+        NSLog(@"inputstring = %@", inputString2);
+        
+        NSData *postData2 =[inputString2 dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        NSString *postLength2 = [NSString stringWithFormat:@"%lu", [postData2 length]];
+        NSMutableURLRequest *request2 = [[NSMutableURLRequest alloc]init];
+        
+        
+        [request2 setURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/insertinmedia.php"]];
+        [request2 setHTTPMethod:@"POST"];
+        [request2 setValue:postLength2 forHTTPHeaderField:@"Content-Length"];
+        [request2 setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request2 setHTTPBody:postData2];
+        
+        NSHTTPURLResponse *urlResponse2 = nil;
+        NSError *error2 = nil;
+        NSData *responseData2 =[NSURLConnection sendSynchronousRequest:request2 returningResponse:&urlResponse2 error:&error2];
+        NSString *result2 =[[NSString alloc]initWithData:responseData2 encoding:NSUTF8StringEncoding];
+        NSLog(@"Response code: %lu", [urlResponse2 statusCode]);
+        NSString *responseBody2 = [[NSString alloc]initWithData:responseData2 encoding:NSUTF8StringEncoding];
+        NSLog(@"RESPONSE BODY : %@", responseBody2);
+        
+        
     }
     
     [self.photoDelegate setProfilePicture:image];
