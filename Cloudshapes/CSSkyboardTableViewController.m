@@ -128,10 +128,15 @@ NSLog(@"------------------------- SkyboardTableViewController  cellFRAIP END RET
         self.prototypeCell.heading.text = [object objectForKey:@"posttext"];
         self.prototypeCell.postType = [object objectForKey:@"posttype"]; // we pass the post type now rather than later
         
-        if ([self.prototypeCell.postType isEqualToString:@"Thought"])
+       /* if ([self.prototypeCell.postType isEqualToString:@"Thought"])
         {
             self.prototypeCell.postTypePictureView.image = [UIImage imageNamed:@"POST_T_icon.png"];
         }
+        else if([self.prototypeCell.postType isEqualToString:@"Question"])
+        {
+            self.prototypeCell.postTypePictureView.image = [UIImage imageNamed:@"POST_Q_icon.png"];
+        }*/
+
 
 
         NSLog(@"self.protoypecell.posttype = %@", self.prototypeCell.postType);

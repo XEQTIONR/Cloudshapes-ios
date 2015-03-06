@@ -58,6 +58,12 @@
         NSLog(@"THOUGHT IDENTIFIED");
         _postTypePictureView.image = [UIImage imageNamed:@"POST_T_icon.png"];
     }
+    
+    if([_postType isEqualToString:@"Question"])
+    {
+        NSLog(@"QUESTION IDENTIFIED");
+        _postTypePictureView.image = [UIImage imageNamed:@"POST_Q_icon.png"];
+    }
     if (!_postTypePictureView.image)
     {
         NSLog(@"PICTURE NIL");
