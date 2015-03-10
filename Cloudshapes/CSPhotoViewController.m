@@ -64,7 +64,7 @@
     NSLog(@"stringFormattedUserId is %@", stringFormattedUserId);
     
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/uploadtest10.php"]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/uploadinsert.php"]]; //previously uploadtest10.php?
     
     NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
     
@@ -159,7 +159,7 @@
     }
     
     //need a better check here LATER
-    if (![result isEqualToString:@""])
+    /*if (![result isEqualToString:@""])
     {
         
         
@@ -190,13 +190,13 @@
         NSHTTPURLResponse *urlResponse2 = nil;
         NSError *error2 = nil;
         NSData *responseData2 =[NSURLConnection sendSynchronousRequest:request2 returningResponse:&urlResponse2 error:&error2];
-        NSString *result2 =[[NSString alloc]initWithData:responseData2 encoding:NSUTF8StringEncoding];
+        //NSString *result2 =[[NSString alloc]initWithData:responseData2 encoding:NSUTF8StringEncoding];
         NSLog(@"Response code: %lu", [urlResponse2 statusCode]);
         NSString *responseBody2 = [[NSString alloc]initWithData:responseData2 encoding:NSUTF8StringEncoding];
         NSLog(@"RESPONSE BODY : %@", responseBody2);
         
         
-    }
+    }*/
     
     [self.photoDelegate setProfilePicture:image];
     
