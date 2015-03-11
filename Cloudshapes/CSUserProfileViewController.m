@@ -56,6 +56,59 @@
     self.userNameLabel.text = [[CSUser currentAppUser] userName];
     self.userPointsLabel.text = [[CSUser currentAppUser] userPoints];
     
+    // script for getting the profile picture form the internet.
+    
+    if(!self.userProfilePicture.image)
+    {
+        
+        NSUserDefaults *appDefaults =[NSUserDefaults standardUserDefaults];
+        
+        NSString *userId = [appDefaults objectForKey:@"userid"];
+        
+        NSString *paramUserId = [NSString stringWithFormat:@"userId=%@",userId];
+        NSData *dataUserId = [paramUserId dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+        NSString *postLength = [NSString stringWithFormat:@"%lu", [dataUserId length]];
+        
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/getprofilepicturefilepath.php"]];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:dataUserId];
+        
+        NSHTTPURLResponse *urlResponse = nil;
+        NSError *error = nil;
+        
+        NSData *picturePath = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];     //just the path for now
+        
+        NSString *filePath = [[NSString alloc] initWithData:picturePath encoding:NSUTF8StringEncoding];
+        NSString *baseString =@"http://ec2-54-173-125-187.compute-1.amazonaws.com/";
+        
+        baseString = [baseString stringByAppendingString:filePath];
+        
+        //NSLog(@"%@", jsonData);
+        NSLog(@"User profile picture filePath = %@", filePath);
+        NSLog(@"Base string <%@>", baseString);
+        
+        NSData *pictureData = [NSData dataWithContentsOfURL:[NSURL URLWithString:baseString]];
+        //NSData *pictureData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/uploads/26/83d533188ad07c636c67852fa9975bd1.jpg"]];
+        
+    
+        //NSString * stringRepPic = [NSString ]
+        UIImage *image = [UIImage imageWithData:pictureData];
+        self.userProfilePicture.image = image ;
+        
+        //NSLog(@"Picture Data: %@", pictureData);
+        
+        //[super viewDidLoad];
+        
+
+        
+        
+    }
+    
+    
     
 }
 
