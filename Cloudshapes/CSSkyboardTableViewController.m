@@ -22,33 +22,47 @@
     
     if(!self.posts)
     {
+        //1. gather input
+        
+        
+        //2. encode input data, calculate length
+        
+        //3. init and setup request
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        
         [request setURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/getskyboarddata2.php"]];
         [request setHTTPMethod:@"POST"];
-        [request setValue:0 forHTTPHeaderField:@"Content-Length"];
+        [request setValue:0 forHTTPHeaderField:@"Content-Length"]; // currently passing no body , so length is 0(zero)
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         
+        //4. allocate variables for URL response and  NS error
         NSHTTPURLResponse *response=nil;
         NSError *error = nil;
+        
+        
+        //5. fire request, receive data, get HTTP Response
         NSData *skyboardPostData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        NSArray *jsonData = [NSJSONSerialization JSONObjectWithData:skyboardPostData options:kNilOptions error:&error];
+        NSArray *jsonData = [NSJSONSerialization JSONObjectWithData:skyboardPostData options:kNilOptions error:&error]; // decoding data
         
         
-        if ([response statusCode]>=200 && [response statusCode]<300) {
-            // NSLog(@"Response: %@", result);
+        if ([response statusCode]>=200 && [response statusCode]<300)
+        {
+            NSLog(@"response status code: %ld", [response statusCode]);
         }
-        //NSLog(@"Response: %@", result);
-        if (error == nil)
-        {NSLog(@"NO ERRORS");}
+        
+        if (error == nil){NSLog(@"NO ERRORS");}
+        
         if (jsonData == nil)
-        {NSLog(@"NIL RESULT");}
+        {
+            NSLog(@"NIL RESULT");
+        }
         else
         {
             NSLog(@"%@", jsonData);
             //NSLog(@"AND R1:");      //jsonData is a NSArray -->NSDictionary previously
             NSLog(@"jsonData.count = %lu", [jsonData count]);
             
-            self.posts = jsonData;
+            self.posts = jsonData; // initialize our model with the received data
         }
     }
     
@@ -101,11 +115,13 @@
 
     cell.postType = [object objectForKey:@"posttype"];
  
- if([cell.postType isEqualToString:@"Thought"])
+ 
+// following if block is unnecessary because we change the picture in layoutSubview method of the cell
+ /*if([cell.postType isEqualToString:@"Thought"])
  {
  NSLog(@"THOUGHT IDENTIFIED");
  cell.profilePictureView.image = [UIImage imageNamed:@"POST_T_icon.png"];
- }
+ }*/
  
     //[cell layoutSubviews];
  
@@ -118,8 +134,6 @@ NSLog(@"------------------------- SkyboardTableViewController  cellFRAIP END RET
 {
     NSLog(@"-------------------------heightFRAIP BEGIN");
     NSLog(@"heightForRowAtIndexPath:%lu called", indexPath.row);
-    //  [tableView:tableView cellForRowAtIndexPath:indexPath].postText
-    
     
     NSDictionary *object = [self.posts objectAtIndex:indexPath.row];
     
@@ -127,17 +141,6 @@ NSLog(@"------------------------- SkyboardTableViewController  cellFRAIP END RET
     {
         self.prototypeCell.heading.text = [object objectForKey:@"posttext"];
         self.prototypeCell.postType = [object objectForKey:@"posttype"]; // we pass the post type now rather than later
-        
-       /* if ([self.prototypeCell.postType isEqualToString:@"Thought"])
-        {
-            self.prototypeCell.postTypePictureView.image = [UIImage imageNamed:@"POST_T_icon.png"];
-        }
-        else if([self.prototypeCell.postType isEqualToString:@"Question"])
-        {
-            self.prototypeCell.postTypePictureView.image = [UIImage imageNamed:@"POST_Q_icon.png"];
-        }*/
-
-
 
         NSLog(@"self.protoypecell.posttype = %@", self.prototypeCell.postType);
         [self.prototypeCell layoutSubviews];//LAYOUT SUBVIEWS

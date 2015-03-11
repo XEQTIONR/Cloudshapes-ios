@@ -20,6 +20,7 @@
     
     if ([self validateUserInput])
     {
+        //1. gather input
         NSString *userFirstName = [self.txtFirstName text];
         NSString *userLastName = [self.txtLastName text];
         NSString *userEmail = [self.txtEmailAddress text];
@@ -28,15 +29,17 @@
         NSString *userName = [self.txtUserName text];
         NSString *userPassword = [self.txtPassword text];
         __unused NSString *userConfirmPassword = [self.txtConfirmPassword text]; //implement password match
-    
-        //creation URLMutableRequest with user input in URL body
         NSString *inputString = [NSString stringWithFormat:@"userFirstName=%@&userLastName=%@&userEmail=%@&userSex=%@&userDOB=%@&userName=%@&userPassword=%@",userFirstName,userLastName,userEmail,userSex,userDOB,userName,userPassword];
-        
         NSLog(@"%@",inputString);
+        
+        
+        //2. encode input data, calculate length
         NSData *postData =[inputString dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
         NSString *postLength = [NSString stringWithFormat:@"%lu", [postData length]];
+        
+        
+        //3. init and setup request
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
-    
     
         [request setURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/CSregisteruser13_dev.php"]];
         [request setHTTPMethod:@"POST"];
@@ -45,12 +48,17 @@
         [request setHTTPBody:postData];
     
     
+        //4. allocate variables for URL response and NS error
         NSHTTPURLResponse *urlResponse = nil;
         NSError *error = nil;
+        
+        
+        //5. fire request, receive data, get HTTP Response
+        ///- Change this to async request later
         NSData *responseData =[NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
         NSString *result =[[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
         NSLog(@"Response code: %lu", [urlResponse statusCode]);
-        NSString *responseBody = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
+        NSString *responseBody = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding]; // decoding the data
         NSLog(@"RESPONSE BODY : %@", responseBody);
     
         if ([urlResponse statusCode]>=200 && [urlResponse statusCode]<300) {

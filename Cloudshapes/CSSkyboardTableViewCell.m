@@ -15,8 +15,9 @@
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
-    if (self) {
-        NSLog(@"Alloc Init all UI Components");
+    if (self)
+    {
+        NSLog(@"CSSkyboardTableViewCell initWithCoder called");
         _heading = [[UILabel alloc] init];
         _fullNameLabel = [[UILabel alloc]init];
         _profilePictureView = [[UIImageView alloc] init];
@@ -33,12 +34,13 @@
     return self;
 }
 
+#pragma mark - FIX THIS
 - (void)layoutSubviews
 {
     NSLog(@"    ------------------------- SkyboardTVCell  layoutSubview BEGIN{");
     [super layoutSubviews];
     
-#pragma mark - FIX THIS 
+ 
     //{MAX(a, self.bounds.size.with) | a is minimum width all the possible devices that use this app} - this fixes the problem. Just lookup a.
     CGFloat width = MAX(375,self.bounds.size.width); //375 width of portrait iphone 6. Fix this for all models.
     //why does changing width to self.bounds.size.width not work?? here but works in ^**
@@ -64,23 +66,24 @@
         NSLog(@"QUESTION IDENTIFIED");
         _postTypePictureView.image = [UIImage imageNamed:@"POST_Q_icon.png"];
     }
+    // following if-else is unnecessary
     if (!_postTypePictureView.image)
     {
         NSLog(@"PICTURE NIL");
 
-       // _postTypePictureView.image = [UIImage imageNamed:@"POST_T_icon.png"]; //@"Scarlett-Johansson2-400.jpg"
+
     }
     else
     {
         NSLog(@"PICTURE NOT NIL");
-        //_postTypePictureView.image = [UIImage imageNamed:@"POST_T_icon.png"]; //@"Scarlett-Johansson2-400.jpg"
+
     }
 ///////////////////////////CHECK HERE
     //NSLog(@"heading : %@", _heading.text);
     [self addSubview:_postTypePictureView];
     
     _profilePictureView.frame = CGRectMake(0, 0, width/5.0, width/5.0);
-    _profilePictureView.image = [UIImage imageNamed:@"Scarlett-Johansson2-400.jpg"];
+    _profilePictureView.image = [UIImage imageNamed:@"Scarlett-Johansson2-400.jpg"]; // Default picture. Change this in viewDidAppear perhaps?
          //Making the picture circular
     _profilePictureView.layer.cornerRadius = _profilePictureView.bounds.size.width/2;
     _profilePictureView.clipsToBounds = YES;
@@ -120,19 +123,5 @@
     
 }
 
-
-
-
-    
-- (void)awakeFromNib
-{
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 @end
