@@ -33,7 +33,7 @@
 {
     NSLog(@"Set profile picture activated");
     self.userProfilePicture.image = image;
-    [self.userProfilePicture reloadInputViews];
+    [self.userProfilePicture reloadInputViews]; //perhaps not neccessary
     
     if(self.userProfilePicture.image == image)
         NSLog(@"Picture Assigned");

@@ -34,6 +34,12 @@
     return self;
 }
 
+- (void) viewDidAppear
+{
+    NSLog(@"VIEW DID APPEAR CALLED");
+    _profilePictureView.image = [UIImage imageNamed:@"Scarlett-Johansson2-400.jpg"];
+}
+
 #pragma mark - FIX THIS
 - (void)layoutSubviews
 {
@@ -83,7 +89,9 @@
     [self addSubview:_postTypePictureView];
     
     _profilePictureView.frame = CGRectMake(0, 0, width/5.0, width/5.0);
-    _profilePictureView.image = [UIImage imageNamed:@"Scarlett-Johansson2-400.jpg"]; // Default picture. Change this in viewDidAppear perhaps?
+    //DO NOT SET THE PICTURE HERE .. SET IT IN CellFRAIP
+    //changes in CellFRAIP will not appear. As this method is called after CellFRAIP
+    //_profilePictureView.image = [UIImage imageNamed:@"cs_alternate180square.png"]; // Default picture. Change this in viewDidAppear perhaps?  //Scarlett-Johansson2-400.jpg
          //Making the picture circular
     _profilePictureView.layer.cornerRadius = _profilePictureView.bounds.size.width/2;
     _profilePictureView.clipsToBounds = YES;

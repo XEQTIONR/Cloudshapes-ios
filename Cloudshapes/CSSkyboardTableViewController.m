@@ -30,7 +30,7 @@
         //3. init and setup request
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
         
-        [request setURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/getskyboarddata2.php"]];
+        [request setURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/getposts9.php"]]; //previously getskyboarddata2.php
         [request setHTTPMethod:@"POST"];
         [request setValue:0 forHTTPHeaderField:@"Content-Length"]; // currently passing no body , so length is 0(zero)
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -114,8 +114,16 @@
 
 
     cell.postType = [object objectForKey:@"posttype"];
+    
+    cell.profilePictureView.image = [UIImage imageNamed:@"Scarlett-Johansson2-400.jpg"];
  
- 
+    NSString *filePath = [object objectForKey:@"mediafilepath"];
+    NSString *baseString =@"http://ec2-54-173-125-187.compute-1.amazonaws.com/";
+    baseString = [baseString stringByAppendingString:filePath];
+    
+    NSData *profilePictureData = [NSData dataWithContentsOfURL:[NSURL URLWithString:baseString]];
+    UIImage *image = [UIImage imageWithData:profilePictureData];
+    cell.profilePictureView.image = image;
 // following if block is unnecessary because we change the picture in layoutSubview method of the cell
  /*if([cell.postType isEqualToString:@"Thought"])
  {
@@ -140,7 +148,7 @@ NSLog(@"------------------------- SkyboardTableViewController  cellFRAIP END RET
     @try
     {
         self.prototypeCell.heading.text = [object objectForKey:@"posttext"];
-        self.prototypeCell.postType = [object objectForKey:@"posttype"]; // we pass the post type now rather than later
+       // self.prototypeCell.postType = [object objectForKey:@"posttype"]; // we pass the post type now rather than later
 
         NSLog(@"self.protoypecell.posttype = %@", self.prototypeCell.postType);
         [self.prototypeCell layoutSubviews];//LAYOUT SUBVIEWS
