@@ -15,6 +15,7 @@
 
 
 //public properties
+@property (nonatomic,strong)NSNumber *postId;
 @property float testCellHeight;
 @property (nonatomic, strong)NSString *postType;
 

@@ -10,7 +10,15 @@
 
 @implementation CSSkyboardTableViewCell
 
+- (void)like:(id)sender
+{
+    NSLog(@"Like button stub.");
+}
 
+-(void)comment:(id)sender
+{
+    NSLog(@"Comment button stub.");
+}
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -30,6 +38,7 @@
         _heading.backgroundColor = [UIColor orangeColor];
         _likesButton.backgroundColor = [UIColor purpleColor];
         _commentsButton.backgroundColor = [UIColor redColor];
+        
     }
     return self;
 }
@@ -116,11 +125,16 @@
     NSLog(@"self.bounds.size.width2: %f", self.bounds.size.width);
     [self addSubview:_heading];
     
+    
     _likesButton.frame = CGRectMake(0, self.testCellHeight, width/2, 30.0);
     [_likesButton setTitle:@"Likes" forState:UIControlStateNormal];
+    [_likesButton addTarget:self action:@selector(like:)    forControlEvents:UIControlEventTouchUpInside];
+    
     
     _commentsButton.frame = CGRectMake(width/2, self.testCellHeight, width/2, 30.0);
     [_commentsButton setTitle:@"Comments" forState:UIControlStateNormal];
+    [_commentsButton addTarget:self action:@selector(comment:) forControlEvents:UIControlEventTouchUpInside];
+    
     
     self.testCellHeight += 30.0;
     [self addSubview:_likesButton];

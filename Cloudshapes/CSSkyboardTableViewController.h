@@ -11,5 +11,5 @@
 
 @interface CSSkyboardTableViewController : UITableViewController
 @property (strong, nonatomic) NSArray *posts; // our skyboard model
-@property (strong, nonatomic) CSSkyboardTableViewCell *prototypeCell;
+@property (strong, nonatomic) CSSkyboardTableViewCell *prototypeCell; // dummy cell used to calculate cell height.
 @end
