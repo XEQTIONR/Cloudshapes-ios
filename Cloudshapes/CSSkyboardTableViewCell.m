@@ -12,25 +12,31 @@
 
 - (void)like:(id)sender
 {
-    NSLog(@"like: function.");
-   // [self.likesButton setTitle:@"LIKED" forState:UIControlStateNormal]; //doing self.likeButton.label.text changes the text for only the Pressed state of the button
+    NSLog(@"like: function for postId:%@", self.postId);
+    
+    // Connect to like script here
 }
 
 - (void)comment:(id)sender
 {
-    NSLog(@"comment: function.");
-    //[self.commentsButton setTitle:@"COMMENTED" forState:UIControlStateNormal];
+    NSLog(@"comment: function for postId:%@", self.postId);
+    
+    // Connect to comment script here
 }
 
 - (void)viewLikes:(id)sender
 {
-    NSLog(@"viewLikes: function");
+    NSLog(@"viewLikes: function for postId:%@", self.postId);
+    
+    // Navigate to a new view controller
+    // Connect to view-likes script
     
 }
 
 - (void)viewComments:(id)sender
 {
-    NSLog(@"viewComments: function");
+    // Navigate to a new view controller
+    // Connect to view-comments script
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -189,7 +195,7 @@
     
     _commentsButton.frame = CGRectMake(buttonWidth, self.testCellHeight, buttonWidth, 30.0);
     //[_commentsButton setTitle:@"Comments" forState:UIControlStateNormal];
-    [_commentsButton addTarget:self action:@selector(comment:) forControlEvents:UIControlEventTouchUpInside];
+    //[_commentsButton addTarget:self action:@selector(comment:) forControlEvents:UIControlEventTouchUpInside]; // unnecessary. And even if it wasnt you should rather do this line in the init function
     
     //_likeCount = [NSNumber numberWithInt:0];
     //_commentCount = [NSNumber numberWithInt:0];
