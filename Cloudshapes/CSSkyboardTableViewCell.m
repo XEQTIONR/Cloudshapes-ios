@@ -12,14 +12,25 @@
 
 - (void)like:(id)sender
 {
-    NSLog(@"Like button stub.");
-    [self.likesButton setTitle:@"LIKED" forState:UIControlStateNormal]; //doing self.likeButton.label.text changes the text for only the Pressed state of the button
+    NSLog(@"like: function.");
+   // [self.likesButton setTitle:@"LIKED" forState:UIControlStateNormal]; //doing self.likeButton.label.text changes the text for only the Pressed state of the button
 }
 
--(void)comment:(id)sender
+- (void)comment:(id)sender
 {
-    NSLog(@"Comment button stub.");
-    [self.commentsButton setTitle:@"COMMENTED" forState:UIControlStateNormal];
+    NSLog(@"comment: function.");
+    //[self.commentsButton setTitle:@"COMMENTED" forState:UIControlStateNormal];
+}
+
+- (void)viewLikes:(id)sender
+{
+    NSLog(@"viewLikes: function");
+    
+}
+
+- (void)viewComments:(id)sender
+{
+    NSLog(@"viewComments: function");
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -48,9 +59,26 @@
         _commentIconImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Comments-50.png"]];
         
         
+        _likeIconImage.userInteractionEnabled       = YES;
+        _likeCountLabel.userInteractionEnabled      = YES;
+        _commentIconImage.userInteractionEnabled    = YES;
+        _commentCountLabel.userInteractionEnabled   = YES;
         
         
+        UITapGestureRecognizer *tapSeeLikes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewLikes:)];
+        UITapGestureRecognizer *tapLike = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(like:)];
+        UITapGestureRecognizer *tapSeeComments = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewComments:)];
+        UITapGestureRecognizer *tapComment = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(comment:)];
         
+        tapSeeLikes.delegate = self;
+        tapLike.delegate = self;
+        tapSeeComments.delegate = self;
+        tapComment.delegate = self;
+        
+        [_likeCountLabel addGestureRecognizer:tapSeeLikes];
+        [_likeIconImage addGestureRecognizer:tapLike];
+        [_commentCountLabel addGestureRecognizer:tapSeeComments];
+        [_commentIconImage addGestureRecognizer:tapComment];
         
         _profilePictureView.backgroundColor = [UIColor redColor];
         _postTypePictureView.backgroundColor = [UIColor blueColor];
@@ -60,6 +88,9 @@
         
         _likesButton.backgroundColor = [UIColor purpleColor];
         _commentsButton.backgroundColor = [UIColor redColor];
+        
+        _likesButtonView.backgroundColor = [UIColor purpleColor];
+        _commentsButtonView.backgroundColor = [UIColor magentaColor];
         
     }
     return self;
@@ -82,6 +113,7 @@
     CGFloat width = MAX(375,self.bounds.size.width); //375 width of portrait iphone 6. Fix this for all models.
     //why does changing width to self.bounds.size.width not work?? here but works in ^**
     //maybe because prototypes dont have bounds
+    CGFloat buttonWidth = width/3.0;
     CGSize expectedSize = [_heading.text boundingRectWithSize:CGSizeMake(width, 2000)  options:(NSStringDrawingUsesLineFragmentOrigin) attributes:@{NSFontAttributeName: _heading.font} context:nil].size;
 
     NSLog(@"Expected height: %f", expectedSize.height);
@@ -150,39 +182,40 @@
     
     
     
-    _likesButton.frame = CGRectMake(0, self.testCellHeight, width/2, 30.0);
-    [_likesButton setTitle:@"Likes" forState:UIControlStateNormal];
-    [_likesButton addTarget:self action:@selector(like:)    forControlEvents:UIControlEventTouchUpInside];
+    _likesButton.frame = CGRectMake(0, self.testCellHeight, buttonWidth, 30.0);
+    //[_likesButton setTitle:@"Likes" forState:UIControlStateNormal];
+    //[_likesButton addTarget:self action:@selector(like:)    forControlEvents:UIControlEventTouchUpInside];
     
     
-    _commentsButton.frame = CGRectMake(width/2, self.testCellHeight, width/2, 30.0);
-    [_commentsButton setTitle:@"Comments" forState:UIControlStateNormal];
+    _commentsButton.frame = CGRectMake(buttonWidth, self.testCellHeight, buttonWidth, 30.0);
+    //[_commentsButton setTitle:@"Comments" forState:UIControlStateNormal];
     [_commentsButton addTarget:self action:@selector(comment:) forControlEvents:UIControlEventTouchUpInside];
     
     //_likeCount = [NSNumber numberWithInt:0];
     //_commentCount = [NSNumber numberWithInt:0];
     
     
-    _likesButtonView.frame = CGRectMake(0, self.testCellHeight, width/2, 30.0);
-    _likeIconImage.frame = CGRectMake(0, 0, _likesButtonView.frame.size.height, _likesButtonView.frame.size.height);
+    //_likesButtonView.frame = CGRectMake(0, self.testCellHeight, width/2, 30.0);
+    _likeIconImage.frame = CGRectMake(0, 0, _likesButton.frame.size.height, _likesButton.frame.size.height);
     
-    [_likesButtonView addSubview:_likeIconImage];
+    [_likesButton addSubview:_likeIconImage];
     
-    _likeCountLabel.frame = CGRectMake(_likesButtonView.frame.size.width/2, 0, _likesButtonView.frame.size.width/2, _likesButtonView.frame.size.height);
+    _likeCountLabel.frame = CGRectMake(_likesButton.frame.size.width/2, 0, _likesButton.frame.size.width/2, _likesButton.frame.size.height);
     _likeCountLabel.numberOfLines = 1;
     
-    [_likesButtonView addSubview:_likeCountLabel];
+    [_likesButton addSubview:_likeCountLabel];
     
     
     
-    _commentsButtonView.frame = CGRectMake(width/2, self.testCellHeight, width/2, 30.0);
-    _commentIconImage.frame = CGRectMake(0, 0, _commentsButtonView.frame.size.height, _commentsButtonView.frame.size.height);
+    //_commentsButtonView.frame = CGRectMake(width/2, self.testCellHeight, width/2, 30.0);
+    _commentIconImage.frame = CGRectMake(0, 0, _commentsButton.frame.size.height, _commentsButton.frame.size.height);
     
-    [_commentsButtonView addSubview:_commentIconImage];
+    [_commentsButton addSubview:_commentIconImage];
     
-    _commentCountLabel.frame = CGRectMake(_commentsButtonView.frame.size.width/2, 0, _commentsButtonView.frame.size.width/2, _commentsButtonView.frame.size.height);
+    _commentCountLabel.frame = CGRectMake(_commentsButton.frame.size.width/2, 0, _commentsButton.frame.size.width/2, _commentsButton.frame.size.height);
+    _commentCountLabel.numberOfLines =1;
     
-    [_commentsButtonView addSubview:_commentCountLabel];
+    [_commentsButton addSubview:_commentCountLabel];
     
     
     
@@ -190,11 +223,11 @@
     
     
     self.testCellHeight += 30.0;
-    //[self addSubview:_likesButton];
-    //[self addSubview:_commentsButton];
+    [self addSubview:_likesButton];
+    [self addSubview:_commentsButton];
     
-    [self addSubview:_likesButtonView];
-    [self addSubview:_commentsButtonView];
+    //[self addSubview:_likesButtonView];
+    //[self addSubview:_commentsButtonView];
     
     
     NSLog(@"    -------------------------}SkyboardTVCell layoutSubview END");
