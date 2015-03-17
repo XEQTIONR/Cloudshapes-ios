@@ -132,7 +132,11 @@
  }*/
  
     //[cell layoutSubviews];
- 
+    
+    cell.likeCount = [NSNumber numberWithInt:6];
+    cell.commentCount = [NSNumber numberWithInt:2];
+    cell.likeCountLabel.text = [NSString stringWithFormat:@"%d",[cell.likeCount intValue]];
+    cell.commentCountLabel.text = [NSString stringWithFormat:@"%d", [cell.commentCount intValue]];
  
 NSLog(@"------------------------- SkyboardTableViewController  cellFRAIP END RETURN cell");
  return cell;

@@ -15,17 +15,35 @@
 
 
 //public properties
-@property (nonatomic,strong)NSNumber *postId;
-@property float testCellHeight;
-@property (nonatomic, strong)NSString *postType;
+@property (nonatomic,strong)NSNumber        *postId;
+@property float                             testCellHeight; // change this to NSNumber later
+@property (nonatomic, strong)NSString       *postType;
 
 
-@property (nonatomic,strong) UIImageView *profilePictureView;
-@property (nonatomic,strong) UIImageView *postTypePictureView;
-@property (nonatomic,strong) UILabel *fullNameLabel;
-@property UIButton *likesButton;
-@property UIButton *commentsButton;
+@property (nonatomic,strong) NSNumber       *likeCount;
+@property (nonatomic,strong) NSNumber       *commentCount;
 
+
+
+@property (nonatomic,strong) UIImageView    *profilePictureView;
+@property (nonatomic,strong) UIImageView    *postTypePictureView;
+@property (nonatomic,strong) UILabel        *fullNameLabel;
+
+
+//trying to replace these buttons ^^
+@property (nonatomic,strong) UIButton       *likesButton;
+@property (nonatomic,strong) UIButton       *commentsButton;
+
+
+// ^^ with these custom views
+@property (nonatomic,strong) UIView         *likesButtonView;
+@property (nonatomic,strong) UIView         *commentsButtonView;
+@property (nonatomic,strong) UILabel        *likeCountLabel;
+@property (nonatomic,strong) UILabel        *commentCountLabel;
+@property (nonatomic,strong) UIImageView    *likeIconImage;
+@property (nonatomic,strong) UIImageView    *commentIconImage;
+
+//should any of these be weak? arent outlets supposed to be weak?? or is that only IBOutlets???
 
 
 

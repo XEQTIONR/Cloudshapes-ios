@@ -13,11 +13,13 @@
 - (void)like:(id)sender
 {
     NSLog(@"Like button stub.");
+    [self.likesButton setTitle:@"LIKED" forState:UIControlStateNormal]; //doing self.likeButton.label.text changes the text for only the Pressed state of the button
 }
 
 -(void)comment:(id)sender
 {
     NSLog(@"Comment button stub.");
+    [self.commentsButton setTitle:@"COMMENTED" forState:UIControlStateNormal];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -30,12 +32,32 @@
         _fullNameLabel = [[UILabel alloc]init];
         _profilePictureView = [[UIImageView alloc] init];
         _postTypePictureView= [[UIImageView alloc] init];
+        
+        
+        
+        //replace
         _likesButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         _commentsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        
+        //with these
+        _likesButtonView = [[UIImageView alloc] init];
+        _commentsButtonView = [[UIImageView alloc] init];
+        _likeCountLabel = [[UILabel alloc] init];
+        _commentCountLabel = [[UILabel alloc] init];
+        _likeIconImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Hearts-50.png"]];
+        _commentIconImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Comments-50.png"]];
+        
+        
+        
+        
+        
         
         _profilePictureView.backgroundColor = [UIColor redColor];
         _postTypePictureView.backgroundColor = [UIColor blueColor];
         _heading.backgroundColor = [UIColor orangeColor];
+        
+        
+        
         _likesButton.backgroundColor = [UIColor purpleColor];
         _commentsButton.backgroundColor = [UIColor redColor];
         
@@ -46,7 +68,7 @@
 - (void) viewDidAppear
 {
     NSLog(@"VIEW DID APPEAR CALLED");
-    _profilePictureView.image = [UIImage imageNamed:@"Scarlett-Johansson2-400.jpg"];
+   // _profilePictureView.image = [UIImage imageNamed:@"Scarlett-Johansson2-400.jpg"];
 }
 
 #pragma mark - FIX THIS
@@ -126,6 +148,8 @@
     [self addSubview:_heading];
     
     
+    
+    
     _likesButton.frame = CGRectMake(0, self.testCellHeight, width/2, 30.0);
     [_likesButton setTitle:@"Likes" forState:UIControlStateNormal];
     [_likesButton addTarget:self action:@selector(like:)    forControlEvents:UIControlEventTouchUpInside];
@@ -135,10 +159,42 @@
     [_commentsButton setTitle:@"Comments" forState:UIControlStateNormal];
     [_commentsButton addTarget:self action:@selector(comment:) forControlEvents:UIControlEventTouchUpInside];
     
+    //_likeCount = [NSNumber numberWithInt:0];
+    //_commentCount = [NSNumber numberWithInt:0];
+    
+    
+    _likesButtonView.frame = CGRectMake(0, self.testCellHeight, width/2, 30.0);
+    _likeIconImage.frame = CGRectMake(0, 0, _likesButtonView.frame.size.height, _likesButtonView.frame.size.height);
+    
+    [_likesButtonView addSubview:_likeIconImage];
+    
+    _likeCountLabel.frame = CGRectMake(_likesButtonView.frame.size.width/2, 0, _likesButtonView.frame.size.width/2, _likesButtonView.frame.size.height);
+    _likeCountLabel.numberOfLines = 1;
+    
+    [_likesButtonView addSubview:_likeCountLabel];
+    
+    
+    
+    _commentsButtonView.frame = CGRectMake(width/2, self.testCellHeight, width/2, 30.0);
+    _commentIconImage.frame = CGRectMake(0, 0, _commentsButtonView.frame.size.height, _commentsButtonView.frame.size.height);
+    
+    [_commentsButtonView addSubview:_commentIconImage];
+    
+    _commentCountLabel.frame = CGRectMake(_commentsButtonView.frame.size.width/2, 0, _commentsButtonView.frame.size.width/2, _commentsButtonView.frame.size.height);
+    
+    [_commentsButtonView addSubview:_commentCountLabel];
+    
+    
+    
+
+    
     
     self.testCellHeight += 30.0;
-    [self addSubview:_likesButton];
-    [self addSubview:_commentsButton];
+    //[self addSubview:_likesButton];
+    //[self addSubview:_commentsButton];
+    
+    [self addSubview:_likesButtonView];
+    [self addSubview:_commentsButtonView];
     
     
     NSLog(@"    -------------------------}SkyboardTVCell layoutSubview END");
