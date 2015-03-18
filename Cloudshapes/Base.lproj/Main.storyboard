@@ -202,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fp7-AX-SAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1722" y="-2888"/>
+            <point key="canvasLocation" x="2298" y="-2034"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SVS-h5-bRf">
@@ -313,9 +313,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="vRj-Xt-oym" kind="relationship" relationship="viewControllers" id="lg1-h6-1Kh"/>
                         <segue destination="2pe-Pr-zSU" kind="relationship" relationship="viewControllers" id="ozv-sX-cTh"/>
-                        <segue destination="b9Q-FV-CFA" kind="relationship" relationship="viewControllers" id="Gvh-5F-Yke"/>
+                        <segue destination="fMk-1P-Xw0" kind="relationship" relationship="viewControllers" id="3xk-to-CyF"/>
+                        <segue destination="vRj-Xt-oym" kind="relationship" relationship="viewControllers" id="lg1-h6-1Kh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ty-j3-bd9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -422,40 +422,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tpi-lW-LqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="519" y="-2952"/>
+            <point key="canvasLocation" x="1329" y="-2034"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="8fs-L9-WkA">
-            <objects>
-                <tableViewController id="b9Q-FV-CFA" customClass="CSSkyboardTableViewController2" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="172" sectionHeaderHeight="22" sectionFooterHeight="22" id="AM5-DM-lGD">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Post Cell 2" rowHeight="172" id="XyJ-Kz-VLl" customClass="CSSkyboardTableViewCell2">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XyJ-Kz-VLl" id="nPj-JU-O4q">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="b9Q-FV-CFA" id="Qoo-nc-vtu"/>
-                            <outlet property="delegate" destination="b9Q-FV-CFA" id="PNf-PJ-5I0"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="Zfd-aE-moi"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1vP-Zx-yjJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-414" y="-3758"/>
-        </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="cfI-Ot-VV6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vRj-Xt-oym" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="YTs-PX-rO7"/>
+                    <tabBarItem key="tabBarItem" title="Profile" id="YTs-PX-rO7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="abq-iO-bTF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -468,9 +441,66 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OXi-jW-5Jk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-414" y="-2952"/>
+            <point key="canvasLocation" x="-264" y="-2034"/>
         </scene>
-        <!--Item-->
+        <!--New Post-->
+        <scene sceneID="yhR-lw-02n">
+            <objects>
+                <viewController modalTransitionStyle="flipHorizontal" id="fMk-1P-Xw0" customClass="CSNewPostViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JBR-rq-NeW"/>
+                        <viewControllerLayoutGuide type="bottom" id="kHY-AT-Yqd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bBf-M1-Tdj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Enter post text." translatesAutoresizingMaskIntoConstraints="NO" id="QnR-et-jlr">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="35" width="400" height="211"/>
+                                </variation>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k65-iP-xjr">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="129" y="272" width="143" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="post:" destination="fMk-1P-Xw0" eventType="touchUpInside" id="1wI-tw-bIS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="QnR-et-jlr"/>
+                                <exclude reference="k65-iP-xjr"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="QnR-et-jlr"/>
+                                <include reference="k65-iP-xjr"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="New Post" id="rmK-6O-Mb2"/>
+                    <connections>
+                        <outlet property="postTextView" destination="QnR-et-jlr" id="fBv-qw-RH3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8hb-QR-8Gw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="591" y="-2564"/>
+        </scene>
+        <!--Skyboard-->
         <scene sceneID="NAz-mR-GwZ">
             <objects>
                 <tableViewController id="2pe-Pr-zSU" customClass="CSSkyboardTableViewController" sceneMemberID="viewController">
@@ -497,11 +527,11 @@
                             <outlet property="delegate" destination="2pe-Pr-zSU" id="hMZ-6c-NNH"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="DhJ-WZ-v1M"/>
+                    <tabBarItem key="tabBarItem" title="Skyboard" id="DhJ-WZ-v1M"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZT5-cG-Evn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-429" y="-2181"/>
+            <point key="canvasLocation" x="-225" y="-3068"/>
         </scene>
     </scenes>
 </document>
