@@ -7,15 +7,36 @@
 //
 
 #import "CSMainTabBarController.h"
-
+#import "CSNewPostViewController.h"
 @interface CSMainTabBarController ()
 
 @end
 
 @implementation CSMainTabBarController
 
+
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController
+shouldSelectViewController:(UIViewController *)viewController
+{
+
+    if ([viewController isKindOfClass:[CSNewPostViewController class]])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Stop" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Meh", nil];
+        [alert show];
+        return YES ;
+        
+        //here we should replace the alert with the custom view to select the type of post
+    }
+    else
+    {
+        return YES;
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.delegate = self;
     // Do any additional setup after loading the view.
 }
 

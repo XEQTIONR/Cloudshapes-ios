@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CVq-kW-oPC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CVq-kW-oPC">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -446,7 +446,7 @@
         <!--New Post-->
         <scene sceneID="yhR-lw-02n">
             <objects>
-                <viewController modalTransitionStyle="flipHorizontal" id="fMk-1P-Xw0" customClass="CSNewPostViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="New Post Controller" modalTransitionStyle="flipHorizontal" id="fMk-1P-Xw0" customClass="CSNewPostViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JBR-rq-NeW"/>
                         <viewControllerLayoutGuide type="bottom" id="kHY-AT-Yqd"/>
@@ -493,7 +493,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="New Post" id="rmK-6O-Mb2"/>
                     <connections>
-                        <outlet property="postTextView" destination="QnR-et-jlr" id="fBv-qw-RH3"/>
+                        <outlet property="postTextView" destination="QnR-et-jlr" id="YGC-Rs-x6G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hb-QR-8Gw" userLabel="First Responder" sceneMemberID="firstResponder"/>

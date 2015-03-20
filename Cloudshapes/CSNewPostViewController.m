@@ -10,6 +10,7 @@
 
 @interface CSNewPostViewController ()
 
+
 @property (strong, nonatomic)NSString *postText;
 @property (strong, nonatomic)NSNumber *userId;
 @end
@@ -18,13 +19,14 @@
 
 - (IBAction)post:(id)sender {
     
+    //[self resignFirstResponder];
     NSUserDefaults *appDefaults = [NSUserDefaults standardUserDefaults];
     NSString *stringUserId = [appDefaults objectForKey:@"userid"];
     
     self.userId = [NSNumber numberWithInt:[stringUserId intValue]];
     self.postText = self.postTextView.text;
     
-    [self resignFirstResponder];
+    [self.postTextView resignFirstResponder];
     
     NSLog(@"Post text: %@ \n stringUserId : %@ \n userId : %d", self.postText, stringUserId, [self.userId intValue]);
     
