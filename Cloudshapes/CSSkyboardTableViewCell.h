@@ -19,6 +19,7 @@
 @property float                             testCellHeight; // change this to NSNumber later
 @property CGFloat                           width;
 @property CGFloat                           buttonWidth;
+@property CGFloat                           buttonAtHeight;
 @property (nonatomic, strong)NSString       *postType;
 
 

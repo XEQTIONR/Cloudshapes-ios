@@ -13,9 +13,11 @@
 
 @property (nonatomic,strong) UIButton       *answersButton;
 
+
+@property (nonatomic,strong) NSNumber       *answerCount;
 @property (nonatomic,strong) UIView         *answersButtonView;
 @property (nonatomic,strong) UILabel        *answerCountLabel;
-@property (nonatomic,strong) UIImageView    *answerIconImage;
+@property (nonatomic,strong) UILabel        *answerIconLabel;
 
 
 

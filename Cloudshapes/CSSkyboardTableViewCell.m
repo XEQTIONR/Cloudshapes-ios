@@ -10,6 +10,7 @@
 
 @interface CSSkyboardTableViewCell()
 
+
 @end
 
 @implementation CSSkyboardTableViewCell
@@ -194,6 +195,7 @@
     _heading.frame = CGRectMake(0, self.testCellHeight, _width, expectedSize.height);//^**
     _heading.numberOfLines = 0;
     self.testCellHeight += expectedSize.height;
+    self.buttonAtHeight = self.testCellHeight;
     NSLog(@"testcellheight in layout subview %f", self.testCellHeight);
     NSLog(@"self.bounds.size.width2: %f", self.bounds.size.width);
     [self addSubview:_heading];

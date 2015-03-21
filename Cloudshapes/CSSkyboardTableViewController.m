@@ -7,6 +7,7 @@
 //
 
 #import "CSSkyboardTableViewController.h"
+#import "CSSkyboardTableViewCellQuestion.h"
 #define LARGE_HEIGHT 1000
 
 @interface CSSkyboardTableViewController ()
@@ -106,14 +107,37 @@
     NSLog(@"cellForRowAtIndexPath:%ld called BEFORE DEQUE",indexPath.row);
     
     
-    CSSkyboardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Post Cell" forIndexPath:indexPath];
-    NSLog(@"AFTER DEQUE");
     NSDictionary *object = [self.posts objectAtIndex:indexPath.row];
+    
+    NSString *postType = [object objectForKey:@"posttype"];
+    
+    CSSkyboardTableViewCell *cell;
+    //id cell;
+    if ([postType compare:@"Question"] == NSOrderedSame)
+    {
+        CSSkyboardTableViewCellQuestion *cell2 = [tableView dequeueReusableCellWithIdentifier:@"Question Cell" forIndexPath:indexPath];
+        //CSSkyboardTableViewCellQuestion *cellSubclass = cell;
+        cell2.answerCount = [NSNumber numberWithInt:5];
+        cell2.answerCountLabel.text = [NSString stringWithFormat:@"%d", [cell2.answerCount intValue]];
+        cell = cell2;
+        
+    }
+    
+    else
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Post Cell" forIndexPath:indexPath];
+    }
+
+    
+    NSLog(@"AFTER DEQUE");
+    
+    cell.postType = [object objectForKey:@"posttype"];
     cell.heading.text = [object objectForKey:@"posttext"];
     cell.fullNameLabel.text = [[object objectForKey:@"userfname"] stringByAppendingString: [object objectForKey:@"userlname"]];
+    
 
 
-    cell.postType = [object objectForKey:@"posttype"];
+    
     
     cell.profilePictureView.image = [UIImage imageNamed:@"Scarlett-Johansson2-400.jpg"];
  

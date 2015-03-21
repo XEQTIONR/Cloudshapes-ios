@@ -515,7 +515,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Test Cell" rowHeight="140" id="meA-la-vuH" customClass="TestTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Question Cell" rowHeight="140" id="meA-la-vuH" customClass="CSSkyboardTableViewCellQuestion">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="meA-la-vuH" id="CCC-HK-KLw">
                                     <autoresizingMask key="autoresizingMask"/>

@@ -30,9 +30,13 @@
     if (self)
     {
         NSLog(@"CSSkyboardTableViewQUESTION initWithCoder called");
+        self.answerIconLabel = [[UILabel alloc] init];
+        self.answerIconLabel.text = @"A:  ";
+        self.answerCountLabel = [[UILabel alloc] init];
+        self.answersButtonView = [[UIView alloc] init];
     }
     
-    
+
     return self;
 }
 
@@ -40,10 +44,11 @@
 {
     [super layoutSubviews];
     
-     _answersButtonView.frame = CGRectMake(2*self.width, self.testCellHeight, self.buttonWidth, 30.0);
+     _answersButtonView.frame = CGRectMake(2*self.buttonWidth, self.buttonAtHeight, self.buttonWidth, 30.0);
+    _answersButtonView.backgroundColor = [UIColor cyanColor];
     
-    _answerIconImage.frame = CGRectMake(0, 0, _answersButtonView.frame.size.height, _answersButtonView.frame.size.height);
-    [_answersButtonView addSubview:_answerIconImage];
+    _answerIconLabel.frame = CGRectMake(0, 0, _answersButtonView.frame.size.height, _answersButtonView.frame.size.height);
+    [_answersButtonView addSubview:_answerIconLabel];
     
     _answerCountLabel.frame = CGRectMake(_answersButtonView.frame.size.width/2, 0, _answersButtonView.frame.size.width/2.0, _answersButtonView.frame.size.height);
     _answerCountLabel.numberOfLines = 1;
