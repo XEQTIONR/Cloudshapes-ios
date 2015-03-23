@@ -8,6 +8,7 @@
 
 #import "CSSkyboardTableViewController.h"
 #import "CSSkyboardTableViewCellQuestion.h"
+#import "CSSkyboardTableViewCellPoll.h"
 #define LARGE_HEIGHT 1000
 
 @interface CSSkyboardTableViewController ()
@@ -120,6 +121,15 @@
         cell2.answerCount = [NSNumber numberWithInt:5];
         cell2.answerCountLabel.text = [NSString stringWithFormat:@"%d", [cell2.answerCount intValue]];
         cell = cell2;
+        
+    }
+    
+    else if([postType compare:@"Poll"] == NSOrderedSame)
+    {
+        CSSkyboardTableViewCellPoll *cell3 = [tableView dequeueReusableCellWithIdentifier:@"Poll Cell" forIndexPath:indexPath];
+        cell3.voteCount = [NSNumber numberWithInt:53];
+        cell3.voteCountLabel.text = [NSString stringWithFormat:@"%d", [cell3.voteCount intValue ]];
+        cell = cell3;
         
     }
     
