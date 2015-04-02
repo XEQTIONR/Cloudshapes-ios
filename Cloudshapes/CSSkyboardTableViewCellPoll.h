@@ -14,6 +14,12 @@
 @property (nonatomic,strong) UIView *votesButtonView;
 @property (nonatomic,strong) UILabel *voteCountLabel;
 @property (nonatomic,strong) UIImageView *voteIconImage;
+
+
+@property (nonatomic,strong) UICollectionView *pollOptionsView;
+@property (nonatomic,strong) NSArray *pollOptions;
+
+
 @end
 
 

@@ -54,12 +54,12 @@
         _fullNameLabel = [[UILabel alloc]init];
         _profilePictureView = [[UIImageView alloc] init];
         _postTypePictureView= [[UIImageView alloc] init];
-        
+        _postTypeLabel= [[UILabel alloc] init];
         
         
         //replace   // now we have just disabled actions on them
-        _likesButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        _commentsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        //_likesButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        //_commentsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         
         //with these
         _likesButtonView = [[UIView alloc] init];
@@ -94,12 +94,13 @@
         
         _profilePictureView.backgroundColor = [UIColor redColor];
         _postTypePictureView.backgroundColor = [UIColor blueColor];
+        _postTypeLabel.backgroundColor = [UIColor blueColor];
         _heading.backgroundColor = [UIColor orangeColor];
         
         
         
-        _likesButton.backgroundColor = [UIColor redColor];
-        _commentsButton.backgroundColor = [UIColor blueColor];
+        //_likesButton.backgroundColor = [UIColor redColor];
+        //_commentsButton.backgroundColor = [UIColor blueColor];
         
         _likesButtonView.backgroundColor = [UIColor purpleColor];
         _commentsButtonView.backgroundColor = [UIColor magentaColor];
@@ -142,18 +143,21 @@
     {
         NSLog(@"THOUGHT IDENTIFIED");
         _postTypePictureView.image = [UIImage imageNamed:@"POST_T_icon.png"];
+        _postTypeLabel.text = @"posted a new thought.";
     }
     
     if([_postType isEqualToString:@"Question"])
     {
         NSLog(@"QUESTION IDENTIFIED");
         _postTypePictureView.image = [UIImage imageNamed:@"POST_Q_icon.png"];
+        _postTypeLabel.text = @"posted a new question.";
     }
     
     if ([_postType isEqualToString:@"Poll"])
     {
         NSLog(@"POLL IDENTIFIED");
         _postTypePictureView.image = [UIImage imageNamed:@"POST_P_icon.png"];
+        _postTypeLabel.text = @"posted a new poll.";
     }
     // following if-else is unnecessary
     if (!_postTypePictureView.image)
@@ -183,14 +187,28 @@
                                       0,
                                       _width - (_profilePictureView.frame.size.width
                                                + _postTypePictureView.frame.size.width),
-                                      _profilePictureView.frame.size.height);
+                                      _profilePictureView.frame.size.height/2.0);
     _fullNameLabel.numberOfLines = 1;
+    
     [self addSubview:_fullNameLabel];
+    self.testCellHeight = _fullNameLabel.frame.size.height;
+    
+    _postTypeLabel.frame = CGRectMake(_profilePictureView.frame.size.width,
+                                      self.testCellHeight,
+                                      _width - (_profilePictureView.frame.size.width
+                                                + _postTypePictureView.frame.size.width),
+                                      _profilePictureView.frame.size.height/2.0);
+    self.testCellHeight = _postTypeLabel.frame.size.height;
+    
+    [self addSubview:_postTypeLabel];
+    
     
     
     self.testCellHeight = _profilePictureView.frame.size.height;
     [self addSubview:_profilePictureView];
     // this code places the UILabel on each Cell
+    
+    
     
     _heading.frame = CGRectMake(0, self.testCellHeight, _width, expectedSize.height);//^**
     _heading.numberOfLines = 0;

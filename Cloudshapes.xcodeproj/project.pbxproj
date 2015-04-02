@@ -11,6 +11,7 @@
 		8E35A9761AA7EFFA00FFFE2D /* POST_T_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E35A9731AA7EFFA00FFFE2D /* POST_T_icon.png */; };
 		8E35A9771AA7EFFA00FFFE2D /* POST_Q_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E35A9741AA7EFFA00FFFE2D /* POST_Q_icon.png */; };
 		8E35A9781AA7EFFA00FFFE2D /* POST_P_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E35A9751AA7EFFA00FFFE2D /* POST_P_icon.png */; };
+		8E3B44B81AC9380900A55FD8 /* CSMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3B44B71AC9380900A55FD8 /* CSMapViewController.m */; };
 		8E411C1F1AB9183800A37756 /* CSNewPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E411C1E1AB9183800A37756 /* CSNewPostViewController.m */; };
 		8E58B59C1AA7F4080031D17C /* cs alternate.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E58B59A1AA7F4080031D17C /* cs alternate.png */; };
 		8E58B59D1AA7F4080031D17C /* cs_alternate180square.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E58B59B1AA7F4080031D17C /* cs_alternate180square.png */; };
@@ -20,7 +21,6 @@
 		8E823AEF1ABDF5AE0095D79E /* CSSkyboardTableViewCellPoll.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E823AEE1ABDF5AE0095D79E /* CSSkyboardTableViewCellPoll.m */; };
 		8E84CB4D1AA04383007A396A /* Scarlett-Johansson2-400.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E84CB4C1AA04383007A396A /* Scarlett-Johansson2-400.jpg */; };
 		8E913D001AC0883400E8983E /* Checklist Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E913CFF1AC0883400E8983E /* Checklist Filled-50.png */; };
-		8E9BBF4F1A651606009D6F09 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9BBF4E1A651606009D6F09 /* FacebookSDK.framework */; };
 		8EB32F0A1A7A0031002749F8 /* TSC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB32F091A7A0031002749F8 /* TSC.m */; };
 		8EB576A41A65149E00ED19D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB576A31A65149E00ED19D7 /* main.m */; };
 		8EB576A71A65149E00ED19D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB576A61A65149E00ED19D7 /* AppDelegate.m */; };
@@ -31,6 +31,8 @@
 		8EC993851A6CD2B300074886 /* CSRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC993841A6CD2B300074886 /* CSRegisterViewController.m */; };
 		8ECDD3031A79C07F0051C9C6 /* CSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECDD3021A79C07F0051C9C6 /* CSUser.m */; };
 		8ECDD3061A79C4A30051C9C6 /* CSUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECDD3051A79C4A30051C9C6 /* CSUserProfileViewController.m */; };
+		8ECEA5861AC9206300A3AC90 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ECEA5851AC9206300A3AC90 /* MapKit.framework */; };
+		8ECEA5881AC9206F00A3AC90 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ECEA5871AC9206F00A3AC90 /* CoreLocation.framework */; };
 		8ED342741A835E8F00836D34 /* CSPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED342731A835E8F00836D34 /* CSPhotoViewController.m */; };
 		8EDA975A1AA8D3BD006D667C /* CSSkyboardTableViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA97591AA8D3BD006D667C /* CSSkyboardTableViewController2.m */; };
 		8EDA975D1AA8D598006D667C /* CSSkyboardTableViewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA975C1AA8D598006D667C /* CSSkyboardTableViewCell2.m */; };
@@ -57,6 +59,8 @@
 		8E35A9731AA7EFFA00FFFE2D /* POST_T_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = POST_T_icon.png; sourceTree = "<group>"; };
 		8E35A9741AA7EFFA00FFFE2D /* POST_Q_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = POST_Q_icon.png; sourceTree = "<group>"; };
 		8E35A9751AA7EFFA00FFFE2D /* POST_P_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = POST_P_icon.png; sourceTree = "<group>"; };
+		8E3B44B61AC9380900A55FD8 /* CSMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSMapViewController.h; sourceTree = "<group>"; };
+		8E3B44B71AC9380900A55FD8 /* CSMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSMapViewController.m; sourceTree = "<group>"; };
 		8E411C1D1AB9183800A37756 /* CSNewPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSNewPostViewController.h; sourceTree = "<group>"; };
 		8E411C1E1AB9183800A37756 /* CSNewPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSNewPostViewController.m; sourceTree = "<group>"; };
 		8E58B59A1AA7F4080031D17C /* cs alternate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cs alternate.png"; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 		8ECDD3021A79C07F0051C9C6 /* CSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSUser.m; sourceTree = "<group>"; };
 		8ECDD3041A79C4A30051C9C6 /* CSUserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSUserProfileViewController.h; sourceTree = "<group>"; };
 		8ECDD3051A79C4A30051C9C6 /* CSUserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSUserProfileViewController.m; sourceTree = "<group>"; };
+		8ECEA5851AC9206300A3AC90 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8ECEA5871AC9206F00A3AC90 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8ED342721A835E8F00836D34 /* CSPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPhotoViewController.h; sourceTree = "<group>"; };
 		8ED342731A835E8F00836D34 /* CSPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPhotoViewController.m; sourceTree = "<group>"; };
 		8EDA97581AA8D3BD006D667C /* CSSkyboardTableViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSkyboardTableViewController2.h; sourceTree = "<group>"; };
@@ -111,7 +117,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E9BBF4F1A651606009D6F09 /* FacebookSDK.framework in Frameworks */,
+				8ECEA5881AC9206F00A3AC90 /* CoreLocation.framework in Frameworks */,
+				8ECEA5861AC9206300A3AC90 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +156,8 @@
 		8EB576951A65149E00ED19D7 = {
 			isa = PBXGroup;
 			children = (
+				8ECEA5871AC9206F00A3AC90 /* CoreLocation.framework */,
+				8ECEA5851AC9206300A3AC90 /* MapKit.framework */,
 				8EB576A01A65149E00ED19D7 /* Cloudshapes */,
 				8EB576BA1A65149E00ED19D7 /* CloudshapesTests */,
 				8EB5769F1A65149E00ED19D7 /* Products */,
@@ -172,6 +181,8 @@
 				8EDD106C1A6F229900140559 /* CSLoginViewController.m */,
 				8E6354521AB1560500436BD1 /* CSMainTabBarController.h */,
 				8E6354531AB1560500436BD1 /* CSMainTabBarController.m */,
+				8E3B44B61AC9380900A55FD8 /* CSMapViewController.h */,
+				8E3B44B71AC9380900A55FD8 /* CSMapViewController.m */,
 				8E411C1D1AB9183800A37756 /* CSNewPostViewController.h */,
 				8E411C1E1AB9183800A37756 /* CSNewPostViewController.m */,
 				8ED342721A835E8F00836D34 /* CSPhotoViewController.h */,
@@ -356,6 +367,7 @@
 				8E013EA91ABA074400D29FC1 /* CSSkyboardTableViewCellQuestion.m in Sources */,
 				8ECDD3061A79C4A30051C9C6 /* CSUserProfileViewController.m in Sources */,
 				8EB576A71A65149E00ED19D7 /* AppDelegate.m in Sources */,
+				8E3B44B81AC9380900A55FD8 /* CSMapViewController.m in Sources */,
 				8EF5191A1A8EA1B70098EEB7 /* CSSkyboardTableViewCell.m in Sources */,
 				8E64B6D21A9FBCB60017A079 /* TestTableViewCell.m in Sources */,
 				8EDA975D1AA8D598006D667C /* CSSkyboardTableViewCell2.m in Sources */,

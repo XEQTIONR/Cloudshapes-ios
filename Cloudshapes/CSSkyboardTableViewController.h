@@ -10,6 +10,6 @@
 #import "CSSkyboardTableViewCell.h"
 
 @interface CSSkyboardTableViewController : UITableViewController
-@property (strong, nonatomic) NSArray *posts; // our skyboard model
+@property (strong, nonatomic) NSArray *posts; // our skyboard model // Should we use CORE DATA???
 @property (strong, nonatomic) CSSkyboardTableViewCell *prototypeCell; // dummy cell used to calculate cell height.
 @end

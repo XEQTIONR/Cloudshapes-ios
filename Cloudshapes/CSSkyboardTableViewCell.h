@@ -30,6 +30,7 @@
 
 @property (nonatomic,strong) UIImageView    *profilePictureView;
 @property (nonatomic,strong) UIImageView    *postTypePictureView;
+@property (nonatomic,strong) UILabel        *postTypeLabel;
 @property (nonatomic,strong) UILabel        *fullNameLabel;
 
 

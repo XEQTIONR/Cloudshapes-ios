@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <FacebookSDK/FacebookSDK.h>
+//#import <FacebookSDK/FacebookSDK.h>
 @interface AppDelegate ()
 @end
 
@@ -64,6 +64,6 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
     // attempt to extract a token from the url
-    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    return YES; //[FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
 }
 @end
