@@ -14,41 +14,86 @@
 
 @implementation CSMapViewController
 
-- (void) setMapView:(MKMapView *)mapView
+- (void) viewDidLoad
 {
-    _mapView = mapView;
-    _mapView.delegate = self;
-    
-    //id <MKAnnotation> tempAnn;
-    CLLocationCoordinate2D coordinate1 = CLLocationCoordinate2DMake(43.6942, -79.2933);
-     CLLocationCoordinate2D coordinate2 = CLLocationCoordinate2DMake(42.9999, -79.3014);
-    
-    MKPointAnnotation *Pannotation1 = [[MKPointAnnotation alloc] init];
-    MKPointAnnotation *Pannotation2 = [[MKPointAnnotation alloc] init];
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
     
     
     
-    [Pannotation1 setCoordinate:coordinate1];
-    [Pannotation2 setCoordinate:coordinate2];
-    //[annotation1 set]
+    self.locationManager = [[CLLocationManager alloc] init];
+    [[self locationManager] setDelegate:self]; // so TestMapViewController receives CLLocationManager delegate messages
     
-    [self.mapView addAnnotation:Pannotation1];
-    [self.mapView addAnnotation:Pannotation2];
-    //id <MKAnnotation> tempAnn1 = coordinate1;
-    //self.mapView addAnnotation:coordinate1
+    
+    // for backward compatibility with iOS7
+    if ([[self locationManager] respondsToSelector:@selector(requestWhenInUseAuthorization)])
+    {
+        NSLog(@"respondstoSelector: requestWhenInUseAuthrorization");
+        [[self locationManager] requestWhenInUseAuthorization];
+    }
+    
+    
+    //[[self mapView] setShowsUserLocation:YES];
+    self.mapView.delegate = self;  // so TestMapViewController receives MKMapView delegate messages.
+    self.mapView.showsUserLocation = YES;
+
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    NSLog(@"NEW LOCATION:");
+    NSLog(@"%@", [locations lastObject]);
+}
+
+- (void) mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    CLLocationCoordinate2D userCoordinates = [userLocation coordinate];
+    
+    MKCoordinateRegion zoomRegion = MKCoordinateRegionMakeWithDistance(userCoordinates, 1000, 1000);
+    [self.mapView setRegion:zoomRegion animated:YES];
+    
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    NSLog(@"locationManager:didChangeAuthorizationStatus works.");
+    
+    //if(status == requestWhenInUseAuthorization)
+    
+    NSLog(@" status =%d", status);
+    NSLog(@"wheninUse =%d", kCLAuthorizationStatusAuthorizedWhenInUse);
+    [[self locationManager] setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
+    [[self locationManager] startUpdatingLocation];
     
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView
             viewForAnnotation:(id <MKAnnotation>)annotation
 {
-    //this method is called to for each annotation to be displayed on the map
+    /*this method is called to for each annotation to be displayed on the map
     MKPinAnnotationView *annotationView=[[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"pin"];
     
     //NSLog(@"viewForAnnotation called");
+    
+    if (annotation==[self.mapView userLocation]) {
+        
+        NSLog(@"Found user location");
+    }
     annotationView.pinColor = MKPinAnnotationColorGreen;
     
     return annotationView;
-
+*/
+    return nil;
 }
+
+/*- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        NSLog(@"Current  location is NIL");
+    }
+}*/
 @end

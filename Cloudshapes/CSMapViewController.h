@@ -11,8 +11,10 @@
 #import <CoreLocation/CoreLocation.h>
 
 
-@interface CSMapViewController : UIViewController <MKMapViewDelegate>
+@interface CSMapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
 
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (strong, nonatomic) NSMutableArray <MKAnnotation> *ann;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) IBOutlet MKMapView *mapView;
+//@property (strong, nonatomic) NSMutableArray <MKAnnotation> *ann;
+
 @end
