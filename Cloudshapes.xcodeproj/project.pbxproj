@@ -197,6 +197,8 @@
 				8ECDD3051A79C4A30051C9C6 /* CSUserProfileViewController.m */,
 				8EC993831A6CD2B300074886 /* CSRegisterViewController.h */,
 				8EC993841A6CD2B300074886 /* CSRegisterViewController.m */,
+				8EDDC94B1AD4B39A00F50968 /* CSSkyboardTableView.h */,
+				8EDDC94C1AD4B39A00F50968 /* CSSkyboardTableView.m */,
 				8EF519181A8EA1B70098EEB7 /* CSSkyboardTableViewCell.h */,
 				8EF519191A8EA1B70098EEB7 /* CSSkyboardTableViewCell.m */,
 				8E823AED1ABDF5AE0095D79E /* CSSkyboardTableViewCellPoll.h */,
@@ -225,8 +227,6 @@
 				8EDC71B01AB7BBB800A9295B /* Hearts-50.png */,
 				8EDC71B21AB7BD0E00A9295B /* Comments-50.png */,
 				8EB32F091A7A0031002749F8 /* TSC.m */,
-				8EDDC94B1AD4B39A00F50968 /* CSSkyboardTableView.h */,
-				8EDDC94C1AD4B39A00F50968 /* CSSkyboardTableView.m */,
 			);
 			path = Cloudshapes;
 			sourceTree = "<group>";

@@ -13,9 +13,11 @@
 #import "CSSkyboardTableViewCell.h"
 #import "CSSkyboardTableView.h"
 
-@interface CSSkyboardTableAndMapViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface CSSkyboardTableAndMapViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet CSSkyboardTableView *tableView;
-@property (weak, nonatomic) IBOutlet UITableView *mapView;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
 
 @property (strong, nonatomic) NSArray *posts; // our skyboard model // Should we use CORE DATA???
 @property (strong, nonatomic) CSSkyboardTableViewCell *prototypeCell; // dummy cell used to calculate cell height.

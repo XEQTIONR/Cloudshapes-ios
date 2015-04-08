@@ -135,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nBY-LL-lkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3025.5" y="-1782"/>
+            <point key="canvasLocation" x="-3007.5" y="-1784"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="stZ-aI-M2d">
@@ -623,9 +623,19 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vDI-JH-ifO">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="243"/>
+                                    <rect key="frame" x="0.0" y="72" width="400" height="243"/>
                                 </variation>
                             </mapView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="tFA-bg-Wqf">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="28" width="400" height="44"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="ysh-ir-cW9" id="Jqv-6K-XIo"/>
+                                </connections>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="04F-rY-82L" customClass="CSSkyboardTableView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -650,7 +660,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="1" y="3" width="399" height="597"/>
+                                    <rect key="frame" x="0.0" y="72" width="399" height="597"/>
                                 </variation>
                             </tableView>
                         </subviews>
@@ -658,25 +668,37 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="vDI-JH-ifO"/>
+                                <exclude reference="tFA-bg-Wqf"/>
                                 <exclude reference="04F-rY-82L"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="vDI-JH-ifO"/>
+                                <include reference="tFA-bg-Wqf"/>
                                 <include reference="04F-rY-82L"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Lje-A6-wUL"/>
                     <connections>
-                        <outlet property="mapView" destination="04F-rY-82L" id="cSp-D4-J55"/>
+                        <outlet property="mapView" destination="vDI-JH-ifO" id="xOC-bB-ga8"/>
+                        <outlet property="searchDisplayController" destination="yHE-jm-ytv" id="hMD-1e-9c3"/>
                         <outlet property="tableView" destination="04F-rY-82L" id="7iX-ob-cpJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BsE-vC-rS7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="yHE-jm-ytv">
+                    <connections>
+                        <outlet property="delegate" destination="ysh-ir-cW9" id="WlC-rc-1Zm"/>
+                        <outlet property="searchBar" destination="tFA-bg-Wqf" id="qRL-19-Tqq"/>
+                        <outlet property="searchContentsController" destination="ysh-ir-cW9" id="8mG-ee-kZo"/>
+                        <outlet property="searchResultsDataSource" destination="ysh-ir-cW9" id="TZY-0t-ywO"/>
+                        <outlet property="searchResultsDelegate" destination="ysh-ir-cW9" id="HyN-n5-OvW"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-922.5" y="-3721"/>
+            <point key="canvasLocation" x="-1027.5" y="-3875"/>
         </scene>
     </scenes>
 </document>

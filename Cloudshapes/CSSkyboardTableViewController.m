@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad
 {
-    NSLog(@"Skyboard TVC viewDidLoadCalled..........");
+  ///  NSLog(@"Skyboard TVC viewDidLoadCalled..........");
     [super viewDidLoad];
     
     if(!self.posts)

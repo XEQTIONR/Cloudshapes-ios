@@ -17,21 +17,21 @@
 
 - (void)like:(id)sender
 {
-    NSLog(@"like: function for postId:%@", self.postId);
+    ////////NSLog(@"like: function for postId:%@", self.postId);
     
     // Connect to like script here
 }
 
 - (void)comment:(id)sender
 {
-    NSLog(@"comment: function for postId:%@", self.postId);
+    ////////NSLog(@"comment: function for postId:%@", self.postId);
     
     // Connect to comment script here
 }
 
 - (void)viewLikes:(id)sender
 {
-    NSLog(@"viewLikes: function for postId:%@", self.postId);
+    ////////NSLog(@"viewLikes: function for postId:%@", self.postId);
     
     // Navigate to a new view controller
     // Connect to view-likes script
@@ -49,7 +49,7 @@
     self = [super initWithCoder:aDecoder];
     if (self)
     {
-        NSLog(@"CSSkyboardTableViewCell initWithCoder called");
+      ////  ////////////NSLog(@"CSSkyboardTableViewCell initWithCoder called");
         _heading = [[UILabel alloc] init];
         _fullNameLabel = [[UILabel alloc]init];
         _profilePictureView = [[UIImageView alloc] init];
@@ -111,14 +111,14 @@
 
 - (void) viewDidAppear
 {
-    NSLog(@"VIEW DID APPEAR CALLED");
+   //// ////////////NSLog(@"VIEW DID APPEAR CALLED");
    // _profilePictureView.image = [UIImage imageNamed:@"Scarlett-Johansson2-400.jpg"];
 }
 
 #pragma mark - FIX THIS
 - (void)layoutSubviews
 {
-    NSLog(@"    ------------------------- SkyboardTVCell  layoutSubview BEGIN{");
+    ////////////NSLog(@"    ------------------------- SkyboardTVCell  layoutSubview BEGIN{");
     [super layoutSubviews];
     
  
@@ -130,50 +130,50 @@
     _buttonWidth = _width/3.0;
     CGSize expectedSize = [_heading.text boundingRectWithSize:CGSizeMake(_width, 2000)  options:(NSStringDrawingUsesLineFragmentOrigin) attributes:@{NSFontAttributeName: _heading.font} context:nil].size;
 
-    NSLog(@"Expected height: %f", expectedSize.height);
-    NSLog(@"Self.bounds.size.width: %f", self.bounds.size.width);
+  ////  ////////NSLog(@"Expected height: %f", expectedSize.height);
+   //// ////////NSLog(@"Self.bounds.size.width: %f", self.bounds.size.width);
     
     _postTypePictureView.frame = CGRectMake((_width - _width/10.0), 0, _width/10.0, _width/10.0);
-    NSLog(@"POST TYPE IS :    %@    ", _postType);
-    NSLog(@"_heading.text is %@", _heading.text);
-    NSLog(@"_fullNameLabel is %@", _fullNameLabel.text);
+    ////////NSLog(@"POST TYPE IS :    %@    ", _postType);
+    ////////NSLog(@"_heading.text is %@", _heading.text);
+    ////////NSLog(@"_fullNameLabel is %@", _fullNameLabel.text);
    
     
     // put these in subclasses
     if([_postType isEqualToString:@"Thought"])
     {
-        NSLog(@"THOUGHT IDENTIFIED");
+     ////   ////////NSLog(@"THOUGHT IDENTIFIED");
         _postTypePictureView.image = [UIImage imageNamed:@"POST_T_icon.png"];
         _postTypeLabel.text = @"posted a new thought.";
     }
     
     if([_postType isEqualToString:@"Question"])
     {
-        NSLog(@"QUESTION IDENTIFIED");
+       //// ////////NSLog(@"QUESTION IDENTIFIED");
         _postTypePictureView.image = [UIImage imageNamed:@"POST_Q_icon.png"];
         _postTypeLabel.text = @"posted a new question.";
     }
     
     if ([_postType isEqualToString:@"Poll"])
     {
-        NSLog(@"POLL IDENTIFIED");
+      ////  ////////NSLog(@"POLL IDENTIFIED");
         _postTypePictureView.image = [UIImage imageNamed:@"POST_P_icon.png"];
         _postTypeLabel.text = @"posted a new poll.";
     }
     // following if-else is unnecessary
     if (!_postTypePictureView.image)
     {
-        NSLog(@"PICTURE NIL");
+       //// ////////NSLog(@"PICTURE NIL");
 
 
     }
     else
     {
-        NSLog(@"PICTURE NOT NIL");
+       //// ////////NSLog(@"PICTURE NOT NIL");
 
     }
 ///////////////////////////CHECK HERE
-    //NSLog(@"heading : %@", _heading.text);
+    //////////NSLog(@"heading : %@", _heading.text);
     [self addSubview:_postTypePictureView];
     
     _profilePictureView.frame = CGRectMake(0, 0, _width/5.0, _width/5.0);
@@ -215,8 +215,8 @@
     _heading.numberOfLines = 0;
     self.testCellHeight += expectedSize.height;
     self.buttonAtHeight = self.testCellHeight;
-    NSLog(@"testcellheight in layout subview %f", self.testCellHeight);
-    NSLog(@"self.bounds.size.width2: %f", self.bounds.size.width);
+    ////////////NSLog(@"testcellheight in layout subview %f", self.testCellHeight);
+    ////////////NSLog(@"self.bounds.size.width2: %f", self.bounds.size.width);
     [self addSubview:_heading];
     
     
@@ -280,7 +280,7 @@
     [self addSubview:_commentsButtonView];
     
     
-    NSLog(@"    -------------------------}SkyboardTVCell layoutSubview END");
+    ////////NSLog(@"    -------------------------}SkyboardTVCell layoutSubview END");
     
 }
 

@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad
 {
-    NSLog(@"Skyboard TVC viewDidLoadCalled..........");
+   //// NSLog(@"Skyboard TVC viewDidLoadCalled..........");
     [super viewDidLoad];
     
     if(!self.posts)
@@ -48,20 +48,20 @@
         
         if ([response statusCode]>=200 && [response statusCode]<300)
         {
-            NSLog(@"response status code: %ld", [response statusCode]);
+    ////        NSLog(@"response status code: %ld", [response statusCode]);
         }
         
         if (error == nil){NSLog(@"NO ERRORS");}
         
         if (jsonData == nil)
         {
-            NSLog(@"NIL RESULT");
+   ////         NSLog(@"NIL RESULT");
         }
         else
         {
-            NSLog(@"%@", jsonData);
+ ////          NSLog(@"%@", jsonData);
             //NSLog(@"AND R1:");      //jsonData is a NSArray -->NSDictionary previously
-            NSLog(@"jsonData.count = %lu", [jsonData count]);
+ ////           NSLog(@"jsonData.count = %lu", [jsonData count]);
             
             self.posts = jsonData; // initialize our model with the received data
         }
@@ -71,9 +71,9 @@
         self.tableView.backgroundColor = nil;
     }
     
-    NSLog(@"BEFORE self.prototypeCell dequeReusable Idebtifier POST CELL");
+  ////  NSLog(@"BEFORE self.prototypeCell dequeReusable Idebtifier POST CELL");
     self.prototypeCell = [self.tableView dequeueReusableCellWithIdentifier:@"Post Cell B"];
-    NSLog(@"AFTER self.prototypeCell dequeReusable Idebtifier POST CELL");
+  ////  NSLog(@"AFTER self.prototypeCell dequeReusable Idebtifier POST CELL");
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -81,15 +81,89 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+#pragma mark - Configure Location Manager
+//  ----------------------------------------------
+  
+  // Configure location Manager
+    self.locationManager = [[CLLocationManager alloc] init];
+    [[self locationManager] setDelegate:self]; // so TestMapViewController receives CLLocationManager delegate messages
+    
+    
+    // for backward compatibility with iOS7
+    if ([[self locationManager] respondsToSelector:@selector(requestWhenInUseAuthorization)])
+    {
+        NSLog(@"respondstoSelector: requestWhenInUseAuthrorization");
+        [[self locationManager] requestWhenInUseAuthorization];
+    }
+    
+    
+    //[[self mapView] setShowsUserLocation:YES];
+    self.mapView.delegate = self;  // so TestMapViewController receives MKMapView delegate messages.
+    self.mapView.showsUserLocation = YES;
+
 }
 
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    NSLog(@"NEW LOCATION:");
+    NSLog(@"%@", [locations lastObject]);
+}
+
+- (void) mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    CLLocationCoordinate2D userCoordinates = [userLocation coordinate];
+    
+    MKCoordinateRegion zoomRegion = MKCoordinateRegionMakeWithDistance(userCoordinates, 1000, 1000);
+    [self.mapView setRegion:zoomRegion animated:YES];
+    
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    NSLog(@"locationManager:didChangeAuthorizationStatus works.");
+    
+    //if(status == requestWhenInUseAuthorization)
+    
+    NSLog(@" status =%d", status);
+    NSLog(@"wheninUse =%d", kCLAuthorizationStatusAuthorizedWhenInUse);
+    [[self locationManager] setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
+   //THIS IS WHERE WE START UPDATING LOCATIONS
+    [[self locationManager] startUpdatingLocation];
+    
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView
+            viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    /*this method is called to for each annotation to be displayed on the map
+     MKPinAnnotationView *annotationView=[[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"pin"];
+     
+     //NSLog(@"viewForAnnotation called");
+     
+     if (annotation==[self.mapView userLocation]) {
+     
+     NSLog(@"Found user location");
+     }
+     annotationView.pinColor = MKPinAnnotationColorGreen;
+     
+     return annotationView;
+     */
+    return nil;
+}
 
 - (void) viewDidLayoutSubviews
 {
     
     
     self.tableView.contentInset = UIEdgeInsetsMake(250, 0, 0, 0);
+    NSLog(@"content offset y after layout subviews: %f",self.tableView.contentOffset.y);
+    NSLog(@"mapview height is : %f", self.mapView.bounds.size.height);
 }
+//Location Manager End----------------------------------------
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -114,9 +188,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSLog(@"------------------------- SkyboardTableViewController  cellFRAIP BEGIN");
+  ////  NSLog(@"------------------------- SkyboardTableViewController  cellFRAIP BEGIN");
     
-    NSLog(@"cellForRowAtIndexPath:%ld called BEFORE DEQUE",indexPath.row);
+  ////  NSLog(@"cellForRowAtIndexPath:%ld called BEFORE DEQUE",indexPath.row);
     
     
     NSDictionary *object = [self.posts objectAtIndex:indexPath.row];
@@ -140,11 +214,11 @@
     {
         CSSkyboardTableViewCellPoll *cell3 = [tableView dequeueReusableCellWithIdentifier:@"Poll Cell B" forIndexPath:indexPath];
         if (!cell3) {
-            NSLog(@"Cell 3 is nil");
+  ////          NSLog(@"Cell 3 is nil");
         }
         else
         {
-            NSLog(@"Cell 3 in not nil");
+    ////        NSLog(@"Cell 3 in not nil");
         }
         cell3.voteCount = [NSNumber numberWithInt:53];
         cell3.voteCountLabel.text = [NSString stringWithFormat:@"%d", [cell3.voteCount intValue ]];
@@ -157,8 +231,8 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"Post Cell B" forIndexPath:indexPath];
     }
     
-    
-    NSLog(@"AFTER DEQUE");
+ 
+ ////   NSLog(@"AFTER DEQUE");
     
     cell.postType = [object objectForKey:@"posttype"];
     cell.heading.text = [object objectForKey:@"posttext"];
@@ -192,14 +266,14 @@
     cell.commentCountLabel.text = [NSString stringWithFormat:@"%d", [cell.commentCount intValue]];
     cell.postId = [object objectForKey:@"postid"];
     
-    NSLog(@"------------------------- SkyboardTableViewController  cellFRAIP END RETURN cell");
+ ////   NSLog(@"------------------------- SkyboardTableViewController  cellFRAIP END RETURN cell");
     return cell;
     
 }
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"-------------------------heightFRAIP BEGIN");
-    NSLog(@"heightForRowAtIndexPath:%lu called", indexPath.row);
+ ////   NSLog(@"-------------------------heightFRAIP BEGIN");
+  ////  NSLog(@"heightForRowAtIndexPath:%lu called", indexPath.row);
     
     NSDictionary *object = [self.posts objectAtIndex:indexPath.row];
     
@@ -208,18 +282,44 @@
         self.prototypeCell.heading.text = [object objectForKey:@"posttext"];
         // self.prototypeCell.postType = [object objectForKey:@"posttype"]; // we pass the post type now rather than later
         
-        NSLog(@"self.protoypecell.posttype = %@", self.prototypeCell.postType);
+   ////     NSLog(@"self.protoypecell.posttype = %@", self.prototypeCell.postType);
         [self.prototypeCell layoutSubviews];//LAYOUT SUBVIEWS
-        NSLog(@"prototypecell .testcellheight : %f", self.prototypeCell.testCellHeight);
-        NSLog(@"-------------------------heightFRAIP END RETURN HEIGHT\n\n\n\n\n");
+   ////    NSLog(@"prototypecell .testcellheight : %f", self.prototypeCell.testCellHeight);
+    ////    NSLog(@"-------------------------heightFRAIP END RETURN HEIGHT\n\n\n\n\n");
         return self.prototypeCell.testCellHeight;
     }
     
     @catch (NSException *e)
     {
-        NSLog(@"Exception: %@", e);
+     ////   NSLog(@"Exception: %@", e);
         return 100.0f;
     }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    NSLog(@"contentOffset:%f", scrollView.contentOffset.y);
+    NSLog(@"mapview height:%f\n", self.mapView.frame.size.height-1);
+    
+    if (scrollView.contentOffset.y < -250.0 ) {
+        [scrollView setContentOffset:CGPointMake(scrollView.contentOffset.x, -250.0)];
+        NSLog(@"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXif block true. Scrollview did scroll");
+    }
+    
+  /*  if (scrollView.contentOffset.y >= 0.0) {
+        
+        NSLog(@"CONTENT OFFSET IS ZERO");
+        NSLog(@"Attempting to shutdown location monitoring");
+        // THIS IS WHERE WE STOP UPDATING LOCATION.
+        
+        [self.locationManager stopUpdatingLocation];
+    }
+    
+    else
+    {
+        [self.locationManager startUpdatingLocation];
+    }
+ */
 }
 
 
