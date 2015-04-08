@@ -123,7 +123,8 @@
     
  
     //{MAX(a, self.bounds.size.with) | a is minimum width all the possible devices that use this app} - this fixes the problem. Just lookup a.
-    _width = MAX(375,self.bounds.size.width); //375 width of portrait iphone 6. Fix this for all models.
+    _width =[UIScreen mainScreen].bounds.size.width;
+    //_width = MAX(375,self.bounds.size.width); //375 width of portrait iphone 6. Fix this for all models.
     //why does changing width to self.bounds.size.width not work?? here but works in ^**
     //maybe because prototypes dont have bounds
     _buttonWidth = _width/3.0;
