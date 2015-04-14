@@ -86,6 +86,9 @@
 //  ----------------------------------------------
   
   // Configure location Manager
+    self.mapView.showsUserLocation = YES;
+
+    
     self.locationManager = [[CLLocationManager alloc] init];
     [[self locationManager] setDelegate:self]; // so TestMapViewController receives CLLocationManager delegate messages
     
@@ -100,8 +103,8 @@
     
     //[[self mapView] setShowsUserLocation:YES];
     self.mapView.delegate = self;  // so TestMapViewController receives MKMapView delegate messages.
-    self.mapView.showsUserLocation = YES;
-
+    [self.locationManager startUpdatingLocation];
+    
 }
 
 
@@ -129,6 +132,7 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
     
     NSLog(@" status =%d", status);
     NSLog(@"wheninUse =%d", kCLAuthorizationStatusAuthorizedWhenInUse);
+    NSLog(@"always =%d", kCLAuthorizationStatusAuthorizedAlways);
     [[self locationManager] setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
    //THIS IS WHERE WE START UPDATING LOCATIONS
     [[self locationManager] startUpdatingLocation];

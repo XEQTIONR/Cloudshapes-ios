@@ -14,6 +14,8 @@
 #import "CSSkyboardTableView.h"
 
 @interface CSSkyboardTableAndMapViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate>
+
+
 @property (weak, nonatomic) IBOutlet CSSkyboardTableView *tableView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
