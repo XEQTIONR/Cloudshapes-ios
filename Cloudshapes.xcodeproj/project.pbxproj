@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		8E013EA91ABA074400D29FC1 /* CSSkyboardTableViewCellQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E013EA81ABA074400D29FC1 /* CSSkyboardTableViewCellQuestion.m */; };
 		8E3570C51ADD8C05003521B4 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3570C41ADD8C05003521B4 /* BaseViewController.m */; };
+		8E3570D01ADDADCA003521B4 /* User Male Circle-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E3570CC1ADDADCA003521B4 /* User Male Circle-32.png */; };
+		8E3570D11ADDADCA003521B4 /* Plus-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E3570CD1ADDADCA003521B4 /* Plus-32.png */; };
+		8E3570D21ADDADCA003521B4 /* Delete Sign Filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E3570CE1ADDADCA003521B4 /* Delete Sign Filled-32.png */; };
+		8E3570D31ADDADCA003521B4 /* Binoculars-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E3570CF1ADDADCA003521B4 /* Binoculars-32.png */; };
 		8E35A9761AA7EFFA00FFFE2D /* POST_T_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E35A9731AA7EFFA00FFFE2D /* POST_T_icon.png */; };
 		8E35A9771AA7EFFA00FFFE2D /* POST_Q_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E35A9741AA7EFFA00FFFE2D /* POST_Q_icon.png */; };
 		8E35A9781AA7EFFA00FFFE2D /* POST_P_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E35A9751AA7EFFA00FFFE2D /* POST_P_icon.png */; };
@@ -61,6 +65,10 @@
 		8E013EA81ABA074400D29FC1 /* CSSkyboardTableViewCellQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSkyboardTableViewCellQuestion.m; sourceTree = "<group>"; };
 		8E3570C31ADD8C05003521B4 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		8E3570C41ADD8C05003521B4 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		8E3570CC1ADDADCA003521B4 /* User Male Circle-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User Male Circle-32.png"; sourceTree = "<group>"; };
+		8E3570CD1ADDADCA003521B4 /* Plus-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Plus-32.png"; sourceTree = "<group>"; };
+		8E3570CE1ADDADCA003521B4 /* Delete Sign Filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Delete Sign Filled-32.png"; sourceTree = "<group>"; };
+		8E3570CF1ADDADCA003521B4 /* Binoculars-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Binoculars-32.png"; sourceTree = "<group>"; };
 		8E35A9731AA7EFFA00FFFE2D /* POST_T_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = POST_T_icon.png; sourceTree = "<group>"; };
 		8E35A9741AA7EFFA00FFFE2D /* POST_Q_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = POST_Q_icon.png; sourceTree = "<group>"; };
 		8E35A9751AA7EFFA00FFFE2D /* POST_P_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = POST_P_icon.png; sourceTree = "<group>"; };
@@ -229,6 +237,10 @@
 				8EB576B01A65149E00ED19D7 /* LaunchScreen.xib */,
 				8EB576A11A65149E00ED19D7 /* Supporting Files */,
 				8EB32F081A7A0031002749F8 /* TSC.h */,
+				8E3570CC1ADDADCA003521B4 /* User Male Circle-32.png */,
+				8E3570CD1ADDADCA003521B4 /* Plus-32.png */,
+				8E3570CE1ADDADCA003521B4 /* Delete Sign Filled-32.png */,
+				8E3570CF1ADDADCA003521B4 /* Binoculars-32.png */,
 				8E913CFF1AC0883400E8983E /* Checklist Filled-50.png */,
 				8E84CB4C1AA04383007A396A /* Scarlett-Johansson2-400.jpg */,
 				8E35A9731AA7EFFA00FFFE2D /* POST_T_icon.png */,
@@ -355,15 +367,19 @@
 			files = (
 				8E35A9771AA7EFFA00FFFE2D /* POST_Q_icon.png in Resources */,
 				8E58B59C1AA7F4080031D17C /* cs alternate.png in Resources */,
+				8E3570D21ADDADCA003521B4 /* Delete Sign Filled-32.png in Resources */,
 				8E35A9761AA7EFFA00FFFE2D /* POST_T_icon.png in Resources */,
 				8EB576AD1A65149E00ED19D7 /* Main.storyboard in Resources */,
+				8E3570D01ADDADCA003521B4 /* User Male Circle-32.png in Resources */,
 				8EDC71B11AB7BBB800A9295B /* Hearts-50.png in Resources */,
 				8E58B59F1AA7F49B0031D17C /* cs alternate120square.png in Resources */,
 				8EDC71B31AB7BD0E00A9295B /* Comments-50.png in Resources */,
 				8EB576B21A65149E00ED19D7 /* LaunchScreen.xib in Resources */,
 				8EB576AF1A65149E00ED19D7 /* Images.xcassets in Resources */,
 				8E58B59D1AA7F4080031D17C /* cs_alternate180square.png in Resources */,
+				8E3570D11ADDADCA003521B4 /* Plus-32.png in Resources */,
 				8E84CB4D1AA04383007A396A /* Scarlett-Johansson2-400.jpg in Resources */,
+				8E3570D31ADDADCA003521B4 /* Binoculars-32.png in Resources */,
 				8E35A9781AA7EFFA00FFFE2D /* POST_P_icon.png in Resources */,
 				8E913D001AC0883400E8983E /* Checklist Filled-50.png in Resources */,
 			);

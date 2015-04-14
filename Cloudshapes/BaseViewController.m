@@ -29,6 +29,15 @@
 
 @implementation BaseViewController
 
+
+-(UIViewController*) viewControllerWithTabTitle:(NSString *)title image:(UIImage *)image storyboardID:(NSString *)storyboardID
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:storyboardID];
+    
+    viewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:title image:image tag:0 ];
+    return viewController;
+}
 // Create a view controller and setup it's tab bar item with a title and image
 -(UIViewController*) viewControllerWithTabTitle:(NSString*) title image:(UIImage*)image
 {
@@ -44,7 +53,7 @@
   button.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
   button.frame = CGRectMake(0.0, 0.0, buttonImage.size.width, buttonImage.size.height);
   [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
-  [button setBackgroundImage:highlightImage forState:UIControlStateHighlighted];
+  //[button setBackgroundImage:highlightImage forState:UIControlStateHighlighted];
 
   CGFloat heightDifference = buttonImage.size.height - self.tabBar.frame.size.height;
   if (heightDifference < 0)

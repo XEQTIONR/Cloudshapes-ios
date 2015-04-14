@@ -37,7 +37,16 @@ shouldSelectViewController:(UIViewController *)viewController
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.delegate = self;
+    
     // Do any additional setup after loading the view.
+    self.viewControllers = [NSArray arrayWithObjects:
+                            [self viewControllerWithTabTitle:@"Explore" image:[UIImage imageNamed:@"Binoculars-32"] storyboardID:@"TESTItem"],
+                            [self viewControllerWithTabTitle:@"Profile" image:[UIImage imageNamed:@"User Male Circle-32"] storyboardID:@"CSProfile"],
+                            nil];
+    
+    [self addCenterButtonWithImage:[UIImage imageNamed:@"Plus-32"] highlightImage:[UIImage imageNamed:@"Delete Sign Filled-32"]];
+    
+   
 }
 
 - (void)didReceiveMemoryWarning {
