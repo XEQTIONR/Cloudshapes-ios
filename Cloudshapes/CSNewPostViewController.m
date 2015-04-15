@@ -17,6 +17,12 @@
 
 @implementation CSNewPostViewController
 
+- (IBAction)cancel:(id)sender
+{
+    //temporary for testing. Use delegates instead.
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (IBAction)post:(id)sender {
     
     //[self resignFirstResponder];

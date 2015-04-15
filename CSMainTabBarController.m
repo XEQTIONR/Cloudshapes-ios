@@ -24,19 +24,13 @@
 - (BOOL)tabBarController:(UITabBarController *)tabBarController
 shouldSelectViewController:(UIViewController *)viewController
 {
-
-    if ([viewController isKindOfClass:[UIViewController class]])
+    if (viewController==dummyViewController)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Stop" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Meh", nil];
-        [alert show];
+        //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Stop" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Meh", nil];
+        //[alert show];
         return NO ;
-        
-        //here we should replace the alert with the custom view to select the type of post
     }
-    else
-    {
-        return YES;
-    }
+    return YES;
 }
 
 
@@ -46,6 +40,7 @@ shouldSelectViewController:(UIViewController *)viewController
 {
     dummyViewController.tabBarItem.title = @"Cancel";
 }
+
 - (void)stackMenuDidClose:(UPStackMenu*)menu
 {
     dummyViewController.tabBarItem.title = @"New Post";
@@ -86,11 +81,11 @@ shouldSelectViewController:(UIViewController *)viewController
     //[stack setCenter:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2 + 20)];
     [stack setDelegate:self];
     
-    UPStackMenuItem *squareItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"square"] highlightedImage:nil title:@"Square"];
-    UPStackMenuItem *circleItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"circle"] highlightedImage:nil title:@"Circle"];
-    UPStackMenuItem *triangleItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"triangle"] highlightedImage:nil title:@"Triangle"];
-    UPStackMenuItem *crossItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"cross"] highlightedImage:nil title:@"Cross"];
-    NSMutableArray *items = [[NSMutableArray alloc] initWithObjects:squareItem, circleItem, triangleItem, crossItem, nil];
+    UPStackMenuItem *thoughtItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:nil] highlightedImage:nil title:@"Thought"];
+    UPStackMenuItem *questionItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:nil] highlightedImage:nil title:@"Question"];
+    UPStackMenuItem *pollItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:nil] highlightedImage:nil title:@"Poll"];
+    //UPStackMenuItem *crossItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"cross"] highlightedImage:nil title:@"Cross"];
+    NSMutableArray *items = [[NSMutableArray alloc] initWithObjects:thoughtItem, questionItem, pollItem, nil];
     [items enumerateObjectsUsingBlock:^(UPStackMenuItem *item, NSUInteger idx, BOOL *stop) {
         [item setTitleColor:[UIColor whiteColor]];
     }];
@@ -143,13 +138,19 @@ shouldSelectViewController:(UIViewController *)viewController
 
 - (void)stackMenu:(UPStackMenu *)menu didTouchItem:(UPStackMenuItem *)item atIndex:(NSUInteger)index
 {
-    NSString *message = [NSString stringWithFormat:@"Item touched : %@", item.title];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:message
-                                                    message:nil
-                                                   delegate:nil
-                                          cancelButtonTitle:@"Ok"
-                                          otherButtonTitles:nil];
-    [alert show];
+    //NSString *message = [NSString stringWithFormat:@"Item touched : %@", item.title];
+    [stack closeStack];
+    NSString *postType = item.title;
+    
+    if ([postType compare:@"Thought"]==NSOrderedSame)
+        [self performSegueWithIdentifier:@"New Thought" sender:self];
+    
+    else if ([postType compare:@"Question"]==NSOrderedSame)
+        NSLog(@"Question selected");
+    
+    else if ([postType compare:@"Poll"]==NSOrderedSame)
+        NSLog(@"Poll selected");
+    
 }
 
 

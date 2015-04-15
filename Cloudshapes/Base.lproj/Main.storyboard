@@ -202,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fp7-AX-SAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2298" y="-2034"/>
+            <point key="canvasLocation" x="804" y="-4204"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SVS-h5-bRf">
@@ -312,6 +312,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
+                    <connections>
+                        <segue destination="fMk-1P-Xw0" kind="presentation" identifier="New Thought" id="PSY-tb-hLT"/>
+                    </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ty-j3-bd9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -417,7 +420,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tpi-lW-LqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1329" y="-2034"/>
+            <point key="canvasLocation" x="-516" y="-4218"/>
         </scene>
         <!--Profile-->
         <scene sceneID="cfI-Ot-VV6">
@@ -436,7 +439,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OXi-jW-5Jk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-264" y="-2034"/>
+            <point key="canvasLocation" x="-531" y="-3313"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="tNT-CW-tkl">
@@ -475,7 +478,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9gJ-mO-hjL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-3214"/>
+            <point key="canvasLocation" x="-2218.5" y="-4882"/>
         </scene>
         <!--New Post-->
         <scene sceneID="yhR-lw-02n">
@@ -489,39 +492,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Enter post text." translatesAutoresizingMaskIntoConstraints="NO" id="QnR-et-jlr">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="35" width="400" height="211"/>
-                                </variation>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k65-iP-xjr">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="129" y="272" width="143" height="30"/>
+                                    <rect key="frame" x="137" y="285" width="143" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="post:" destination="fMk-1P-Xw0" eventType="touchUpInside" id="1wI-tw-bIS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2px-kH-fit">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="20" width="48" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="cancel:" destination="fMk-1P-Xw0" eventType="touchUpInside" id="3wM-Ga-aU3"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Enter post text." translatesAutoresizingMaskIntoConstraints="NO" id="QnR-et-jlr">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="-5" y="66" width="400" height="211"/>
+                                </variation>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="QnR-et-jlr"/>
                                 <exclude reference="k65-iP-xjr"/>
+                                <exclude reference="2px-kH-fit"/>
+                                <exclude reference="QnR-et-jlr"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="QnR-et-jlr"/>
                                 <include reference="k65-iP-xjr"/>
+                                <include reference="2px-kH-fit"/>
+                                <include reference="QnR-et-jlr"/>
                             </mask>
                         </variation>
                     </view>
@@ -532,7 +549,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hb-QR-8Gw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="591" y="-2564"/>
+            <point key="canvasLocation" x="-796.5" y="-2535"/>
         </scene>
         <!--Skyboard-->
         <scene sceneID="qsy-7A-Hve">
@@ -549,7 +566,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ic-TD-UEb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1027.5" y="-3109"/>
+            <point key="canvasLocation" x="-2218.5" y="-3313"/>
         </scene>
         <!--Skyboard-->
         <scene sceneID="NAz-mR-GwZ">
@@ -601,7 +618,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZT5-cG-Evn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-208.5" y="-3079"/>
+            <point key="canvasLocation" x="-2218.5" y="-4097"/>
         </scene>
         <!--Item-->
         <scene sceneID="Eac-ts-Drm">
@@ -693,7 +710,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-1027.5" y="-3875"/>
+            <point key="canvasLocation" x="-1354.5" y="-3313"/>
         </scene>
     </scenes>
 </document>
