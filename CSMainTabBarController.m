@@ -11,6 +11,8 @@
 @interface CSMainTabBarController (){
     UIView *contentView;
     UPStackMenu *stack;
+    UIViewController *dummyViewController;
+    
 }
 
 @end
@@ -23,11 +25,11 @@
 shouldSelectViewController:(UIViewController *)viewController
 {
 
-    if ([viewController isKindOfClass:[CSNewPostViewController class]])
+    if ([viewController isKindOfClass:[UIViewController class]])
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Stop" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Meh", nil];
         [alert show];
-        return YES ;
+        return NO ;
         
         //here we should replace the alert with the custom view to select the type of post
     }
@@ -37,15 +39,32 @@ shouldSelectViewController:(UIViewController *)viewController
     }
 }
 
+
+#pragma mark - UPStackMenu Delegate Methods
+
+- (void)stackMenuDidOpen:(UPStackMenu*)menu
+{
+    dummyViewController.tabBarItem.title = @"Cancel";
+}
+- (void)stackMenuDidClose:(UPStackMenu*)menu
+{
+    dummyViewController.tabBarItem.title = @"New Post";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.delegate = self;
     
+    
     // Do any additional setup after loading the view.
+    
+    dummyViewController = [self viewControllerWithTabTitle:@"New Post" image:nil storyboardID:nil];
+    
     self.viewControllers = [NSArray arrayWithObjects:
-                            [self viewControllerWithTabTitle:@"Explore" image:[UIImage imageNamed:@"Binoculars-32"] storyboardID:@"TESTItem"],
+                             [self viewControllerWithTabTitle:@"Explore" image:[UIImage imageNamed:@"Binoculars-32"] storyboardID:@"TESTItem"],
+                             dummyViewController,
                             [self viewControllerWithTabTitle:@"Profile" image:[UIImage imageNamed:@"User Male Circle-32"] storyboardID:@"CSProfile"],
-                            nil];
+                            nil ];
     
     contentView =[self addCenterButtonWithImage:[UIImage imageNamed:@"Plus-32"] highlightImage:[UIImage imageNamed:@"Delete Sign Filled-32"]];
     

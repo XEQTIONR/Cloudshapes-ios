@@ -32,9 +32,16 @@
 
 -(UIViewController*) viewControllerWithTabTitle:(NSString *)title image:(UIImage *)image storyboardID:(NSString *)storyboardID
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:storyboardID];
-    
+    UIViewController *viewController;
+    if (storyboardID)
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        viewController = [storyboard instantiateViewControllerWithIdentifier:storyboardID];
+    }
+    else
+    {
+        viewController = [[UIViewController alloc] init];
+    }
     viewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:title image:image tag:0 ];
     return viewController;
 }
