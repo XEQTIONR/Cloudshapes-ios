@@ -8,7 +8,10 @@
 
 #import "CSMainTabBarController.h"
 #import "CSNewPostViewController.h"
-@interface CSMainTabBarController ()
+@interface CSMainTabBarController (){
+    UIView *contentView;
+    UPStackMenu *stack;
+}
 
 @end
 
@@ -44,10 +47,92 @@ shouldSelectViewController:(UIViewController *)viewController
                             [self viewControllerWithTabTitle:@"Profile" image:[UIImage imageNamed:@"User Male Circle-32"] storyboardID:@"CSProfile"],
                             nil];
     
-    [self addCenterButtonWithImage:[UIImage imageNamed:@"Plus-32"] highlightImage:[UIImage imageNamed:@"Delete Sign Filled-32"]];
+    contentView =[self addCenterButtonWithImage:[UIImage imageNamed:@"Plus-32"] highlightImage:[UIImage imageNamed:@"Delete Sign Filled-32"]];
     
-   
+    [self changeDemo:nil];
+    
 }
+
+
+
+
+
+
+- (void)changeDemo:(id)sender
+{
+    if(stack)
+        [stack removeFromSuperview];
+    
+    stack = [[UPStackMenu alloc] initWithContentView:contentView];
+    //[stack setCenter:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2 + 20)];
+    [stack setDelegate:self];
+    
+    UPStackMenuItem *squareItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"square"] highlightedImage:nil title:@"Square"];
+    UPStackMenuItem *circleItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"circle"] highlightedImage:nil title:@"Circle"];
+    UPStackMenuItem *triangleItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"triangle"] highlightedImage:nil title:@"Triangle"];
+    UPStackMenuItem *crossItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"cross"] highlightedImage:nil title:@"Cross"];
+    NSMutableArray *items = [[NSMutableArray alloc] initWithObjects:squareItem, circleItem, triangleItem, crossItem, nil];
+    [items enumerateObjectsUsingBlock:^(UPStackMenuItem *item, NSUInteger idx, BOOL *stop) {
+        [item setTitleColor:[UIColor whiteColor]];
+    }];
+    
+
+            [stack setAnimationType:UPStackMenuAnimationType_progressive];
+            [stack setStackPosition:UPStackMenuStackPosition_up];
+            [stack setOpenAnimationDuration:.4];
+            [stack setCloseAnimationDuration:.4];
+            [items enumerateObjectsUsingBlock:^(UPStackMenuItem *item, NSUInteger idx, BOOL *stop) {
+                [item setLabelPosition:UPStackMenuItemLabelPosition_right];
+                [item setLabelPosition:UPStackMenuItemLabelPosition_left];
+            }];
+
+    
+    [stack addItems:items];
+    [self.view addSubview:stack];
+    
+    [self setStackIconClosed:YES];
+}
+
+
+- (void)setStackIconClosed:(BOOL)closed
+{
+    UIView *icon = contentView ;
+    float angle = closed ? 0 : (M_PI * (135) / 180.0);
+    [UIView animateWithDuration:0.3 animations:^{
+        [icon.layer setAffineTransform:CGAffineTransformRotate(CGAffineTransformIdentity, angle)];
+    }];
+}
+
+
+#pragma mark - UPStackMenuDelegate
+
+- (void)stackMenuWillOpen:(UPStackMenu *)menu
+{
+    if([[contentView subviews] count] == 0)
+        return;
+    
+    [self setStackIconClosed:NO];
+}
+
+- (void)stackMenuWillClose:(UPStackMenu *)menu
+{
+    if([[contentView subviews] count] == 0)
+        return;
+    
+    [self setStackIconClosed:YES];
+}
+
+- (void)stackMenu:(UPStackMenu *)menu didTouchItem:(UPStackMenuItem *)item atIndex:(NSUInteger)index
+{
+    NSString *message = [NSString stringWithFormat:@"Item touched : %@", item.title];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:message
+                                                    message:nil
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Ok"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

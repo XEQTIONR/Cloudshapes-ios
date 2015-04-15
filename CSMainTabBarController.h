@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "UPStackMenu.h"
 
-@interface CSMainTabBarController : BaseViewController <UITabBarControllerDelegate>
+@interface CSMainTabBarController : BaseViewController <UITabBarControllerDelegate, UPStackMenuDelegate>
 
 @end
