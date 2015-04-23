@@ -55,14 +55,17 @@ shouldSelectViewController:(UIViewController *)viewController
     
     dummyViewController = [self viewControllerWithTabTitle:@"New Post" image:nil storyboardID:nil];
     
+    // here we manually add all the tabs including our special center button
     self.viewControllers = [NSArray arrayWithObjects:
                              [self viewControllerWithTabTitle:@"Explore" image:[UIImage imageNamed:@"Binoculars-32"] storyboardID:@"TESTItem"],
                              dummyViewController,
                             [self viewControllerWithTabTitle:@"Profile" image:[UIImage imageNamed:@"User Male Circle-32"] storyboardID:@"CSProfile"],
                             nil ];
     
+    //method on our special center button subclass.
     contentView =[self addCenterButtonWithImage:[UIImage imageNamed:@"Plus-32"] highlightImage:[UIImage imageNamed:@"Delete Sign Filled-32"]];
     
+    //initialize our tab bars
     [self changeDemo:nil];
     
 }
@@ -71,7 +74,7 @@ shouldSelectViewController:(UIViewController *)viewController
 
 
 
-
+// this method resets our tab bars.
 - (void)changeDemo:(id)sender
 {
     if(stack)

@@ -82,7 +82,6 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-#pragma mark - Configure Location Manager
 //  ----------------------------------------------
   
   // Configure location Manager
@@ -107,6 +106,19 @@
     
 }
 
+- (void) viewDidLayoutSubviews
+{
+    
+    
+    self.tableView.contentInset = UIEdgeInsetsMake(250, 0, 0, 0);
+    NSLog(@"content offset y after layout subviews: %f",self.tableView.contentOffset.y);
+    NSLog(@"mapview height is : %f", self.mapView.bounds.size.height);
+}
+
+//-- view life-cycle methods End ----------------------
+
+
+#pragma mark - Location Manager Delegate methods
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
@@ -158,14 +170,7 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
     return nil;
 }
 
-- (void) viewDidLayoutSubviews
-{
-    
-    
-    self.tableView.contentInset = UIEdgeInsetsMake(250, 0, 0, 0);
-    NSLog(@"content offset y after layout subviews: %f",self.tableView.contentOffset.y);
-    NSLog(@"mapview height is : %f", self.mapView.bounds.size.height);
-}
+
 //Location Manager End----------------------------------------
 
 
@@ -326,6 +331,7 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
  */
 }
 
+//Table View Data-Source End -----------------
 
 
 

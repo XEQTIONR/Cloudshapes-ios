@@ -30,6 +30,7 @@ static NSString * const reuseIdentifier = @"Bell";
     // Register cell classes
     //[self.pollOptionsCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     self.pollOptionsCollectionView.dataSource =self;
+    self.pollOptionsCollectionView.delegate=self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,7 +57,7 @@ static NSString * const reuseIdentifier = @"Bell";
     // Configure the cell
     //CGFloat flat = 25.0;
     
-    cell.backgroundColor = [UIColor blueColor];
+    //cell.backgroundColor = [UIColor blueColor];
     
     //a single gesture recognizer is for a single view;
     UITapGestureRecognizer *tapAddTextIcon = [[UITapGestureRecognizer alloc] initWithTarget:cell action:@selector(addText)];
@@ -88,6 +89,22 @@ static NSString * const reuseIdentifier = @"Bell";
 
 }
 
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"shouldSelectItemAtIndexPath called.");
+    return YES;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+{
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    cell.contentView.backgroundColor = [UIColor yellowColor];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    cell.contentView.backgroundColor = [UIColor whiteColor];
+}
 /*- (void) addText
 {
     NSLog(@"Add text in Controller");
