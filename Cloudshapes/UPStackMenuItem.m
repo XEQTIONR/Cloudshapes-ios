@@ -168,6 +168,7 @@ const static UPStackMenuItemLabelPosition_e kStackMenuItemDefaultLabelPosition  
         [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
             [_labelContainer setFrame:labelFrame];
             [_label setAlpha:1.];
+            [_imageButton setAlpha:1.];
         } completion:^(BOOL finished) {
             _isAnimating = NO;
         }];
@@ -175,6 +176,7 @@ const static UPStackMenuItemLabelPosition_e kStackMenuItemDefaultLabelPosition  
     else {
         [_labelContainer setFrame:labelFrame];
         [_label setAlpha:1.];
+        [_imageButton setAlpha:1.];
     }
 }
 
@@ -197,6 +199,7 @@ const static UPStackMenuItemLabelPosition_e kStackMenuItemDefaultLabelPosition  
         [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
             [_labelContainer setFrame:labelFrame];
             [_label setAlpha:0.];
+            [_imageButton setAlpha:0.];
         } completion:^(BOOL finished) {
             _isAnimating = NO;
         }];
@@ -204,6 +207,7 @@ const static UPStackMenuItemLabelPosition_e kStackMenuItemDefaultLabelPosition  
     else {
         [_labelContainer setFrame:labelFrame];
         [_label setAlpha:0.];
+        [_imageButton setAlpha:0.];
     }
 }
 

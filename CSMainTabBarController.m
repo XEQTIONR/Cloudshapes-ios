@@ -48,6 +48,9 @@ shouldSelectViewController:(UIViewController *)viewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tabBar.backgroundColor = [UIColor lightGrayColor];
+    
     self.delegate = self;
     
     
@@ -64,6 +67,8 @@ shouldSelectViewController:(UIViewController *)viewController
     
     //method on our special center button subclass.
     contentView =[self addCenterButtonWithImage:[UIImage imageNamed:@"Plus-32"] highlightImage:[UIImage imageNamed:@"Delete Sign Filled-32"]];
+    
+    
     
     //initialize our tab bars
     [self changeDemo:nil];
@@ -84,9 +89,9 @@ shouldSelectViewController:(UIViewController *)viewController
     //[stack setCenter:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2 + 20)];
     [stack setDelegate:self];
     
-    UPStackMenuItem *thoughtItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:nil] highlightedImage:nil title:@"Thought"];
-    UPStackMenuItem *questionItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:nil] highlightedImage:nil title:@"Question"];
-    UPStackMenuItem *pollItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:nil] highlightedImage:nil title:@"Poll"];
+    UPStackMenuItem *thoughtItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"Generic Text-64"] highlightedImage:nil title:@"Thought"];
+    UPStackMenuItem *questionItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"POST_Q_icon"] highlightedImage:nil title:@"Question"];
+    UPStackMenuItem *pollItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"POST_P_icon"] highlightedImage:nil title:@"Poll"];
     //UPStackMenuItem *crossItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"cross"] highlightedImage:nil title:@"Cross"];
     NSMutableArray *items = [[NSMutableArray alloc] initWithObjects:thoughtItem, questionItem, pollItem, nil];
     [items enumerateObjectsUsingBlock:^(UPStackMenuItem *item, NSUInteger idx, BOOL *stop) {
@@ -161,6 +166,8 @@ shouldSelectViewController:(UIViewController *)viewController
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 - (void)viewDidAppear:(BOOL)animated
 {
