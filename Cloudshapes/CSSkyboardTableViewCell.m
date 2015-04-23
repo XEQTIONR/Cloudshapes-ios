@@ -82,6 +82,7 @@
         UITapGestureRecognizer *tapSeeComments = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewComments:)];
         UITapGestureRecognizer *tapComment = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(comment:)];
         
+        //i probably dont need to set these delegates
         tapSeeLikes.delegate = self;
         tapLike.delegate = self;
         tapSeeComments.delegate = self;

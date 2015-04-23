@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		8E013EA91ABA074400D29FC1 /* CSSkyboardTableViewCellQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E013EA81ABA074400D29FC1 /* CSSkyboardTableViewCellQuestion.m */; };
+		8E31415A1AE8118100816CAF /* TestCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3141591AE8118100816CAF /* TestCollectionViewCell.m */; };
+		8E31415D1AE8488100816CAF /* Generic Text-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E31415B1AE8488100816CAF /* Generic Text-64.png */; };
+		8E31415E1AE8488100816CAF /* Add Image-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E31415C1AE8488100816CAF /* Add Image-64.png */; };
+		8E3141621AE84B1100816CAF /* CSAddOptionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3141611AE84B1100816CAF /* CSAddOptionCollectionViewCell.m */; };
 		8E3570C51ADD8C05003521B4 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3570C41ADD8C05003521B4 /* BaseViewController.m */; };
 		8E3570D01ADDADCA003521B4 /* User Male Circle-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E3570CC1ADDADCA003521B4 /* User Male Circle-32.png */; };
 		8E3570D11ADDADCA003521B4 /* Plus-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E3570CD1ADDADCA003521B4 /* Plus-32.png */; };
@@ -28,6 +32,7 @@
 		8E823AEF1ABDF5AE0095D79E /* CSSkyboardTableViewCellPoll.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E823AEE1ABDF5AE0095D79E /* CSSkyboardTableViewCellPoll.m */; };
 		8E84CB4D1AA04383007A396A /* Scarlett-Johansson2-400.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E84CB4C1AA04383007A396A /* Scarlett-Johansson2-400.jpg */; };
 		8E913D001AC0883400E8983E /* Checklist Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E913CFF1AC0883400E8983E /* Checklist Filled-50.png */; };
+		8E9B274F1AE3215900BAAC69 /* TestCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B274E1AE3215900BAAC69 /* TestCollectionViewController.m */; };
 		8EB32F0A1A7A0031002749F8 /* TSC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB32F091A7A0031002749F8 /* TSC.m */; };
 		8EB576A41A65149E00ED19D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB576A31A65149E00ED19D7 /* main.m */; };
 		8EB576A71A65149E00ED19D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB576A61A65149E00ED19D7 /* AppDelegate.m */; };
@@ -41,6 +46,7 @@
 		8ECEA5861AC9206300A3AC90 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ECEA5851AC9206300A3AC90 /* MapKit.framework */; };
 		8ECEA5881AC9206F00A3AC90 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ECEA5871AC9206F00A3AC90 /* CoreLocation.framework */; };
 		8ED342741A835E8F00836D34 /* CSPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED342731A835E8F00836D34 /* CSPhotoViewController.m */; };
+		8ED799931ADF592C00793DCB /* CSNewPollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED799921ADF592C00793DCB /* CSNewPollViewController.m */; };
 		8EDA975A1AA8D3BD006D667C /* CSSkyboardTableViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA97591AA8D3BD006D667C /* CSSkyboardTableViewController2.m */; };
 		8EDA975D1AA8D598006D667C /* CSSkyboardTableViewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA975C1AA8D598006D667C /* CSSkyboardTableViewCell2.m */; };
 		8EDC71B11AB7BBB800A9295B /* Hearts-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EDC71B01AB7BBB800A9295B /* Hearts-50.png */; };
@@ -65,6 +71,12 @@
 /* Begin PBXFileReference section */
 		8E013EA71ABA074400D29FC1 /* CSSkyboardTableViewCellQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSkyboardTableViewCellQuestion.h; sourceTree = "<group>"; };
 		8E013EA81ABA074400D29FC1 /* CSSkyboardTableViewCellQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSkyboardTableViewCellQuestion.m; sourceTree = "<group>"; };
+		8E3141581AE8118100816CAF /* TestCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewCell.h; sourceTree = "<group>"; };
+		8E3141591AE8118100816CAF /* TestCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewCell.m; sourceTree = "<group>"; };
+		8E31415B1AE8488100816CAF /* Generic Text-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Generic Text-64.png"; sourceTree = "<group>"; };
+		8E31415C1AE8488100816CAF /* Add Image-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add Image-64.png"; sourceTree = "<group>"; };
+		8E3141601AE84B1100816CAF /* CSAddOptionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSAddOptionCollectionViewCell.h; sourceTree = "<group>"; };
+		8E3141611AE84B1100816CAF /* CSAddOptionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSAddOptionCollectionViewCell.m; sourceTree = "<group>"; };
 		8E3570C31ADD8C05003521B4 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		8E3570C41ADD8C05003521B4 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		8E3570CC1ADDADCA003521B4 /* User Male Circle-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User Male Circle-32.png"; sourceTree = "<group>"; };
@@ -93,6 +105,8 @@
 		8E823AEE1ABDF5AE0095D79E /* CSSkyboardTableViewCellPoll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSkyboardTableViewCellPoll.m; sourceTree = "<group>"; };
 		8E84CB4C1AA04383007A396A /* Scarlett-Johansson2-400.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Scarlett-Johansson2-400.jpg"; sourceTree = "<group>"; };
 		8E913CFF1AC0883400E8983E /* Checklist Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checklist Filled-50.png"; sourceTree = "<group>"; };
+		8E9B274D1AE3215900BAAC69 /* TestCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewController.h; sourceTree = "<group>"; };
+		8E9B274E1AE3215900BAAC69 /* TestCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewController.m; sourceTree = "<group>"; };
 		8E9BBF4E1A651606009D6F09 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		8EB32F081A7A0031002749F8 /* TSC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSC.h; sourceTree = "<group>"; };
 		8EB32F091A7A0031002749F8 /* TSC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSC.m; sourceTree = "<group>"; };
@@ -117,6 +131,8 @@
 		8ECEA5871AC9206F00A3AC90 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8ED342721A835E8F00836D34 /* CSPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPhotoViewController.h; sourceTree = "<group>"; };
 		8ED342731A835E8F00836D34 /* CSPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPhotoViewController.m; sourceTree = "<group>"; };
+		8ED799911ADF592C00793DCB /* CSNewPollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSNewPollViewController.h; sourceTree = "<group>"; };
+		8ED799921ADF592C00793DCB /* CSNewPollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSNewPollViewController.m; sourceTree = "<group>"; };
 		8EDA97581AA8D3BD006D667C /* CSSkyboardTableViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSkyboardTableViewController2.h; sourceTree = "<group>"; };
 		8EDA97591AA8D3BD006D667C /* CSSkyboardTableViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSkyboardTableViewController2.m; sourceTree = "<group>"; };
 		8EDA975B1AA8D598006D667C /* CSSkyboardTableViewCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSkyboardTableViewCell2.h; sourceTree = "<group>"; };
@@ -155,12 +171,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E31415F1AE84A8400816CAF /* CSPoll */ = {
+			isa = PBXGroup;
+			children = (
+				8ED799911ADF592C00793DCB /* CSNewPollViewController.h */,
+				8ED799921ADF592C00793DCB /* CSNewPollViewController.m */,
+				8E9B274D1AE3215900BAAC69 /* TestCollectionViewController.h */,
+				8E9B274E1AE3215900BAAC69 /* TestCollectionViewController.m */,
+				8E3141581AE8118100816CAF /* TestCollectionViewCell.h */,
+				8E3141591AE8118100816CAF /* TestCollectionViewCell.m */,
+				8E3141601AE84B1100816CAF /* CSAddOptionCollectionViewCell.h */,
+				8E3141611AE84B1100816CAF /* CSAddOptionCollectionViewCell.m */,
+			);
+			name = CSPoll;
+			sourceTree = "<group>";
+		};
 		8E3570C21ADD8BD1003521B4 /* Outside Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8E9B274B1AE3205800BAAC69 /* Custom TabBar Button */,
 				8E397B681ADE096600BA51DB /* UPStackMenu */,
-				8E3570C31ADD8C05003521B4 /* BaseViewController.h */,
-				8E3570C41ADD8C05003521B4 /* BaseViewController.m */,
 			);
 			name = "Outside Classes";
 			sourceTree = "<group>";
@@ -187,6 +217,38 @@
 				8E397B6C1ADE097C00BA51DB /* UPStackMenuItem.m */,
 			);
 			name = UPStackMenu;
+			sourceTree = "<group>";
+		};
+		8E9B274B1AE3205800BAAC69 /* Custom TabBar Button */ = {
+			isa = PBXGroup;
+			children = (
+				8E3570C31ADD8C05003521B4 /* BaseViewController.h */,
+				8E3570C41ADD8C05003521B4 /* BaseViewController.m */,
+			);
+			name = "Custom TabBar Button";
+			sourceTree = "<group>";
+		};
+		8E9B274C1AE3210600BAAC69 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8E31415B1AE8488100816CAF /* Generic Text-64.png */,
+				8E31415C1AE8488100816CAF /* Add Image-64.png */,
+				8E3570CD1ADDADCA003521B4 /* Plus-32.png */,
+				8E3570CE1ADDADCA003521B4 /* Delete Sign Filled-32.png */,
+				8E3570CF1ADDADCA003521B4 /* Binoculars-32.png */,
+				8E913CFF1AC0883400E8983E /* Checklist Filled-50.png */,
+				8E84CB4C1AA04383007A396A /* Scarlett-Johansson2-400.jpg */,
+				8E35A9731AA7EFFA00FFFE2D /* POST_T_icon.png */,
+				8E35A9741AA7EFFA00FFFE2D /* POST_Q_icon.png */,
+				8E35A9751AA7EFFA00FFFE2D /* POST_P_icon.png */,
+				8E58B59A1AA7F4080031D17C /* cs alternate.png */,
+				8E58B59B1AA7F4080031D17C /* cs_alternate180square.png */,
+				8E58B59E1AA7F49B0031D17C /* cs alternate120square.png */,
+				8EDC71B01AB7BBB800A9295B /* Hearts-50.png */,
+				8EDC71B21AB7BD0E00A9295B /* Comments-50.png */,
+				8E3570CC1ADDADCA003521B4 /* User Male Circle-32.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		8E9BBF4D1A6515E5009D6F09 /* Frameworks */ = {
@@ -222,14 +284,15 @@
 			children = (
 				8E3570C21ADD8BD1003521B4 /* Outside Classes */,
 				8E9BBF4D1A6515E5009D6F09 /* Frameworks */,
+				8E31415F1AE84A8400816CAF /* CSPoll */,
+				8E411C1D1AB9183800A37756 /* CSNewPostViewController.h */,
+				8E411C1E1AB9183800A37756 /* CSNewPostViewController.m */,
 				8EDD106B1A6F229900140559 /* CSLoginViewController.h */,
 				8EDD106C1A6F229900140559 /* CSLoginViewController.m */,
 				8E6354521AB1560500436BD1 /* CSMainTabBarController.h */,
 				8E6354531AB1560500436BD1 /* CSMainTabBarController.m */,
 				8E3B44B61AC9380900A55FD8 /* CSMapViewController.h */,
 				8E3B44B71AC9380900A55FD8 /* CSMapViewController.m */,
-				8E411C1D1AB9183800A37756 /* CSNewPostViewController.h */,
-				8E411C1E1AB9183800A37756 /* CSNewPostViewController.m */,
 				8ED342721A835E8F00836D34 /* CSPhotoViewController.h */,
 				8ED342731A835E8F00836D34 /* CSPhotoViewController.m */,
 				8ECDD3041A79C4A30051C9C6 /* CSUserProfileViewController.h */,
@@ -245,30 +308,17 @@
 				8E013EA71ABA074400D29FC1 /* CSSkyboardTableViewCellQuestion.h */,
 				8E013EA81ABA074400D29FC1 /* CSSkyboardTableViewCellQuestion.m */,
 				8EF519121A8E8ED80098EEB7 /* CSSkyboardTableViewController.h */,
+				8EF519131A8E8ED80098EEB7 /* CSSkyboardTableViewController.m */,
 				8EDDC9481AD49DDB00F50968 /* CSSkyboardTableAndMapViewController.h */,
 				8EDDC9491AD49DDB00F50968 /* CSSkyboardTableAndMapViewController.m */,
 				8ECDD3011A79C07F0051C9C6 /* CSUser.h */,
 				8ECDD3021A79C07F0051C9C6 /* CSUser.m */,
-				8EF519131A8E8ED80098EEB7 /* CSSkyboardTableViewController.m */,
 				8EB576AB1A65149E00ED19D7 /* Main.storyboard */,
 				8EB576AE1A65149E00ED19D7 /* Images.xcassets */,
+				8E9B274C1AE3210600BAAC69 /* Images */,
 				8EB576B01A65149E00ED19D7 /* LaunchScreen.xib */,
 				8EB576A11A65149E00ED19D7 /* Supporting Files */,
 				8EB32F081A7A0031002749F8 /* TSC.h */,
-				8E3570CC1ADDADCA003521B4 /* User Male Circle-32.png */,
-				8E3570CD1ADDADCA003521B4 /* Plus-32.png */,
-				8E3570CE1ADDADCA003521B4 /* Delete Sign Filled-32.png */,
-				8E3570CF1ADDADCA003521B4 /* Binoculars-32.png */,
-				8E913CFF1AC0883400E8983E /* Checklist Filled-50.png */,
-				8E84CB4C1AA04383007A396A /* Scarlett-Johansson2-400.jpg */,
-				8E35A9731AA7EFFA00FFFE2D /* POST_T_icon.png */,
-				8E35A9741AA7EFFA00FFFE2D /* POST_Q_icon.png */,
-				8E35A9751AA7EFFA00FFFE2D /* POST_P_icon.png */,
-				8E58B59A1AA7F4080031D17C /* cs alternate.png */,
-				8E58B59B1AA7F4080031D17C /* cs_alternate180square.png */,
-				8E58B59E1AA7F49B0031D17C /* cs alternate120square.png */,
-				8EDC71B01AB7BBB800A9295B /* Hearts-50.png */,
-				8EDC71B21AB7BD0E00A9295B /* Comments-50.png */,
 				8EB32F091A7A0031002749F8 /* TSC.m */,
 			);
 			path = Cloudshapes;
@@ -386,6 +436,7 @@
 				8E35A9771AA7EFFA00FFFE2D /* POST_Q_icon.png in Resources */,
 				8E58B59C1AA7F4080031D17C /* cs alternate.png in Resources */,
 				8E3570D21ADDADCA003521B4 /* Delete Sign Filled-32.png in Resources */,
+				8E31415D1AE8488100816CAF /* Generic Text-64.png in Resources */,
 				8E35A9761AA7EFFA00FFFE2D /* POST_T_icon.png in Resources */,
 				8EB576AD1A65149E00ED19D7 /* Main.storyboard in Resources */,
 				8E3570D01ADDADCA003521B4 /* User Male Circle-32.png in Resources */,
@@ -398,6 +449,7 @@
 				8E3570D11ADDADCA003521B4 /* Plus-32.png in Resources */,
 				8E84CB4D1AA04383007A396A /* Scarlett-Johansson2-400.jpg in Resources */,
 				8E3570D31ADDADCA003521B4 /* Binoculars-32.png in Resources */,
+				8E31415E1AE8488100816CAF /* Add Image-64.png in Resources */,
 				8E35A9781AA7EFFA00FFFE2D /* POST_P_icon.png in Resources */,
 				8E913D001AC0883400E8983E /* Checklist Filled-50.png in Resources */,
 			);
@@ -419,15 +471,18 @@
 			files = (
 				8E397B6D1ADE097C00BA51DB /* UPStackMenu.m in Sources */,
 				8EDD106D1A6F229900140559 /* CSLoginViewController.m in Sources */,
+				8E31415A1AE8118100816CAF /* TestCollectionViewCell.m in Sources */,
 				8E411C1F1AB9183800A37756 /* CSNewPostViewController.m in Sources */,
 				8EDDC94A1AD49DDB00F50968 /* CSSkyboardTableAndMapViewController.m in Sources */,
 				8ED342741A835E8F00836D34 /* CSPhotoViewController.m in Sources */,
 				8E6354541AB1560500436BD1 /* CSMainTabBarController.m in Sources */,
 				8E013EA91ABA074400D29FC1 /* CSSkyboardTableViewCellQuestion.m in Sources */,
 				8ECDD3061A79C4A30051C9C6 /* CSUserProfileViewController.m in Sources */,
+				8E3141621AE84B1100816CAF /* CSAddOptionCollectionViewCell.m in Sources */,
 				8EB576A71A65149E00ED19D7 /* AppDelegate.m in Sources */,
 				8E3B44B81AC9380900A55FD8 /* CSMapViewController.m in Sources */,
 				8EF5191A1A8EA1B70098EEB7 /* CSSkyboardTableViewCell.m in Sources */,
+				8E9B274F1AE3215900BAAC69 /* TestCollectionViewController.m in Sources */,
 				8E64B6D21A9FBCB60017A079 /* TestTableViewCell.m in Sources */,
 				8EDA975D1AA8D598006D667C /* CSSkyboardTableViewCell2.m in Sources */,
 				8EDA975A1AA8D3BD006D667C /* CSSkyboardTableViewController2.m in Sources */,
@@ -435,6 +490,7 @@
 				8EB576A41A65149E00ED19D7 /* main.m in Sources */,
 				8E397B6E1ADE097C00BA51DB /* UPStackMenuItem.m in Sources */,
 				8EB32F0A1A7A0031002749F8 /* TSC.m in Sources */,
+				8ED799931ADF592C00793DCB /* CSNewPollViewController.m in Sources */,
 				8EDDC94D1AD4B39A00F50968 /* CSSkyboardTableView.m in Sources */,
 				8EF519141A8E8ED80098EEB7 /* CSSkyboardTableViewController.m in Sources */,
 				8EC993851A6CD2B300074886 /* CSRegisterViewController.m in Sources */,

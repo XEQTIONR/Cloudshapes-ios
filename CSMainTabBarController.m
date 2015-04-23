@@ -146,10 +146,10 @@ shouldSelectViewController:(UIViewController *)viewController
         [self performSegueWithIdentifier:@"New Thought" sender:self];
     
     else if ([postType compare:@"Question"]==NSOrderedSame)
-        NSLog(@"Question selected");
+        [self performSegueWithIdentifier:@"Collection Segue" sender:self];
     
     else if ([postType compare:@"Poll"]==NSOrderedSame)
-        NSLog(@"Poll selected");
+        [self performSegueWithIdentifier:@"New Poll" sender:self];
     
 }
 
