@@ -89,9 +89,9 @@ shouldSelectViewController:(UIViewController *)viewController
     //[stack setCenter:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2 + 20)];
     [stack setDelegate:self];
     
-    UPStackMenuItem *thoughtItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"Generic Text-64"] highlightedImage:nil title:@"Thought"];
-    UPStackMenuItem *questionItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"POST_Q_icon"] highlightedImage:nil title:@"Question"];
-    UPStackMenuItem *pollItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"POST_P_icon"] highlightedImage:nil title:@"Poll"];
+    UPStackMenuItem *thoughtItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"Exclamation Mark Filled-32"] highlightedImage:nil title:@"Thought"];
+    UPStackMenuItem *questionItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"Question Mark Filled-32"] highlightedImage:nil title:@"Question"];
+    UPStackMenuItem *pollItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"Checkmark Filled-32"] highlightedImage:nil title:@"Poll"];
     //UPStackMenuItem *crossItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"cross"] highlightedImage:nil title:@"Cross"];
     NSMutableArray *items = [[NSMutableArray alloc] initWithObjects:thoughtItem, questionItem, pollItem, nil];
     [items enumerateObjectsUsingBlock:^(UPStackMenuItem *item, NSUInteger idx, BOOL *stop) {

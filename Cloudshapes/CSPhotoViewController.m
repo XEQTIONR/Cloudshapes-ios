@@ -198,7 +198,7 @@
         
     }*/
     
-    [self.photoDelegate setProfilePicture:image];
+    [self.photoDelegate setProfilePicture:image]; //this line sets the profile picture back on the profile after the upload.
     
     NSLog(@"Debug info:");
     NSLog(@"Response code: %lu", [urlResponse statusCode]);

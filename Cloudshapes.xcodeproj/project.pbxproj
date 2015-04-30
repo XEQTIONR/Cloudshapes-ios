@@ -40,6 +40,10 @@
 		8EB576AF1A65149E00ED19D7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EB576AE1A65149E00ED19D7 /* Images.xcassets */; };
 		8EB576B21A65149E00ED19D7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB576B01A65149E00ED19D7 /* LaunchScreen.xib */; };
 		8EB576BE1A65149E00ED19D7 /* CloudshapesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB576BD1A65149E00ED19D7 /* CloudshapesTests.m */; };
+		8EC5138C1AE94ED100751C42 /* NewPollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5138B1AE94ED100751C42 /* NewPollViewController.m */; };
+		8EC513941AE982C500751C42 /* Checkmark Filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EC513931AE982C500751C42 /* Checkmark Filled-32.png */; };
+		8EC513961AE982CE00751C42 /* Exclamation Mark Filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EC513951AE982CE00751C42 /* Exclamation Mark Filled-32.png */; };
+		8EC513981AE982D500751C42 /* Question Mark Filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EC513971AE982D500751C42 /* Question Mark Filled-32.png */; };
 		8EC993851A6CD2B300074886 /* CSRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC993841A6CD2B300074886 /* CSRegisterViewController.m */; };
 		8ECDD3031A79C07F0051C9C6 /* CSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECDD3021A79C07F0051C9C6 /* CSUser.m */; };
 		8ECDD3061A79C4A30051C9C6 /* CSUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECDD3051A79C4A30051C9C6 /* CSUserProfileViewController.m */; };
@@ -121,6 +125,11 @@
 		8EB576B71A65149E00ED19D7 /* CloudshapesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CloudshapesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EB576BC1A65149E00ED19D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EB576BD1A65149E00ED19D7 /* CloudshapesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CloudshapesTests.m; sourceTree = "<group>"; };
+		8EC5138A1AE94ED100751C42 /* NewPollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPollViewController.h; sourceTree = "<group>"; };
+		8EC5138B1AE94ED100751C42 /* NewPollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPollViewController.m; sourceTree = "<group>"; };
+		8EC513931AE982C500751C42 /* Checkmark Filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkmark Filled-32.png"; sourceTree = "<group>"; };
+		8EC513951AE982CE00751C42 /* Exclamation Mark Filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Exclamation Mark Filled-32.png"; sourceTree = "<group>"; };
+		8EC513971AE982D500751C42 /* Question Mark Filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Question Mark Filled-32.png"; sourceTree = "<group>"; };
 		8EC993831A6CD2B300074886 /* CSRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSRegisterViewController.h; sourceTree = "<group>"; };
 		8EC993841A6CD2B300074886 /* CSRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSRegisterViewController.m; sourceTree = "<group>"; };
 		8ECDD3011A79C07F0051C9C6 /* CSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSUser.h; sourceTree = "<group>"; };
@@ -174,6 +183,7 @@
 		8E31415F1AE84A8400816CAF /* CSPoll */ = {
 			isa = PBXGroup;
 			children = (
+				8EC513891AE94E5400751C42 /* Test Add Poll */,
 				8ED799911ADF592C00793DCB /* CSNewPollViewController.h */,
 				8ED799921ADF592C00793DCB /* CSNewPollViewController.m */,
 				8E9B274D1AE3215900BAAC69 /* TestCollectionViewController.h */,
@@ -245,6 +255,9 @@
 				8E58B59B1AA7F4080031D17C /* cs_alternate180square.png */,
 				8E58B59E1AA7F49B0031D17C /* cs alternate120square.png */,
 				8EDC71B01AB7BBB800A9295B /* Hearts-50.png */,
+				8EC513931AE982C500751C42 /* Checkmark Filled-32.png */,
+				8EC513971AE982D500751C42 /* Question Mark Filled-32.png */,
+				8EC513951AE982CE00751C42 /* Exclamation Mark Filled-32.png */,
 				8EDC71B21AB7BD0E00A9295B /* Comments-50.png */,
 				8E3570CC1ADDADCA003521B4 /* User Male Circle-32.png */,
 			);
@@ -353,6 +366,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8EC513891AE94E5400751C42 /* Test Add Poll */ = {
+			isa = PBXGroup;
+			children = (
+				8EC5138A1AE94ED100751C42 /* NewPollViewController.h */,
+				8EC5138B1AE94ED100751C42 /* NewPollViewController.m */,
+			);
+			name = "Test Add Poll";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -439,6 +461,7 @@
 				8E31415D1AE8488100816CAF /* Generic Text-64.png in Resources */,
 				8E35A9761AA7EFFA00FFFE2D /* POST_T_icon.png in Resources */,
 				8EB576AD1A65149E00ED19D7 /* Main.storyboard in Resources */,
+				8EC513961AE982CE00751C42 /* Exclamation Mark Filled-32.png in Resources */,
 				8E3570D01ADDADCA003521B4 /* User Male Circle-32.png in Resources */,
 				8EDC71B11AB7BBB800A9295B /* Hearts-50.png in Resources */,
 				8E58B59F1AA7F49B0031D17C /* cs alternate120square.png in Resources */,
@@ -446,6 +469,8 @@
 				8EB576B21A65149E00ED19D7 /* LaunchScreen.xib in Resources */,
 				8EB576AF1A65149E00ED19D7 /* Images.xcassets in Resources */,
 				8E58B59D1AA7F4080031D17C /* cs_alternate180square.png in Resources */,
+				8EC513941AE982C500751C42 /* Checkmark Filled-32.png in Resources */,
+				8EC513981AE982D500751C42 /* Question Mark Filled-32.png in Resources */,
 				8E3570D11ADDADCA003521B4 /* Plus-32.png in Resources */,
 				8E84CB4D1AA04383007A396A /* Scarlett-Johansson2-400.jpg in Resources */,
 				8E3570D31ADDADCA003521B4 /* Binoculars-32.png in Resources */,
@@ -475,6 +500,7 @@
 				8E411C1F1AB9183800A37756 /* CSNewPostViewController.m in Sources */,
 				8EDDC94A1AD49DDB00F50968 /* CSSkyboardTableAndMapViewController.m in Sources */,
 				8ED342741A835E8F00836D34 /* CSPhotoViewController.m in Sources */,
+				8EC5138C1AE94ED100751C42 /* NewPollViewController.m in Sources */,
 				8E6354541AB1560500436BD1 /* CSMainTabBarController.m in Sources */,
 				8E013EA91ABA074400D29FC1 /* CSSkyboardTableViewCellQuestion.m in Sources */,
 				8ECDD3061A79C4A30051C9C6 /* CSUserProfileViewController.m in Sources */,

@@ -10,11 +10,13 @@
 #import "TestCollectionViewCell.h"
 #import "CSAddOptionCollectionViewCell.h"
 
-@interface CSNewPollViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface CSNewPollViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *pollTextView;
 
 
 @property (weak, nonatomic) IBOutlet UICollectionView *pollOptionsCollectionView;
+
+@property (strong, nonatomic) UIImagePickerController *imagePickerController;
 
 @end
