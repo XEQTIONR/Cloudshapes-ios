@@ -43,15 +43,47 @@
     }
     
     NSArray *lastPath = [NSArray arrayWithObjects:tempPath, nil];
-    [self.pollOptionsCollectionView insertItemsAtIndexPaths:lastPath];
+    [self.pollOptionsCollectionView insertItemsAtIndexPaths:lastPath]; //This does all the CFRAIP work
     
 }
 
 
 - (IBAction)addImageOption:(id)sender
 {
+    self.imagePickerController = [[UIImagePickerController alloc] init];
+    self.imagePickerController.delegate = self;
+    
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    
+    else
+    {
+        self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    [self presentViewController:self.imagePickerController animated:YES completion:nil];
     
     
+
+    
+}
+
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [self.cellData addObject:image];
+    NSLog(@"cellData count : %lu", (unsigned long)[self.cellData count]);
+    NSIndexPath *index2 = [NSIndexPath indexPathForItem:[self.cellData indexOfObject:image] inSection:0];
+    
+    //NSIndexPath *index = [NSIndexPath indexPathForItem:[self.cellData count] inSection:0];
+    
+    NSArray *pathArray = [NSArray arrayWithObject:index2];
+    
+    [self.pollOptionsCollectionView insertItemsAtIndexPaths:pathArray];
+    image = nil;
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -60,13 +92,12 @@
     // Do any additional setup after loading the view.
     
     
-    self.cellData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithInt:2],
-                     nil];
+    //self.cellData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithInt:2],nil];
+    self.cellData = [NSMutableArray arrayWithObjects: nil];
     // Register cell classes
     //[self.pollOptionsCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     self.pollOptionsCollectionView.dataSource =self;
     self.pollOptionsCollectionView.delegate=self;
-    self.
     
     // We can do the following in IB
     //[self.addTextButton setTitle:@" Normal" forState:UIControlStateNormal];
@@ -92,12 +123,32 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"New Poll View Cell" forIndexPath:indexPath];
+    
+    if ([[self.cellData objectAtIndex:[indexPath row]] class]==[UIImage class])
+    {
+        TestCollectionViewCell *cell;
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"New Picture Option Cell" forIndexPath:indexPath];
+        
+        //TestCollectionViewCell *cell2 = cell;
+        cell.imageView.image = [self.cellData objectAtIndex:[indexPath row]];
+        
+        return cell;
+        
+    }
+    
+    else
+        
+    {
+    
+        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"New Poll View Cell" forIndexPath:indexPath];
     
     // Configure the cell
-    cell.backgroundColor = [UIColor blueColor];
-
-    return cell;
+        cell.backgroundColor = [UIColor blueColor];
+        return cell;
+        
+    }
+    
+    
     
 }
 

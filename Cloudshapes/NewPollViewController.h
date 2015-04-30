@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface NewPollViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate>
+#import "TestCollectionViewCell.h"
+@interface NewPollViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 
 @property (strong, nonatomic) NSMutableArray *cellData; //model - temporary
@@ -16,6 +16,9 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *pollOptionsCollectionView;
 @property (weak, nonatomic) IBOutlet UIButton *addTextButton;
+
+
+@property (strong, nonatomic) UIImagePickerController *imagePickerController;
 
 
 @end

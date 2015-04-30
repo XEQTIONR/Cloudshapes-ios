@@ -31,7 +31,7 @@ static NSString * const reuseIdentifier = @"Bell";
     //[self.pollOptionsCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     self.pollOptionsCollectionView.dataSource =self;
     self.pollOptionsCollectionView.delegate=self;
-    self.imagePickerController.delegate=self;
+   // self.imagePickerController.delegate=self;
 }
 
 - (void)didReceiveMemoryWarning {

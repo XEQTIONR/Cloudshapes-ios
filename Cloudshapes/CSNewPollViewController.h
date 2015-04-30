@@ -17,6 +17,6 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *pollOptionsCollectionView;
 
-@property (strong, nonatomic) UIImagePickerController *imagePickerController;
+
 
 @end
