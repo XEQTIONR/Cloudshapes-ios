@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+// this class is connected to a view controller in the storyboard
+// but this class is obsolete
+// remove with care
 @interface CSAddOptionCollectionViewCell : UICollectionViewCell 
 @property (weak, nonatomic) IBOutlet UIImageView *addTextButtonIcon;
 @property (weak, nonatomic) IBOutlet UILabel *addTextButtonLabel;

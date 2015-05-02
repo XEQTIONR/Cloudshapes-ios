@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "TestCollectionViewCell.h"
+#import "CSPollOptionTextCollectionViewCell.h"
+
+
 @interface NewPollViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 

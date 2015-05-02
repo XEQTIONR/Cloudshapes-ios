@@ -19,32 +19,27 @@
 - (IBAction)add:(id)sender {
     
     //[self.cellData addObject:[NSNumber numberWithInt:5]];
+    UIAlertController *textInputAlert = [UIAlertController alertControllerWithTitle:@"Text Option" message:@"Add text option (20 characters max)." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
     
-    NSArray *itemsPaths = [self.pollOptionsCollectionView indexPathsForSelectedItems];
+        {
+            NSLog(@"Looks like this code executes in a block");
+            
+            UITextField *textField =[textInputAlert.textFields objectAtIndex:0];
+            NSString *text = textField.text;
+            
+            
+            [self addTextPollOptionWithString:text];
+            //[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        }];
+    
+    [textInputAlert addAction:defaultAction];
     
     
+    [textInputAlert addTextFieldWithConfigurationHandler:nil];
     
-    NSLog(@"Array : %@", itemsPaths);
     
-    
-    [self.cellData addObject:[NSNumber numberWithInt:1]];
-
-    NSMutableArray *itemsPaths2 = [[NSMutableArray alloc] initWithObjects: nil];
-    
-    NSIndexPath *tempPath;
-    
-    for (int i=0; i<self.cellData.count; i++) // buggy code.... here i<= check off by one error...
-    {
-        tempPath = [NSIndexPath indexPathForItem:i inSection:0];
-        
-        [itemsPaths2 addObject:tempPath];
-        
-    
-    }
-    
-    NSArray *lastPath = [NSArray arrayWithObjects:tempPath, nil];
-    [self.pollOptionsCollectionView insertItemsAtIndexPaths:lastPath]; //This does all the CFRAIP work
-    
+    [self presentViewController:textInputAlert animated:YES completion:nil];
 }
 
 
@@ -70,6 +65,27 @@
     
 }
 
+- (void) addTextPollOptionWithString : (NSString *)text
+{
+    NSString *localText = text;
+    
+    [self.cellData addObject:localText];
+    
+    NSLog(@"cellData count : %lu", (unsigned long)[self.cellData count]);
+    NSIndexPath *index2 = [NSIndexPath indexPathForItem:[self.cellData indexOfObject:localText] inSection:0];
+    
+    //NSIndexPath *index = [NSIndexPath indexPathForItem:[self.cellData count] inSection:0];
+    
+    NSArray *pathArray = [NSArray arrayWithObject:index2];
+    
+    [self.pollOptionsCollectionView insertItemsAtIndexPaths:pathArray]; //look for single path function
+    localText = nil; // safety, so image does not contain the previous data..
+    
+    
+    
+    //NSLog(@"Add test option with string works");
+}
+
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
@@ -81,8 +97,8 @@
     
     NSArray *pathArray = [NSArray arrayWithObject:index2];
     
-    [self.pollOptionsCollectionView insertItemsAtIndexPaths:pathArray];
-    image = nil;
+    [self.pollOptionsCollectionView insertItemsAtIndexPaths:pathArray]; //look for single path function 
+    image = nil; // safety, so image does not contain the previous data..
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -93,7 +109,7 @@
     
     
     //self.cellData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithInt:2],nil];
-    self.cellData = [NSMutableArray arrayWithObjects: nil];
+    self.cellData = [NSMutableArray arrayWithObjects: nil]; // initialize our empty options array
     // Register cell classes
     //[self.pollOptionsCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     self.pollOptionsCollectionView.dataSource =self;
@@ -140,10 +156,11 @@
         
     {
     
-        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"New Poll View Cell" forIndexPath:indexPath];
+        CSPollOptionTextCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"New Poll View Cell" forIndexPath:indexPath];
     
     // Configure the cell
-        cell.backgroundColor = [UIColor blueColor];
+        cell.pollOptionTextLabel.text = [self.cellData objectAtIndex:[indexPath row]];
+        //cell.backgroundColor = [UIColor blueColor];
         return cell;
         
     }

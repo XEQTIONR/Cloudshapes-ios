@@ -8,6 +8,11 @@
 
 #import "CSAddOptionCollectionViewCell.h"
 
+
+// this class is connected to a view controller in the storyboard
+// but this class is obsolete
+// remove with care
+
 @implementation CSAddOptionCollectionViewCell
 
 
