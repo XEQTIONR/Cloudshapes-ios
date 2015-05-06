@@ -41,9 +41,20 @@
     
 }
 
+#pragma mark - UITextView Delegate Methods
+
+-(void) textViewDidBeginEditing:(UITextView *)textView
+{
+    textView.text = @"";
+    textView.textColor = [UIColor blackColor];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.postTextView.delegate = self;
+    self.postTextView.textColor = [UIColor grayColor];
+    
 }
 
 - (void)didReceiveMemoryWarning {
