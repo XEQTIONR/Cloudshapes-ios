@@ -33,7 +33,7 @@
 {
     NSLog(@"Set profile picture activated");
     self.userProfilePicture.image = image;
-    [self.userProfilePicture reloadInputViews];
+    [self.userProfilePicture reloadInputViews]; //perhaps not neccessary
     
     if(self.userProfilePicture.image == image)
         NSLog(@"Picture Assigned");
@@ -45,16 +45,57 @@
 {
     [super viewDidLoad];
     
-    
-    // Do any additional setup after loading the view.
-    
-    //[self.thisUser setUserFNameTo:@"Viktor" andUserLNameTo:@"Novorski"];
-    
-    
     self.firstNameLabel.text = [[CSUser currentAppUser]userFName];//[self.thisUser sendFname];
     self.lastNameLabel.text = [[CSUser currentAppUser] userLName];
     self.userNameLabel.text = [[CSUser currentAppUser] userName];
     self.userPointsLabel.text = [[CSUser currentAppUser] userPoints];
+    
+    if(!self.userProfilePicture.image)
+    {
+        
+        //1. gather input
+        NSUserDefaults *appDefaults =[NSUserDefaults standardUserDefaults];
+        
+        NSString *userId = [appDefaults objectForKey:@"userid"];
+        
+        NSString *paramUserId = [NSString stringWithFormat:@"userId=%@",userId];
+        
+        //2. encode input data, calculate length
+        NSData *dataUserId = [paramUserId dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+        NSString *postLength = [NSString stringWithFormat:@"%lu", [dataUserId length]];
+        
+        
+        //3. init and setup request
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/getprofilepicturefilepath.php"]];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:dataUserId];
+        
+        
+        //4. allocate variables for URL response and  NS error
+        NSHTTPURLResponse *urlResponse = nil;
+        NSError *error = nil;
+        
+        //5. fire request, receive data, get HTTP Response
+        ///- Change this to async Request later
+        NSData *picturePath = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+        NSString *filePath = [[NSString alloc] initWithData:picturePath encoding:NSUTF8StringEncoding]; //decoding the file path
+        NSString *baseString =@"http://ec2-54-173-125-187.compute-1.amazonaws.com/";
+        
+        baseString = [baseString stringByAppendingString:filePath]; // attaching to url of server giving us the full path
+        
+        //
+        NSLog(@"User profile picture filePath = %@", filePath);
+        NSLog(@"Base string <%@>", baseString);
+        
+        NSData *pictureData = [NSData dataWithContentsOfURL:[NSURL URLWithString:baseString]];
+        UIImage *image = [UIImage imageWithData:pictureData];
+        self.userProfilePicture.image = image ;
+        
+    }
+    
     
     
 }
@@ -73,11 +114,15 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSLog(@"Segue: %@", segue.description);
-    CSPhotoViewController *photoViewController = [segue destinationViewController];
-    photoViewController.photoDelegate = self;
     
+    // a little introspection to determine which segue (Required for multiple segue from the same root View Controller)
+    if ([[segue destinationViewController] isKindOfClass:[CSPhotoViewController class]])
+    {
+        CSPhotoViewController *photoViewController = [segue destinationViewController];
+        photoViewController.photoDelegate = self;
+    }
     // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    // Pass self to the new view controller as its delegate.
 }
 
 

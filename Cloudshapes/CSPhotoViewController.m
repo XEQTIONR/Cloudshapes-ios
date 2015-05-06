@@ -19,6 +19,8 @@
 - (IBAction)pickProfilePhoto:(id)sender
 {
 
+
+    
     self.imagePicker = [[UIImagePickerController alloc] init];
     self.imagePicker.delegate = self;
     
@@ -53,8 +55,16 @@
     
     
     
+    NSUserDefaults *appDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *zeroFillUserId = [appDefaults objectForKey:@"userid"];
+    NSLog(@"Current zeroFillUser id is %@", zeroFillUserId);
+    NSInteger intUserId = [zeroFillUserId integerValue];
+    NSLog(@"intUserId is %ld", intUserId);
+    NSString *stringFormattedUserId = [NSString stringWithFormat:@"%ld",intUserId];
+    NSLog(@"stringFormattedUserId is %@", stringFormattedUserId);
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/uploadtest.php"]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/uploadinsert3.php"]]; //previously uploadinsert.php uploadtest10.php
     
     NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
     
@@ -82,6 +92,10 @@
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=%@\r\n\r\n", @"imageCaption"] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", @"SomeCaption"] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=%@\r\n\r\n", @"userId"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"%@\r\n", stringFormattedUserId] dataUsingEncoding:NSUTF8StringEncoding]];
     NSLog(@"%@", body);
     
     //add image data
@@ -115,8 +129,12 @@
     
 //set content length
     NSString *postLength =[NSString stringWithFormat:@"%lu", [body length]];
+    NSString *bodyString;
+    BOOL ok = YES;
+    [NSString stringEncodingForData:body encodingOptions:kNilOptions convertedString:&bodyString usedLossyConversion:&ok];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     NSLog(@"post length : %@", postLength);
+    NSLog(@"BODY DECODED: %@", bodyString);
     
 /////////
     NSHTTPURLResponse *urlResponse = nil;
@@ -140,7 +158,47 @@
         NSLog(@"%@", result);
     }
     
-    [self.photoDelegate setProfilePicture:image];
+    //need a better check here LATER
+    /*if (![result isEqualToString:@""])
+    {
+        
+        
+        NSUserDefaults *appDefaults = [NSUserDefaults standardUserDefaults];
+        
+        
+        NSString *uploaderId = [appDefaults objectForKey:@"userid"];
+        NSString *uploadAddress = [NSString stringWithString:result];
+        
+       // NSString *uploadAddressTest = @"NONESCAPINGSTRING";
+        
+        
+        //NSString *inputString2 = [NSString stringWithFormat:@"userFirstName=%@&userLastName=%@", uploaderId,uploadAddress];
+        NSString *inputString2 = [NSString stringWithFormat:@"uploaderID=%@&uploadLocation=%@", uploaderId,uploadAddress];
+        NSLog(@"inputstring = %@", inputString2);
+        
+        NSData *postData2 =[inputString2 dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        NSString *postLength2 = [NSString stringWithFormat:@"%lu", [postData2 length]];
+        NSMutableURLRequest *request2 = [[NSMutableURLRequest alloc]init];
+        
+        
+        [request2 setURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/insertinmedia.php"]];
+        [request2 setHTTPMethod:@"POST"];
+        [request2 setValue:postLength2 forHTTPHeaderField:@"Content-Length"];
+        [request2 setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request2 setHTTPBody:postData2];
+        
+        NSHTTPURLResponse *urlResponse2 = nil;
+        NSError *error2 = nil;
+        NSData *responseData2 =[NSURLConnection sendSynchronousRequest:request2 returningResponse:&urlResponse2 error:&error2];
+        //NSString *result2 =[[NSString alloc]initWithData:responseData2 encoding:NSUTF8StringEncoding];
+        NSLog(@"Response code: %lu", [urlResponse2 statusCode]);
+        NSString *responseBody2 = [[NSString alloc]initWithData:responseData2 encoding:NSUTF8StringEncoding];
+        NSLog(@"RESPONSE BODY : %@", responseBody2);
+        
+        
+    }*/
+    
+    [self.photoDelegate setProfilePicture:image]; //this line sets the profile picture back on the profile after the upload.
     
     NSLog(@"Debug info:");
     NSLog(@"Response code: %lu", [urlResponse statusCode]);

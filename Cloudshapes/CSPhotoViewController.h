@@ -13,6 +13,7 @@
 - (void) setProfilePicture: (UIImage *) image;
 @end
 
+// we have to implement setProfilePicture in our .m if we want to include the above protcol in our CSphotoViewController
 @interface CSPhotoViewController : UIViewController
 <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *currentPhoto;
