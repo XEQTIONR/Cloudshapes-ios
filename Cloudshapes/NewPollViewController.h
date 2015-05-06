@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "TestCollectionViewCell.h"
 #import "CSPollOptionTextCollectionViewCell.h"
+#import "CSNewPostViewController.h"
 
-
-@interface NewPollViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface NewPollViewController :  CSNewPostViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 
 @property (strong, nonatomic) NSMutableArray *cellData; //model - temporary

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CSNewPostViewController : UIViewController <UITextViewDelegate>
+@interface CSNewPostViewController : UIViewController<UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *postTextView;
 

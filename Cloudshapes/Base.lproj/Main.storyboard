@@ -921,6 +921,7 @@
                     <connections>
                         <outlet property="addTextButton" destination="5Pu-Dt-a1q" id="iEO-Ld-5ob"/>
                         <outlet property="pollOptionsCollectionView" destination="ch0-nn-W98" id="iNb-RT-7jO"/>
+                        <outlet property="postTextView" destination="gfv-W9-4Yt" id="hOR-h0-Pf2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fe5-oD-cWO" userLabel="First Responder" sceneMemberID="firstResponder"/>
