@@ -21,6 +21,12 @@
    //// NSLog(@"Skyboard TVC viewDidLoadCalled..........");
     [super viewDidLoad];
     
+    UIViewController *searchResultsController = [[UIViewController alloc] init];
+    UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:searchResultsController];
+   // searchController.searchResultsUpdater = searchResultsController;
+    self.tableView.tableHeaderView = searchController.searchBar;
+    self.definesPresentationContext = YES;
+    
     if(!self.posts)
     {
         //1. gather input
@@ -104,13 +110,16 @@
     self.mapView.delegate = self;  // so TestMapViewController receives MKMapView delegate messages.
     [self.locationManager startUpdatingLocation];
     
+    
+
+    
 }
 
 - (void) viewDidLayoutSubviews
 {
     
-    
-    self.tableView.contentInset = UIEdgeInsetsMake(250, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(self.mapView.bounds.size.height, 0, 0, 0);
+    //self.tableView.contentInset = UIEdgeInsetsMake(250, 0, 0, 0);
     NSLog(@"content offset y after layout subviews: %f",self.tableView.contentOffset.y);
     NSLog(@"mapview height is : %f", self.mapView.bounds.size.height);
 }
@@ -310,8 +319,8 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
     NSLog(@"contentOffset:%f", scrollView.contentOffset.y);
     NSLog(@"mapview height:%f\n", self.mapView.frame.size.height-1);
     
-    if (scrollView.contentOffset.y < -250.0 ) {
-        [scrollView setContentOffset:CGPointMake(scrollView.contentOffset.x, -250.0)];
+    if (scrollView.contentOffset.y < - (self.mapView.bounds.size.height) ) {
+        [scrollView setContentOffset:CGPointMake(scrollView.contentOffset.x, -(self.mapView.bounds.size.height))];
         NSLog(@"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXif block true. Scrollview did scroll");
     }
     

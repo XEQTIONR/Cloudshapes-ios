@@ -130,6 +130,15 @@ shouldSelectViewController:(UIViewController *)viewController
 
 - (void)stackMenuWillOpen:(UPStackMenu *)menu
 {
+    
+    //[self.view setAlpha:0.1]; // toggles visibility of entire screen
+    
+    // maybe change this to only the current view controller
+    for (UIViewController *vc in self.viewControllers)
+    {
+        [vc.view setAlpha:0.1];
+    }
+    
     if([[contentView subviews] count] == 0)
         return;
     
@@ -138,6 +147,13 @@ shouldSelectViewController:(UIViewController *)viewController
 
 - (void)stackMenuWillClose:(UPStackMenu *)menu
 {
+    [self.view setAlpha:1.0]; // toggles visibility of entire screen
+    
+    for (UIViewController *vc in self.viewControllers)
+    {
+        [vc.view setAlpha:1.0];
+    }
+    
     if([[contentView subviews] count] == 0)
         return;
     
