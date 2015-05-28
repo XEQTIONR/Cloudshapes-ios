@@ -19,9 +19,12 @@
 @property (weak, nonatomic) IBOutlet CSSkyboardTableView *tableView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) UISearchController *searchController;
 
 
 @property (strong, nonatomic) NSArray *posts; // our skyboard model // Should we use CORE DATA???
 @property (strong, nonatomic) CSSkyboardTableViewCell *prototypeCell; // dummy cell used to calculate cell height.
+
+@property (strong, nonatomic) NSArray *nearbyVenues; /// For Foursquare integration
 
 @end

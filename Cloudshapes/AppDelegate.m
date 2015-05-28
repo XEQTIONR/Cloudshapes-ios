@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "Foursquare2.h"
+
 //#import <FacebookSDK/FacebookSDK.h>
 @interface AppDelegate ()
 @end
@@ -16,21 +18,29 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
     NSUserDefaults *appDefaults = [NSUserDefaults standardUserDefaults];
     
     if([appDefaults objectForKey:@"userid"])
     {
         self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
         UIViewController *viewController = // determine the initial view controller here and instantiate it with
-    [storyboard instantiateViewControllerWithIdentifier:@"MainTabBar"];
+        [storyboard instantiateViewControllerWithIdentifier:@"MainTabBar"];
     
-    self.window.rootViewController = viewController;
-    [self.window makeKeyAndVisible];
-    
+        self.window.rootViewController = viewController;
+        [self.window makeKeyAndVisible];
     }
+    
+    
+    //initialize Foursquare Engine
+    [Foursquare2 setupFoursquareWithClientId:@"SCFFFGXLDO2MDLAPD2KQCRT45MWDSROPWEV0O5JXJGPW5PLQ"
+                                      secret:@"JTNNSK23UZPIDZB1D5C0R5WEL2Y033OHEXOTQHAZAHRR250C" callbackURL:@""]; // we dont need a callback URL for venues
+    
+    
+    
+    
+    
     return YES;
 }
 

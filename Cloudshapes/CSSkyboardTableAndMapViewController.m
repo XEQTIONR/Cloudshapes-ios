@@ -10,22 +10,80 @@
 #import "CSSkyboardTableViewCellQuestion.h"
 #import "CSSkyboardTableViewCellPoll.h"
 
-@interface CSSkyboardTableAndMapViewController ()
+#import "Foursquare2.h"
+#import "FSConverter.h"
+#import "FSVenue.h"
+
+@interface CSSkyboardTableAndMapViewController () <UISearchBarDelegate, UISearchResultsUpdating>//<UISearchControllerDelegate>
+
 
 @end
 
 @implementation CSSkyboardTableAndMapViewController
 
+- (void)updateSearchResultsForSearchController: (UISearchController *) searchController
+{
+    
+}
+
+- (void)getVenuesForLocation:(CLLocation *)location {
+    
+    [Foursquare2 venueSearchNearByLatitude:@(location.coordinate.latitude)
+                                 longitude:@(location.coordinate.longitude)
+                                     query:nil
+                                     limit:nil
+                                    intent:intentCheckin
+                                    radius:@(500)
+                                categoryId:nil
+                                  callback:^(BOOL success, id result){
+                                      if (success) {
+                                          NSDictionary *dic = result;
+                                          NSArray *venues = [dic valueForKeyPath:@"response.venues"];
+                                          FSConverter *converter = [[FSConverter alloc]init];
+                                          self.nearbyVenues = [converter convertToObjects:venues];
+                                          //[self.tableView reloadData];
+                                          //[self proccessAnnotations];
+                                          
+                                          for (FSVenue *places in self.nearbyVenues) {
+                                              
+                                              NSLog(@"Name : %@", places.name);
+                                          }
+                                          
+                                      }
+                                  }];
+}
+
 - (void)viewDidLoad
 {
    //// NSLog(@"Skyboard TVC viewDidLoadCalled..........");
     [super viewDidLoad];
-    
-    UIViewController *searchResultsController = [[UIViewController alloc] init];
-    UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:searchResultsController];
-   // searchController.searchResultsUpdater = searchResultsController;
+  
+    /*  UIViewController *searchResultsController = [[UIViewController alloc] init];
+    UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:nil ];//searchResultsController];
+    searchController.searchResultsUpdater = searchResultsController;
+    [searchController.searchBar sizeToFit];
+    //searchController.searchBar=[[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 20)];
+    if(searchController.searchBar!=nil)
+        NSLog(@"SEARCH CONTROLLERs SEARCH BAR IS NOT NIL");
     self.tableView.tableHeaderView = searchController.searchBar;
+    //self.definesPresentationContext = YES;
+    
+    searchController.delegate =self;
+    //have to set the content inset here... doesnt work in layoutSubviews after adding the search bar
+    //self.tableView.contentInset = UIEdgeInsetsMake(self.mapView.bounds.size.height, 0, 0, 0);
+    
+   */
+    
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.searchController.searchResultsUpdater = self;
+    self.searchController.dimsBackgroundDuringPresentation = YES;
+    self.searchController.searchBar.delegate = self;
+    
+    
+    [self.view addSubview:self.searchController.searchBar];
+    //self.tableView.tableHeaderView = self.searchController.searchBar;
     self.definesPresentationContext = YES;
+    [self.searchController.searchBar sizeToFit];
     
     if(!self.posts)
     {
@@ -118,6 +176,15 @@
 - (void) viewDidLayoutSubviews
 {
     
+    [super viewDidLayoutSubviews];
+    
+    /*UIViewController *searchResultsController = [[UIViewController alloc] init];
+    UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:searchResultsController];
+    // searchController.searchResultsUpdater = searchResultsController;
+    self.tableView.tableHeaderView = searchController.searchBar;
+    self.definesPresentationContext = YES;*/
+    
+    ///////////////UNCOMMENT NEXT LINE
     self.tableView.contentInset = UIEdgeInsetsMake(self.mapView.bounds.size.height, 0, 0, 0);
     //self.tableView.contentInset = UIEdgeInsetsMake(250, 0, 0, 0);
     NSLog(@"content offset y after layout subviews: %f",self.tableView.contentOffset.y);
@@ -133,6 +200,10 @@
 {
     NSLog(@"NEW LOCATION:");
     NSLog(@"%@", [locations lastObject]);
+    
+    [self getVenuesForLocation:[locations lastObject]];
+    
+    [self.locationManager stopUpdatingLocation];
 }
 
 - (void) mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
@@ -197,10 +268,21 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     
-    // Return the number of rows in the section.
-    return self.posts.count;
+    
+    if (tableView==self.tableView)
+    {
+        // Return the number of rows in the section.
+        return self.posts.count;
+    }
+    
+    else
+    {
+        return 5;
+    }
+    
 }
 
 
@@ -210,83 +292,87 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
     
   ////  NSLog(@"cellForRowAtIndexPath:%ld called BEFORE DEQUE",indexPath.row);
     
-    
-    NSDictionary *object = [self.posts objectAtIndex:indexPath.row];
-    
-    NSString *postType = [object objectForKey:@"posttype"];
-    
-    CSSkyboardTableViewCell *cell;
-    //id cell;
-    if ([postType compare:@"Question"] == NSOrderedSame)
+    if(tableView == self.tableView)
     {
-        CSSkyboardTableViewCellQuestion *cell2 = [tableView dequeueReusableCellWithIdentifier:@"Question Cell B" forIndexPath:indexPath];
-        //CSSkyboardTableViewCellQuestion *cellSubclass = cell;
-        
-        cell2.answerCount = [NSNumber numberWithInt:5];
-        cell2.answerCountLabel.text = [NSString stringWithFormat:@"%d", [cell2.answerCount intValue]];
-        cell = cell2;
-        
-    }
+        NSDictionary *object = [self.posts objectAtIndex:indexPath.row];
     
-    else if([postType compare:@"Poll"] == NSOrderedSame)
-    {
-        CSSkyboardTableViewCellPoll *cell3 = [tableView dequeueReusableCellWithIdentifier:@"Poll Cell B" forIndexPath:indexPath];
-        if (!cell3) {
-  ////          NSLog(@"Cell 3 is nil");
-        }
-        else
+        NSString *postType = [object objectForKey:@"posttype"];
+    
+        CSSkyboardTableViewCell *cell;
+        //id cell;
+        if ([postType compare:@"Question"] == NSOrderedSame)
         {
-    ////        NSLog(@"Cell 3 in not nil");
-        }
-        cell3.voteCount = [NSNumber numberWithInt:53];
-        cell3.voteCountLabel.text = [NSString stringWithFormat:@"%d", [cell3.voteCount intValue ]];
-        cell = cell3;
+            CSSkyboardTableViewCellQuestion *cell2 = [tableView dequeueReusableCellWithIdentifier:@"Question Cell B" forIndexPath:indexPath];
+            //CSSkyboardTableViewCellQuestion *cellSubclass = cell;
         
-    }
+            cell2.answerCount = [NSNumber numberWithInt:5];
+            cell2.answerCountLabel.text = [NSString stringWithFormat:@"%d", [cell2.answerCount intValue]];
+            cell = cell2;
+        
+        }
     
-    else
-    {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"Post Cell B" forIndexPath:indexPath];
-    }
+        else if([postType compare:@"Poll"] == NSOrderedSame)
+        {
+            CSSkyboardTableViewCellPoll *cell3 = [tableView dequeueReusableCellWithIdentifier:@"Poll Cell B" forIndexPath:indexPath];
+            if (!cell3)
+            {
+  ////          NSLog(@"Cell 3 is nil");
+            } // BLANK
+            else
+            {
+    ////        NSLog(@"Cell 3 in not nil");
+            } // BLANK
+            
+            cell3.voteCount = [NSNumber numberWithInt:53];
+            cell3.voteCountLabel.text = [NSString stringWithFormat:@"%d", [cell3.voteCount intValue ]];
+            cell = cell3;
+        
+        }
+    
+        else // postType  = Thought   ---- Add More sub-classes later
+        {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"Post Cell B" forIndexPath:indexPath];
+        }
     
  
  ////   NSLog(@"AFTER DEQUE");
     
-    cell.postType = [object objectForKey:@"posttype"];
-    cell.heading.text = [object objectForKey:@"posttext"];
-    cell.fullNameLabel.text = [[object objectForKey:@"userfname"] stringByAppendingString: [object objectForKey:@"userlname"]];
+        cell.postType = [object objectForKey:@"posttype"];
+        cell.heading.text = [object objectForKey:@"posttext"];
+        cell.fullNameLabel.text = [[object objectForKey:@"userfname"] stringByAppendingString: [object objectForKey:@"userlname"]];
     
+        cell.profilePictureView.image = [UIImage imageNamed:@"Scarlett-Johansson2-400.jpg"];
     
+        NSString *filePath = [object objectForKey:@"mediafilepath"];
+        NSString *baseString =@"http://ec2-54-173-125-187.compute-1.amazonaws.com/";
+        baseString = [baseString stringByAppendingString:filePath];
     
+        NSData *profilePictureData = [NSData dataWithContentsOfURL:[NSURL URLWithString:baseString]];
+        UIImage *image = [UIImage imageWithData:profilePictureData];
+        cell.profilePictureView.image = image;
+                            // following if block is unnecessary because we change the picture in layoutSubview method of the cell
+                            /*if([cell.postType isEqualToString:@"Thought"])
+                            {
+                            NSLog(@"THOUGHT IDENTIFIED");
+                             cell.profilePictureView.image = [UIImage imageNamed:@"POST_T_icon.png"];
+                             }*/
     
+                            //[cell layoutSubviews];
     
-    cell.profilePictureView.image = [UIImage imageNamed:@"Scarlett-Johansson2-400.jpg"];
-    
-    NSString *filePath = [object objectForKey:@"mediafilepath"];
-    NSString *baseString =@"http://ec2-54-173-125-187.compute-1.amazonaws.com/";
-    baseString = [baseString stringByAppendingString:filePath];
-    
-    NSData *profilePictureData = [NSData dataWithContentsOfURL:[NSURL URLWithString:baseString]];
-    UIImage *image = [UIImage imageWithData:profilePictureData];
-    cell.profilePictureView.image = image;
-    // following if block is unnecessary because we change the picture in layoutSubview method of the cell
-    /*if([cell.postType isEqualToString:@"Thought"])
-     {
-     NSLog(@"THOUGHT IDENTIFIED");
-     cell.profilePictureView.image = [UIImage imageNamed:@"POST_T_icon.png"];
-     }*/
-    
-    //[cell layoutSubviews];
-    
-    cell.likeCount = [NSNumber numberWithInt:6];
-    cell.commentCount = [NSNumber numberWithInt:2];
-    cell.likeCountLabel.text = [NSString stringWithFormat:@"%d",[cell.likeCount intValue]];
-    cell.commentCountLabel.text = [NSString stringWithFormat:@"%d", [cell.commentCount intValue]];
-    cell.postId = [object objectForKey:@"postid"];
+        cell.likeCount = [NSNumber numberWithInt:6];
+        cell.commentCount = [NSNumber numberWithInt:2];
+        cell.likeCountLabel.text = [NSString stringWithFormat:@"%d",[cell.likeCount intValue]];
+        cell.commentCountLabel.text = [NSString stringWithFormat:@"%d", [cell.commentCount intValue]];
+        cell.postId = [object objectForKey:@"postid"];
     
  ////   NSLog(@"------------------------- SkyboardTableViewController  cellFRAIP END RETURN cell");
-    return cell;
-    
+        return cell;
+    }
+    else // tableview != self.tableView
+    {
+        CSSkyboardTableViewCell *cell = [[CSSkyboardTableViewCell alloc] init];
+        return cell;
+    }
 }
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -341,6 +427,20 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 }
 
 //Table View Data-Source End -----------------
+
+#pragma  mark - UISearchController Delegate methods.
+
+- (void)willPresentSearchController:(UISearchController *)searchController
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        searchController.searchResultsController.view.hidden = NO;
+    });
+}
+- (void)didPresentSearchController:(UISearchController *)searchController
+{
+    searchController.searchResultsController.view.hidden = NO;
+}
+
 
 
 
