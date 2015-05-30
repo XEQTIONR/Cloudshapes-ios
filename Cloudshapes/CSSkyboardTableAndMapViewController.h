@@ -12,6 +12,7 @@
 
 #import "CSSkyboardTableViewCell.h"
 #import "CSSkyboardTableView.h"
+#import "CSSearchResultsTableViewController.h"
 
 @interface CSSkyboardTableAndMapViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate>
 
@@ -20,6 +21,7 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) UISearchController *searchController;
+@property (nonatomic,strong) CSSearchResultsTableViewController *searchResultsTableView;
 
 
 @property (strong, nonatomic) NSArray *posts; // our skyboard model // Should we use CORE DATA???

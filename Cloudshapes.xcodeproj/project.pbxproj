@@ -58,6 +58,8 @@
 		8EDD106D1A6F229900140559 /* CSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDD106C1A6F229900140559 /* CSLoginViewController.m */; };
 		8EDDC94A1AD49DDB00F50968 /* CSSkyboardTableAndMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDC9491AD49DDB00F50968 /* CSSkyboardTableAndMapViewController.m */; };
 		8EDDC94D1AD4B39A00F50968 /* CSSkyboardTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDC94C1AD4B39A00F50968 /* CSSkyboardTableView.m */; };
+		8EE792401B18DE470047BD2B /* CSSearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE7923F1B18DE470047BD2B /* CSSearchResultsTableViewController.m */; };
+		8EEBE2EF1B1A26C0002CF614 /* Romford UK new.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8EEBE2EE1B1A26C0002CF614 /* Romford UK new.gpx */; };
 		8EF519141A8E8ED80098EEB7 /* CSSkyboardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF519131A8E8ED80098EEB7 /* CSSkyboardTableViewController.m */; };
 		8EF5191A1A8EA1B70098EEB7 /* CSSkyboardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF519191A8EA1B70098EEB7 /* CSSkyboardTableViewCell.m */; };
 		8EF931DA1B17998400E3A13B /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = 8EF931CA1B17998400E3A13B /* CHANGELOG.md */; };
@@ -167,6 +169,9 @@
 		8EDDC9491AD49DDB00F50968 /* CSSkyboardTableAndMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSkyboardTableAndMapViewController.m; sourceTree = "<group>"; };
 		8EDDC94B1AD4B39A00F50968 /* CSSkyboardTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSkyboardTableView.h; sourceTree = "<group>"; };
 		8EDDC94C1AD4B39A00F50968 /* CSSkyboardTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSkyboardTableView.m; sourceTree = "<group>"; };
+		8EE7923E1B18DE470047BD2B /* CSSearchResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSearchResultsTableViewController.h; sourceTree = "<group>"; };
+		8EE7923F1B18DE470047BD2B /* CSSearchResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSearchResultsTableViewController.m; sourceTree = "<group>"; };
+		8EEBE2EE1B1A26C0002CF614 /* Romford UK new.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Romford UK new.gpx"; sourceTree = "<group>"; };
 		8EF519121A8E8ED80098EEB7 /* CSSkyboardTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSkyboardTableViewController.h; sourceTree = "<group>"; };
 		8EF519131A8E8ED80098EEB7 /* CSSkyboardTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSkyboardTableViewController.m; sourceTree = "<group>"; };
 		8EF519181A8EA1B70098EEB7 /* CSSkyboardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSkyboardTableViewCell.h; sourceTree = "<group>"; };
@@ -312,6 +317,7 @@
 		8EB576951A65149E00ED19D7 = {
 			isa = PBXGroup;
 			children = (
+				8EEBE2EE1B1A26C0002CF614 /* Romford UK new.gpx */,
 				8EF931C91B17998400E3A13B /* Foursquare2 */,
 				8EB576A01A65149E00ED19D7 /* Cloudshapes */,
 				8EB576BA1A65149E00ED19D7 /* CloudshapesTests */,
@@ -356,11 +362,11 @@
 			children = (
 				8E3B44B61AC9380900A55FD8 /* CSMapViewController.h */,
 				8E3B44B71AC9380900A55FD8 /* CSMapViewController.m */,
-				8E35A1401AA1C1AD00103D4E /* Old Obsolete Classes */,
 				8EB576A51A65149E00ED19D7 /* AppDelegate.h */,
 				8EB576A61A65149E00ED19D7 /* AppDelegate.m */,
 				8EB576A21A65149E00ED19D7 /* Info.plist */,
 				8EB576A31A65149E00ED19D7 /* main.m */,
+				8E35A1401AA1C1AD00103D4E /* Old Obsolete Classes */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -394,6 +400,8 @@
 		8EE4D6811AF2B29D00300F25 /* CSSkyboard */ = {
 			isa = PBXGroup;
 			children = (
+				8EE7923E1B18DE470047BD2B /* CSSearchResultsTableViewController.h */,
+				8EE7923F1B18DE470047BD2B /* CSSearchResultsTableViewController.m */,
 				8EE4D6821AF2B2DA00300F25 /* CSSkyboardTableView */,
 				8EDDC9481AD49DDB00F50968 /* CSSkyboardTableAndMapViewController.h */,
 				8EDDC9491AD49DDB00F50968 /* CSSkyboardTableAndMapViewController.m */,
@@ -586,6 +594,7 @@
 				8EF931E41B17998400E3A13B /* poweredByFoursquare_gray@2x.png in Resources */,
 				8E3570D21ADDADCA003521B4 /* Delete Sign Filled-32.png in Resources */,
 				8E31415D1AE8488100816CAF /* Generic Text-64.png in Resources */,
+				8EEBE2EF1B1A26C0002CF614 /* Romford UK new.gpx in Resources */,
 				8E35A9761AA7EFFA00FFFE2D /* POST_T_icon.png in Resources */,
 				8EB576AD1A65149E00ED19D7 /* Main.storyboard in Resources */,
 				8EC513961AE982CE00751C42 /* Exclamation Mark Filled-32.png in Resources */,
@@ -656,6 +665,7 @@
 				8ED799931ADF592C00793DCB /* CSNewPollViewController.m in Sources */,
 				8EDDC94D1AD4B39A00F50968 /* CSSkyboardTableView.m in Sources */,
 				8EF931DF1B17998400E3A13B /* FSWebLogin.m in Sources */,
+				8EE792401B18DE470047BD2B /* CSSearchResultsTableViewController.m in Sources */,
 				8EF519141A8E8ED80098EEB7 /* CSSkyboardTableViewController.m in Sources */,
 				8EC993851A6CD2B300074886 /* CSRegisterViewController.m in Sources */,
 				8E3570C51ADD8C05003521B4 /* BaseViewController.m in Sources */,

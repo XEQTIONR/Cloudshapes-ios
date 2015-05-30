@@ -9,22 +9,20 @@
 #import "CSSkyboardTableAndMapViewController.h"
 #import "CSSkyboardTableViewCellQuestion.h"
 #import "CSSkyboardTableViewCellPoll.h"
+#import "CSSearchResultsTableViewController.h"
 
 #import "Foursquare2.h"
 #import "FSConverter.h"
 #import "FSVenue.h"
 
-@interface CSSkyboardTableAndMapViewController () <UISearchBarDelegate, UISearchResultsUpdating>//<UISearchControllerDelegate>
+@interface CSSkyboardTableAndMapViewController () <UISearchBarDelegate> //UISearchResultsUpdating,UISearchControllerDelegate>
 
 
 @end
 
 @implementation CSSkyboardTableAndMapViewController
 
-- (void)updateSearchResultsForSearchController: (UISearchController *) searchController
-{
-    
-}
+
 
 - (void)getVenuesForLocation:(CLLocation *)location {
     
@@ -58,7 +56,7 @@
    //// NSLog(@"Skyboard TVC viewDidLoadCalled..........");
     [super viewDidLoad];
   
-    /*  UIViewController *searchResultsController = [[UIViewController alloc] init];
+  /*  UIViewController *searchResultsController = [[UITableViewController alloc] init];
     UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:nil ];//searchResultsController];
     searchController.searchResultsUpdater = searchResultsController;
     [searchController.searchBar sizeToFit];
@@ -68,16 +66,23 @@
     self.tableView.tableHeaderView = searchController.searchBar;
     //self.definesPresentationContext = YES;
     
-    searchController.delegate =self;
+    //searchController.delegate =self;
     //have to set the content inset here... doesnt work in layoutSubviews after adding the search bar
     //self.tableView.contentInset = UIEdgeInsetsMake(self.mapView.bounds.size.height, 0, 0, 0);
     
    */
     
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    self.searchController.searchResultsUpdater = self;
+    //CSSearchResultsTableViewController *resultsController = [[CSSearchResultsTableViewController alloc] init];
+    
+    self.searchResultsTableView = [[CSSearchResultsTableViewController alloc] init];
+    
+    [self.searchResultsTableView.tableView registerClass:UITableViewCellStyleDefault forCellReuseIdentifier:@"search cell"];
+    
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:self.searchResultsTableView];
+    self.searchController.searchResultsUpdater = self.searchResultsTableView;
     self.searchController.dimsBackgroundDuringPresentation = YES;
-    self.searchController.searchBar.delegate = self;
+    self.searchController.searchBar.delegate = self.searchResultsTableView;
+    //self.searchController.searchBar.delegate = self;
     
     
     [self.view addSubview:self.searchController.searchBar];
@@ -133,6 +138,11 @@
         self.tableView.dataSource = self;
         self.tableView.bounds = [[UIScreen mainScreen] bounds];
         self.tableView.backgroundColor = nil;
+    }
+    
+    else
+    {
+        // show the empty table here
     }
     
   ////  NSLog(@"BEFORE self.prototypeCell dequeReusable Idebtifier POST CELL");
@@ -193,7 +203,14 @@
 
 //-- view life-cycle methods End ----------------------
 
+#pragma mark - UISearchBarDelegate methods
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    NSLog(@"Search Text Changed");
+}
+
+// -- search bar Delegte methods end
 #pragma mark - Location Manager Delegate methods
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
@@ -428,18 +445,7 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 
 //Table View Data-Source End -----------------
 
-#pragma  mark - UISearchController Delegate methods.
 
-- (void)willPresentSearchController:(UISearchController *)searchController
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        searchController.searchResultsController.view.hidden = NO;
-    });
-}
-- (void)didPresentSearchController:(UISearchController *)searchController
-{
-    searchController.searchResultsController.view.hidden = NO;
-}
 
 
 

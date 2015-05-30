@@ -60,10 +60,10 @@ shouldSelectViewController:(UIViewController *)viewController
     
     // here we manually add all the tabs including our special center button
     self.viewControllers = [NSArray arrayWithObjects:
-                             [self viewControllerWithTabTitle:@"Explore" image:[UIImage imageNamed:@"Binoculars-32"] storyboardID:@"TESTItem"],
-                             dummyViewController,
-                            [self viewControllerWithTabTitle:@"Profile" image:[UIImage imageNamed:@"User Male Circle-32"] storyboardID:@"CSProfile"],
-                            nil ];
+                             [self viewControllerWithTabTitle:@"Explore" image:[UIImage imageNamed:@"Binoculars-32"] storyboardID:@"TESTItem"], //Skyboard Tab
+                             dummyViewController, // New Post Tab
+                             [self viewControllerWithTabTitle:@"Profile" image:[UIImage imageNamed:@"User Male Circle-32"] storyboardID:@"CSProfile"], // New Profilw Tab
+                             nil ];
     
     //method on our special center button subclass.
     contentView =[self addCenterButtonWithImage:[UIImage imageNamed:@"Plus-32"] highlightImage:[UIImage imageNamed:@"Delete Sign Filled-32"]];
