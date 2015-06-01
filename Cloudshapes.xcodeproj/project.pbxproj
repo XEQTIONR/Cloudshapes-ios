@@ -402,9 +402,9 @@
 			children = (
 				8EE7923E1B18DE470047BD2B /* CSSearchResultsTableViewController.h */,
 				8EE7923F1B18DE470047BD2B /* CSSearchResultsTableViewController.m */,
-				8EE4D6821AF2B2DA00300F25 /* CSSkyboardTableView */,
 				8EDDC9481AD49DDB00F50968 /* CSSkyboardTableAndMapViewController.h */,
 				8EDDC9491AD49DDB00F50968 /* CSSkyboardTableAndMapViewController.m */,
+				8EE4D6821AF2B2DA00300F25 /* CSSkyboardTableView */,
 			);
 			name = CSSkyboard;
 			sourceTree = "<group>";

@@ -51,10 +51,15 @@
 
 - (void) updateSearchResultsForSearchController:(UISearchController *)searchController
 {
-    
+    //NSString *searchString = searchController.searchBar.text;
+    //NSLog(@"searchString is    %@", searchString);
+    //[self startSearchWithString:searchString];
+    //startSearchWithString calls self.tableview reloadData
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+    NSLog(@"searchText is    %@", searchText);
     [self startSearchWithString:searchText];
 }
 
