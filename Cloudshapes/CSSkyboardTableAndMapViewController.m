@@ -417,15 +417,22 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
     }
 }
 
+#pragma mark UIScrollViewDelegate methods
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     NSLog(@"contentOffset:%f", scrollView.contentOffset.y);
     NSLog(@"mapview height:%f\n", self.mapView.frame.size.height-1);
     
-    if (scrollView.contentOffset.y < - (self.mapView.bounds.size.height) ) {
+    
+    // Dont do this for the user profiles.
+    if (scrollView.contentOffset.y < - (self.mapView.bounds.size.height) )
+    {
         [scrollView setContentOffset:CGPointMake(scrollView.contentOffset.x, -(self.mapView.bounds.size.height))];
         NSLog(@"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXif block true. Scrollview did scroll");
     }
+    
+    
     
   /*  if (scrollView.contentOffset.y >= 0.0) {
         

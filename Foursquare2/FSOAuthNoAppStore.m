@@ -36,13 +36,13 @@
         return FSOAuthStatusErrorFoursquareNotInstalled;
     }
     */
-    NSString *urlEncodedCallbackString = (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+   /* NSString *urlEncodedCallbackString = (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
                                                                                                                (CFStringRef)callbackURIString,
                                                                                                                NULL,
                                                                                                                (CFStringRef)@"!*'();:@&=+$,/?%#[]",
                                                                                                                kCFStringEncodingUTF8);
-    
-    NSURL *authURL = [NSURL URLWithString:[NSString stringWithFormat:@"foursquareauth://authorize?client_id=%@&v=%@&redirect_uri=%@", clientID, kFoursquareNoAppstoreOAuthRequiredVersion, urlEncodedCallbackString]];
+    */
+  //  NSURL *authURL = [NSURL URLWithString:[NSString stringWithFormat:@"foursquareauth://authorize?client_id=%@&v=%@&redirect_uri=%@", clientID, kFoursquareNoAppstoreOAuthRequiredVersion, urlEncodedCallbackString]];
     
  //   if (![sharedApplication canOpenURL:authURL]) {
  //       return FSOAuthStatusErrorFoursquareOAuthNotSupported;
