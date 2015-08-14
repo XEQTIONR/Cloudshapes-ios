@@ -59,6 +59,9 @@
 		8EDD106D1A6F229900140559 /* CSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDD106C1A6F229900140559 /* CSLoginViewController.m */; };
 		8EDDC94A1AD49DDB00F50968 /* CSSkyboardTableAndMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDC9491AD49DDB00F50968 /* CSSkyboardTableAndMapViewController.m */; };
 		8EDDC94D1AD4B39A00F50968 /* CSSkyboardTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDC94C1AD4B39A00F50968 /* CSSkyboardTableView.m */; };
+		8EE4D0821B7E70DD006C5C76 /* venom-landscape.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8EE4D0811B7E70DD006C5C76 /* venom-landscape.jpg */; };
+		8EE4D0841B7E7DBA006C5C76 /* iconhome.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8EE4D0831B7E7DBA006C5C76 /* iconhome.jpg */; };
+		8EE4D0861B7E7DF8006C5C76 /* uhere.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 8EE4D0851B7E7DF8006C5C76 /* uhere.PNG */; };
 		8EE792401B18DE470047BD2B /* CSSearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE7923F1B18DE470047BD2B /* CSSearchResultsTableViewController.m */; };
 		8EEBE2EF1B1A26C0002CF614 /* Romford UK new.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8EEBE2EE1B1A26C0002CF614 /* Romford UK new.gpx */; };
 		8EF519141A8E8ED80098EEB7 /* CSSkyboardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF519131A8E8ED80098EEB7 /* CSSkyboardTableViewController.m */; };
@@ -172,6 +175,9 @@
 		8EDDC9491AD49DDB00F50968 /* CSSkyboardTableAndMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSkyboardTableAndMapViewController.m; sourceTree = "<group>"; };
 		8EDDC94B1AD4B39A00F50968 /* CSSkyboardTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSkyboardTableView.h; sourceTree = "<group>"; };
 		8EDDC94C1AD4B39A00F50968 /* CSSkyboardTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSkyboardTableView.m; sourceTree = "<group>"; };
+		8EE4D0811B7E70DD006C5C76 /* venom-landscape.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "venom-landscape.jpg"; sourceTree = "<group>"; };
+		8EE4D0831B7E7DBA006C5C76 /* iconhome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iconhome.jpg; sourceTree = "<group>"; };
+		8EE4D0851B7E7DF8006C5C76 /* uhere.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uhere.PNG; sourceTree = "<group>"; };
 		8EE7923E1B18DE470047BD2B /* CSSearchResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSearchResultsTableViewController.h; sourceTree = "<group>"; };
 		8EE7923F1B18DE470047BD2B /* CSSearchResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSearchResultsTableViewController.m; sourceTree = "<group>"; };
 		8EEBE2EE1B1A26C0002CF614 /* Romford UK new.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Romford UK new.gpx"; sourceTree = "<group>"; };
@@ -299,8 +305,11 @@
 				8E58B59E1AA7F49B0031D17C /* cs alternate120square.png */,
 				8EDC71B01AB7BBB800A9295B /* Hearts-50.png */,
 				8EC513931AE982C500751C42 /* Checkmark Filled-32.png */,
+				8EE4D0811B7E70DD006C5C76 /* venom-landscape.jpg */,
 				8EC513971AE982D500751C42 /* Question Mark Filled-32.png */,
 				8EC513951AE982CE00751C42 /* Exclamation Mark Filled-32.png */,
+				8EE4D0831B7E7DBA006C5C76 /* iconhome.jpg */,
+				8EE4D0851B7E7DF8006C5C76 /* uhere.PNG */,
 				8EDC71B21AB7BD0E00A9295B /* Comments-50.png */,
 				8E3570CC1ADDADCA003521B4 /* User Male Circle-32.png */,
 			);
@@ -605,12 +614,15 @@
 				8EC513961AE982CE00751C42 /* Exclamation Mark Filled-32.png in Resources */,
 				8E3570D01ADDADCA003521B4 /* User Male Circle-32.png in Resources */,
 				8EF931E11B17998400E3A13B /* pin.png in Resources */,
+				8EE4D0821B7E70DD006C5C76 /* venom-landscape.jpg in Resources */,
 				8EDC71B11AB7BBB800A9295B /* Hearts-50.png in Resources */,
 				8E58B59F1AA7F49B0031D17C /* cs alternate120square.png in Resources */,
 				8EDC71B31AB7BD0E00A9295B /* Comments-50.png in Resources */,
+				8EE4D0861B7E7DF8006C5C76 /* uhere.PNG in Resources */,
 				8EB576B21A65149E00ED19D7 /* LaunchScreen.xib in Resources */,
 				8EF931E21B17998400E3A13B /* pin@2x.png in Resources */,
 				8EF931E31B17998400E3A13B /* poweredByFoursquare_gray.png in Resources */,
+				8EE4D0841B7E7DBA006C5C76 /* iconhome.jpg in Resources */,
 				8EB576AF1A65149E00ED19D7 /* Images.xcassets in Resources */,
 				8E58B59D1AA7F4080031D17C /* cs_alternate180square.png in Resources */,
 				8EC513941AE982C500751C42 /* Checkmark Filled-32.png in Resources */,

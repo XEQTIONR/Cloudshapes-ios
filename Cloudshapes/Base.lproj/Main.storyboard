@@ -292,9 +292,10 @@
                         <viewControllerLayoutGuide type="bottom" id="xh2-Ps-jat"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bw4-VU-Mtm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Scarlett-Johansson2-400.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="S6j-A9-YlE">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S6j-A9-YlE">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="0.0" width="400" height="351"/>
@@ -352,7 +353,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJk-7d-jII" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-543" y="-4906"/>
+            <point key="canvasLocation" x="-561" y="-4882"/>
         </scene>
         <!--Profile-->
         <scene sceneID="cfI-Ot-VV6">
@@ -842,7 +843,6 @@
     <resources>
         <image name="Add Image-64.png" width="64" height="64"/>
         <image name="Generic Text-64.png" width="64" height="64"/>
-        <image name="Scarlett-Johansson2-400.jpg" width="400" height="534"/>
         <image name="cs alternate120square.png" width="120" height="120"/>
     </resources>
 </document>

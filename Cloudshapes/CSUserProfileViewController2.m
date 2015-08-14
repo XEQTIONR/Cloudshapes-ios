@@ -24,20 +24,71 @@
     self.userActivityTableView.backgroundColor = nil;
     //self.userActivityTableView.bounds = [[UIScreen mainScreen] bounds];
     
-     [self.userProfileBannerImageView setContentMode:UIViewContentModeScaleToFill];
+    
     NSLog(@"Banner Picture height : %f", self.userProfileBannerImageView.image.size.height);
     NSLog(@"Banner Frame height : %f", self.userProfileBannerImageView.frame.size.height);
-    self.userProfileBannerImageView.image = [UIImage imageNamed:@"Hearts-50"];
-   
+    //self.userProfileBannerImageView.image = [UIImage imageNamed:@"venom-landscape"];
+   //[self.userProfileBannerImageView setContentMode:UIViewContentModeScaleAspectFill];
+    self.userProfileBannerImageView.backgroundColor = [UIColor redColor];
+    //[self.userProfileBannerImageView setClipsToBounds:YES];
     [self.userProfileBannerImageView reloadInputViews];
     NSLog(@"Banner Picture height : %f", self.userProfileBannerImageView.image.size.height);
     NSLog(@"Banner Frameheight : %f", self.userProfileBannerImageView.frame.size.height);
     //[self.userActivityTableView setContentOffset:CGPointMake(self.userActivityTableView.contentOffset.x, self.userProfileBannerImageView.bounds.size.height)];
     //self.cachedSize = self.userProfileBannerImageView.bounds;
     //self.center = self.userProfileBannerImageView.center;
-    NSLog(@"self center x=%f, y=%f", self.center.x,self.center.y);
+    //NSLog(@"self center x=%f, y=%f", self.center.x,self.center.y);
+
+    
+    
+    if(!self.userProfileBannerImageView.image)
+    {
+        
+        //1. gather input
+        NSUserDefaults *appDefaults =[NSUserDefaults standardUserDefaults];
+        
+        NSString *userId = [appDefaults objectForKey:@"userid"];
+        
+        NSString *paramUserId = [NSString stringWithFormat:@"userId=%@",userId];
+        
+        //2. encode input data, calculate length
+        NSData *dataUserId = [paramUserId dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+        NSString *postLength = [NSString stringWithFormat:@"%lu", [dataUserId length]];
+        
+        
+        //3. init and setup request
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/getprofilepicturefilepath.php"]];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:dataUserId];
+        
+        
+        //4. allocate variables for URL response and  NS error
+        NSHTTPURLResponse *urlResponse = nil;
+        NSError *error = nil;
+        
+        //5. fire request, receive data, get HTTP Response
+        ///- Change this to async Request later
+        NSData *picturePath = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+        NSString *filePath = [[NSString alloc] initWithData:picturePath encoding:NSUTF8StringEncoding]; //decoding the file path
+        NSString *baseString =@"http://ec2-54-173-125-187.compute-1.amazonaws.com/";
+        
+        baseString = [baseString stringByAppendingString:filePath]; // attaching to url of server giving us the full path
+        
+        //
+        NSLog(@"User profile picture filePath = %@", filePath);
+        NSLog(@"Base string <%@>", baseString);
+        
+        NSData *pictureData = [NSData dataWithContentsOfURL:[NSURL URLWithString:baseString]];
+        UIImage *image = [UIImage imageWithData:pictureData];
+
+        [self.userProfileBannerImageView setImage:image];
+        [self.userProfileBannerImageView setContentMode:UIViewContentModeScaleAspectFill];
 
 
+    }
 }
 
 -(void) viewDidLayoutSubviews
@@ -47,7 +98,10 @@
     [self.userActivityTableView setContentOffset:CGPointMake(self.userActivityTableView.contentOffset.x, -(self.userProfileBannerImageView.bounds.size.height))];
     self.center = self.userProfileBannerImageView.center;
     self.cachedSize = self.userProfileBannerImageView.bounds;
-}
+    
+    NSLog(@"cached size in viewDidLayoutSubviews  width %f    height %f", self.cachedSize.size.width, self.cachedSize.size.height);
+    //self.userProfileBannerImageView.image = [UIImage imageNamed:@"venom-landscape"];
+    }
 
 
 #pragma mark UITableViewDataSource methods
@@ -77,7 +131,8 @@
     //NSLog(@"self center x=%f, y=%f", self.center.x,self.center.y);
     //NSLog(@"Y: %f", y);
     
-    if (self.userProfileBannerImageView.bounds.size.height < -(scrollView.contentOffset.y))
+    //if (self.userProfileBannerImageView.bounds.size.height < -(scrollView.contentOffset.y))
+    if (self.cachedSize.size.height < -(scrollView.contentOffset.y))
     {
         //self.userProfileBannerImageView.frame = CG
         
