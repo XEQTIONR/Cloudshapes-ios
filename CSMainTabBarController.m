@@ -62,7 +62,7 @@ shouldSelectViewController:(UIViewController *)viewController
     self.viewControllers = [NSArray arrayWithObjects:
                              [self viewControllerWithTabTitle:@"Explore" image:[UIImage imageNamed:@"Binoculars-32"] storyboardID:@"TESTItem"], //Skyboard Tab
                              dummyViewController, // New Post Tab
-                             [self viewControllerWithTabTitle:@"Profile" image:[UIImage imageNamed:@"User Male Circle-32"] storyboardID:@"CSProfile"], // New Profilw Tab
+                             [self viewControllerWithTabTitle:@"Profile" image:[UIImage imageNamed:@"User Male Circle-32"] storyboardID:@"CSProfile2"], // New Profilw Tab
                              nil ];
     
     //method on our special center button subclass.

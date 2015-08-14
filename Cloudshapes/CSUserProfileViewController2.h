@@ -11,5 +11,6 @@
 @interface CSUserProfileViewController2 : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *userProfileBannerImageView;
 @property (weak, nonatomic) IBOutlet UITableView *userActivityTableView;
-
+@property  CGRect cachedSize;
+@property CGPoint center;
 @end
