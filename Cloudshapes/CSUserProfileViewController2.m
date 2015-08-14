@@ -40,7 +40,7 @@
 {
     [super viewDidLayoutSubviews];
     self.userActivityTableView.contentInset = UIEdgeInsetsMake(self.userProfileBannerImageView.bounds.size.height, 0, 0, 0);
-    //[self.userActivityTableView setContentOffset:CGPointMake(self.userActivityTableView.contentOffset.x, self.userProfileBannerImageView.image.size.height)];
+    [self.userActivityTableView setContentOffset:CGPointMake(self.userActivityTableView.contentOffset.x, -(self.userProfileBannerImageView.bounds.size.height))];
 }
 
 
@@ -61,7 +61,7 @@
     
 }
 
-- (void) scrollViewDidScroll:(UIScrollView *)scrollView
+/*- (void) scrollViewDidScroll:(UIScrollView *)scrollView
 {
     NSLog(@"\n\nScrollView Did Scroll in user profile");
     NSLog(@"scrollView.contentOffset.y : %f",scrollView.contentOffset.y);
@@ -73,6 +73,6 @@
     }
     NSLog(@"scrollView.contentOffset.y : %f",scrollView.contentOffset.y);
 
-}
+}*/
 
 @end

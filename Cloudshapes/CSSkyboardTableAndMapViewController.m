@@ -435,21 +435,9 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
     
     
     
-  /*  if (scrollView.contentOffset.y >= 0.0) {
-        
-        NSLog(@"CONTENT OFFSET IS ZERO");
-        NSLog(@"Attempting to shutdown location monitoring");
-        // THIS IS WHERE WE STOP UPDATING LOCATION.
-        
-        [self.locationManager stopUpdatingLocation];
-    }
-    
-    else
-    {
-        [self.locationManager startUpdatingLocation];
-    }*/
+
  
-}
+} 
 
 //Table View Data-Source End -----------------
 
