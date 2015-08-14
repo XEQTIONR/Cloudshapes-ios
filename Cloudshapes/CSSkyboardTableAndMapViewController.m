@@ -421,6 +421,7 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    NSLog(@"scrollViewDidScroll method");
     NSLog(@"contentOffset:%f", scrollView.contentOffset.y);
     NSLog(@"mapview height:%f\n", self.mapView.frame.size.height-1);
     
@@ -446,8 +447,8 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
     else
     {
         [self.locationManager startUpdatingLocation];
-    }
- */
+    }*/
+ 
 }
 
 //Table View Data-Source End -----------------

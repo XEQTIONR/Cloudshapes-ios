@@ -127,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fp7-AX-SAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="445.5" y="-5012"/>
+            <point key="canvasLocation" x="400.5" y="-5622"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SVS-h5-bRf">
@@ -281,7 +281,78 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tpi-lW-LqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-516" y="-5000.9999999999982"/>
+            <point key="canvasLocation" x="-561" y="-5611"/>
+        </scene>
+        <!--User Profile View Controller2-->
+        <scene sceneID="wAI-jE-iRC">
+            <objects>
+                <viewController id="v1e-X5-OHz" customClass="CSUserProfileViewController2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ecE-rB-cvQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="xh2-Ps-jat"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bw4-VU-Mtm">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Scarlett-Johansson2-400.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="S6j-A9-YlE">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="400" height="287"/>
+                                </variation>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="LZ0-hJ-l6o">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Profile TV Cell" textLabel="HYP-Uh-IVq" imageView="UAA-EP-Mt9" style="IBUITableViewCellStyleDefault" id="JNH-gF-AXI">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JNH-gF-AXI" id="rhG-on-Ptw">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HYP-Uh-IVq">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    </variation>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="cs alternate120square.png" id="UAA-EP-Mt9">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="400" height="536"/>
+                                </variation>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="S6j-A9-YlE"/>
+                                <exclude reference="LZ0-hJ-l6o"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="S6j-A9-YlE"/>
+                                <include reference="LZ0-hJ-l6o"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="aBQ-gM-70R"/>
+                    <connections>
+                        <outlet property="userActivityTableView" destination="LZ0-hJ-l6o" id="m3q-5k-KY5"/>
+                        <outlet property="userProfileBannerImageView" destination="S6j-A9-YlE" id="cBM-nk-4Aw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bJk-7d-jII" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-543" y="-4906"/>
         </scene>
         <!--Profile-->
         <scene sceneID="cfI-Ot-VV6">
@@ -295,12 +366,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="bMG-TW-PTe" kind="relationship" relationship="rootViewController" id="E34-en-hwg"/>
+                        <segue destination="v1e-X5-OHz" kind="relationship" relationship="rootViewController" id="y4n-Mk-1x7"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OXi-jW-5Jk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1599" y="-5000.9999999999982"/>
+            <point key="canvasLocation" x="-1644" y="-5611"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="tNT-CW-tkl">
@@ -774,5 +845,7 @@
     <resources>
         <image name="Add Image-64.png" width="64" height="64"/>
         <image name="Generic Text-64.png" width="64" height="64"/>
+        <image name="Scarlett-Johansson2-400.jpg" width="400" height="534"/>
+        <image name="cs alternate120square.png" width="120" height="120"/>
     </resources>
 </document>

@@ -33,6 +33,7 @@
 		8E84CB4D1AA04383007A396A /* Scarlett-Johansson2-400.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E84CB4C1AA04383007A396A /* Scarlett-Johansson2-400.jpg */; };
 		8E913D001AC0883400E8983E /* Checklist Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E913CFF1AC0883400E8983E /* Checklist Filled-50.png */; };
 		8E9B274F1AE3215900BAAC69 /* TestCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B274E1AE3215900BAAC69 /* TestCollectionViewController.m */; };
+		8E9F60381B7D829100970DD2 /* CSUserProfileViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9F60371B7D829100970DD2 /* CSUserProfileViewController2.m */; };
 		8EB576A41A65149E00ED19D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB576A31A65149E00ED19D7 /* main.m */; };
 		8EB576A71A65149E00ED19D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB576A61A65149E00ED19D7 /* AppDelegate.m */; };
 		8EB576AD1A65149E00ED19D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EB576AB1A65149E00ED19D7 /* Main.storyboard */; };
@@ -127,6 +128,8 @@
 		8E9B274D1AE3215900BAAC69 /* TestCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewController.h; sourceTree = "<group>"; };
 		8E9B274E1AE3215900BAAC69 /* TestCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewController.m; sourceTree = "<group>"; };
 		8E9BBF4E1A651606009D6F09 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		8E9F60341B7D7D6B00970DD2 /* CSUserProfileViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSUserProfileViewController2.h; sourceTree = "<group>"; };
+		8E9F60371B7D829100970DD2 /* CSUserProfileViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSUserProfileViewController2.m; sourceTree = "<group>"; };
 		8EB5769E1A65149E00ED19D7 /* Cloudshapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloudshapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EB576A21A65149E00ED19D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EB576A31A65149E00ED19D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -459,6 +462,8 @@
 				8ED342731A835E8F00836D34 /* CSPhotoViewController.m */,
 				8ECDD3041A79C4A30051C9C6 /* CSUserProfileViewController.h */,
 				8ECDD3051A79C4A30051C9C6 /* CSUserProfileViewController.m */,
+				8E9F60341B7D7D6B00970DD2 /* CSUserProfileViewController2.h */,
+				8E9F60371B7D829100970DD2 /* CSUserProfileViewController2.m */,
 			);
 			name = CSUserProfile;
 			sourceTree = "<group>";
@@ -653,6 +658,7 @@
 				8EF5191A1A8EA1B70098EEB7 /* CSSkyboardTableViewCell.m in Sources */,
 				8E9B274F1AE3215900BAAC69 /* TestCollectionViewController.m in Sources */,
 				8E64B6D21A9FBCB60017A079 /* TestTableViewCell.m in Sources */,
+				8E9F60381B7D829100970DD2 /* CSUserProfileViewController2.m in Sources */,
 				8EDA975D1AA8D598006D667C /* CSSkyboardTableViewCell2.m in Sources */,
 				8EF931DD1B17998400E3A13B /* FSOAuthNoAppStore.m in Sources */,
 				8EDA975A1AA8D3BD006D667C /* CSSkyboardTableViewController2.m in Sources */,
