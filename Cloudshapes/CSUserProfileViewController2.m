@@ -23,7 +23,8 @@
     self.userActivityTableView.delegate = self;
     self.userActivityTableView.backgroundColor = nil;
     //self.userActivityTableView.bounds = [[UIScreen mainScreen] bounds];
-    
+    //[self.view bringSubviewToFront:self.userActivityTableView];
+    //[self.view sendSubviewToBack:self.userProfilePicture];
     
     NSLog(@"Banner Picture height : %f", self.userProfileBannerImageView.image.size.height);
     NSLog(@"Banner Frame height : %f", self.userProfileBannerImageView.frame.size.height);
@@ -86,6 +87,9 @@
 
         [self.userProfileBannerImageView setImage:image];
         [self.userProfileBannerImageView setContentMode:UIViewContentModeScaleAspectFill];
+        
+        [self.userProfilePicture setImage:image];
+        [self.userProfilePicture setContentMode:UIViewContentModeScaleAspectFill];
 
 
     }
@@ -101,7 +105,10 @@
     
     NSLog(@"cached size in viewDidLayoutSubviews  width %f    height %f", self.cachedSize.size.width, self.cachedSize.size.height);
     //self.userProfileBannerImageView.image = [UIImage imageNamed:@"venom-landscape"];
-    }
+
+    [self.view bringSubviewToFront:self.userActivityTableView];
+    [self.view sendSubviewToBack:self.userProfilePicture];
+}
 
 
 #pragma mark UITableViewDataSource methods
