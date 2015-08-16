@@ -14,4 +14,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *userProfilePicture;
 @property  CGRect cachedSize;
 @property CGPoint center;
+@property CGFloat delta;
 @end

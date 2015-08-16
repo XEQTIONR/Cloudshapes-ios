@@ -66,7 +66,6 @@
 		8EEBE2EF1B1A26C0002CF614 /* Romford UK new.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8EEBE2EE1B1A26C0002CF614 /* Romford UK new.gpx */; };
 		8EF519141A8E8ED80098EEB7 /* CSSkyboardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF519131A8E8ED80098EEB7 /* CSSkyboardTableViewController.m */; };
 		8EF5191A1A8EA1B70098EEB7 /* CSSkyboardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF519191A8EA1B70098EEB7 /* CSSkyboardTableViewCell.m */; };
-		8EF931DA1B17998400E3A13B /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = 8EF931CA1B17998400E3A13B /* CHANGELOG.md */; };
 		8EF931DB1B17998400E3A13B /* Foursquare2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF931CC1B17998400E3A13B /* Foursquare2.m */; };
 		8EF931DC1B17998400E3A13B /* FSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF931CE1B17998400E3A13B /* FSKeychain.m */; };
 		8EF931DD1B17998400E3A13B /* FSOAuthNoAppStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF931D01B17998400E3A13B /* FSOAuthNoAppStore.m */; };
@@ -653,7 +652,6 @@
 				8E397B6D1ADE097C00BA51DB /* UPStackMenu.m in Sources */,
 				8EDD106D1A6F229900140559 /* CSLoginViewController.m in Sources */,
 				8E31415A1AE8118100816CAF /* TestCollectionViewCell.m in Sources */,
-				8EF931DA1B17998400E3A13B /* CHANGELOG.md in Sources */,
 				8E411C1F1AB9183800A37756 /* CSNewPostViewController.m in Sources */,
 				8EDDC94A1AD49DDB00F50968 /* CSSkyboardTableAndMapViewController.m in Sources */,
 				8ECCE5EB1AF49C64007567A8 /* CSPollOptionTextCollectionViewCell.m in Sources */,

@@ -22,7 +22,7 @@
     self.userActivityTableView.dataSource = self;
     self.userActivityTableView.delegate = self;
     self.userActivityTableView.backgroundColor = nil;
-    //self.userActivityTableView.bounds = [[UIScreen mainScreen] bounds];
+    self.userActivityTableView.bounds = [[UIScreen mainScreen] bounds];
     //[self.view bringSubviewToFront:self.userActivityTableView];
     //[self.view sendSubviewToBack:self.userProfilePicture];
     
@@ -90,7 +90,8 @@
         
         [self.userProfilePicture setImage:image];
         [self.userProfilePicture setContentMode:UIViewContentModeScaleAspectFill];
-
+        //self.userProfilePicture.layer.cornerRadius = self.userProfilePicture.bounds.size.width/2.0;
+        [self.userProfilePicture setClipsToBounds:YES];
 
     }
 }
@@ -103,11 +104,15 @@
     self.center = self.userProfileBannerImageView.center;
     self.cachedSize = self.userProfileBannerImageView.bounds;
     
+    self.userProfilePicture.layer.borderWidth = 6.0f;
+    self.userProfilePicture.layer.borderColor = [UIColor whiteColor].CGColor; // hmm... interesting short-hand for [-[UIColor c] CGColor];
+    self.userProfilePicture.layer.cornerRadius = self.userProfilePicture.bounds.size.width/2.0;
+    
     NSLog(@"cached size in viewDidLayoutSubviews  width %f    height %f", self.cachedSize.size.width, self.cachedSize.size.height);
     //self.userProfileBannerImageView.image = [UIImage imageNamed:@"venom-landscape"];
 
     [self.view bringSubviewToFront:self.userActivityTableView];
-    [self.view sendSubviewToBack:self.userProfilePicture];
+    //[self.view sendSubviewToBack:self.userProfilePicture];
 }
 
 
@@ -131,7 +136,7 @@
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView
 {
     
-    CGFloat y = self.cachedSize.size.height - scrollView.contentOffset.y;
+    //CGFloat y = self.cachedSize.size.height - scrollView.contentOffset.y;
     
     //NSLog(@"cachedSize.size.height: %f", self.cachedSize.size.height);
     //NSLog(@"scrollview.contentoffset,y: %f", scrollView.contentOffset.y);
@@ -139,38 +144,69 @@
     //NSLog(@"Y: %f", y);
     
     //if (self.userProfileBannerImageView.bounds.size.height < -(scrollView.contentOffset.y))
+    
+    //Only happens when scroll-view max scroll down
     if (self.cachedSize.size.height < -(scrollView.contentOffset.y))
     {
         //self.userProfileBannerImageView.frame = CG
         
-        NSLog(@"cachedSize.size.height: %f", self.cachedSize.size.height);
-        NSLog(@"scrollview.contentoffset,y: %f", scrollView.contentOffset.y);
+        //NSLog(@"cachedSize.size.height: %f", self.cachedSize.size.height);
+        //NSLog(@"scrollview.contentoffset,y: %f", scrollView.contentOffset.y);
         
         
-        CGPoint topLeft, topRight, bottomLeft, bottomRight;
-        CGFloat delta = -(self.userProfileBannerImageView.bounds.size.height + scrollView.contentOffset.y);
-        NSLog(@"delta : %f", delta);
+      //  CGPoint topLeft, topRight, bottomLeft, bottomRight;
+        CGFloat newdelta = -(self.userProfileBannerImageView.bounds.size.height + scrollView.contentOffset.y);
         
+        //if (self.userProfilePicture.alpha<1 || self.userProfilePicture.alpha>0) {
+            
         
-        topLeft = CGPointMake(self.center.x-(self.userProfileBannerImageView.frame.size.width + delta)/2.0, self.center.y-(self.userProfileBannerImageView.frame.size.height + delta)/2.0);
+            if(newdelta<0)
+            {
+                //NSLog(@"EUREKAAAAAAAAAAAAAAAAAAA\n\n");
+                //self.userProfilePicture.alpha = self.userProfilePicture.alpha +(newdelta/50);
+                NSLog(@"New delta -VE");
+            }
+            else
+            {
+                //self.userProfilePicture.alpha = self.userProfilePicture.alpha -(newdelta/50);
+                NSLog(@"New delta +VE");
+            }
+            self.userProfilePicture.alpha = self.userProfilePicture.alpha -(newdelta/50);
+        
+        if (self.userProfilePicture.alpha>1.0) {
+            self.userProfilePicture.alpha=1.0;
+        }
+        
+        else if (self.userProfilePicture.alpha<0.0)
+        {
+            self.userProfilePicture.alpha=0.0;
+        }
+        //}
+        
+        //self.userProfilePicture.alpha = self.userProfilePicture.alpha +(newdelta/50);
+        NSLog(@"delta : %f", self.delta);
+        NSLog(@"newdelta : %f", newdelta);
+        NSLog(@"alpha : %f \n\n", self.userProfilePicture.alpha);
+     /*
+      //  topLeft = CGPointMake(self.center.x-(self.userProfileBannerImageView.frame.size.width + delta)/2.0, self.center.y-(self.userProfileBannerImageView.frame.size.height + delta)/2.0);
         //topRight = CGPointMake(self.center.x+(self.userProfileBannerImageView.frame.size.width +delta)/2.0,  self.center.y-(self.userProfileBannerImageView.frame.size.height + delta)/2.0);
         //bottomLeft = CGPointMake(self.center.x-(self.userProfileBannerImageView.frame.size.width + delta)/2.0, self.center.y+(self.userProfileBannerImageView.frame.size.height + delta)/2.0);
         //bottomRight = CGPointMake(self.center.x+(self.userProfileBannerImageView.frame.size.width + delta)/2.0, self.center.y+(self.userProfileBannerImageView.frame.size.height + delta)/2.0);
         
-        NSLog(@" x: %f  y: %f              x: %f  y: %f\n\n", topLeft.x, topLeft.y, topRight.x, topRight.y);
-        NSLog(@" x: %f  y: %f              x: %f  y: %f\n\n\n\n", bottomLeft.x, bottomLeft.y, bottomRight.x, bottomRight.y);
+       // NSLog(@" x: %f  y: %f              x: %f  y: %f\n\n", topLeft.x, topLeft.y, topRight.x, topRight.y);
+       // NSLog(@" x: %f  y: %f              x: %f  y: %f\n\n\n\n", bottomLeft.x, bottomLeft.y, bottomRight.x, bottomRight.y);
+       
+      */
+
         
-        //self.userProfileBannerImageView.frame = CGRectMake((self.center.x-(self.userProfileBannerImageView.frame.size.width + delta)/2.0), (self.center.y-(self.userProfileBannerImageView.frame.size.height + delta)/2.0), (self.userProfileBannerImageView.frame.size.width + delta), (self.userProfileBannerImageView.frame.size.height+delta));
-        
-        
-        self.userProfileBannerImageView.frame = CGRectMake(0,0, (self.userProfileBannerImageView.frame.size.width + delta), (self.userProfileBannerImageView.frame.size.height+delta));
+        self.userProfileBannerImageView.frame = CGRectMake(0,0, (self.userProfileBannerImageView.frame.size.width + newdelta), (self.userProfileBannerImageView.frame.size.height+newdelta));
         //self.userProfileBannerImageView.frame = CGRectMake(0, 0, self.cachedSize.size.width+y, self.cachedSize.size.height+y);
         self.userProfileBannerImageView.center = self.center;
+        
+        self.delta =newdelta;
     }
     
 
-    
-    //CGFloat fAdd =
     
     
  
