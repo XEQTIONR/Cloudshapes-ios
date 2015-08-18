@@ -100,9 +100,9 @@
 {
     [super viewDidLayoutSubviews];
     self.userActivityTableView.contentInset = UIEdgeInsetsMake(self.userProfileBannerImageView.bounds.size.height, 0, 0, 0);
-    [self.userActivityTableView setContentOffset:CGPointMake(self.userActivityTableView.contentOffset.x, -(self.userProfileBannerImageView.bounds.size.height))];
+    [self.userActivityTableView setContentOffset:CGPointMake(self.userActivityTableView.contentOffset.y, -(self.userProfileBannerImageView.bounds.size.height))];
     self.center = self.userProfileBannerImageView.center;
-    self.cachedSize = self.userProfileBannerImageView.bounds;
+    self.cachedSize = self.userProfileBannerImageView.bounds; //CACHED SIZE
     
     self.userProfilePicture.layer.borderWidth = 6.0f;
     self.userProfilePicture.layer.borderColor = [UIColor whiteColor].CGColor; // hmm... interesting short-hand for [-[UIColor c] CGColor];
@@ -113,14 +113,35 @@
 
     [self.view bringSubviewToFront:self.userActivityTableView];
     //[self.view sendSubviewToBack:self.userProfilePicture];
+    
+    
+    
+    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.userActivityTableView
+                                                              .frame.size.width, 32)];
+    header.backgroundColor = [UIColor magentaColor];
+    self.userActivityTableView.tableHeaderView = header;
+    [self.view bringSubviewToFront:header];
 }
 
 
 #pragma mark UITableViewDataSource methods
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 20;
+}
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 22)];
+    header.backgroundColor = [UIColor redColor];
+    //header.textLabel.text = @"THIS IS THE HEADER VIEW";
+    return header;
 }
 
 - (UITableViewCell* )tableView:(UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -201,7 +222,8 @@
         
         self.userProfileBannerImageView.frame = CGRectMake(0,0, (self.userProfileBannerImageView.frame.size.width + newdelta), (self.userProfileBannerImageView.frame.size.height+newdelta));
         //self.userProfileBannerImageView.frame = CGRectMake(0, 0, self.cachedSize.size.width+y, self.cachedSize.size.height+y);
-        self.userProfileBannerImageView.center = self.center;
+        //self.userProfileBannerImageView.center = self.center;
+        self.userProfileBannerImageView.center = self.userProfilePicture.center;
         
         self.delta =newdelta;
     }
