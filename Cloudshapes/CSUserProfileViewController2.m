@@ -19,6 +19,7 @@
 - (void) viewDidLoad
 {
     [super viewDidLoad];
+    //self.view.backgroundColor = [UIColor colorWithRed:0.0 green:0.21 blue:0.9 alpha:0.5];
     self.userActivityTableView.dataSource = self;
     self.userActivityTableView.delegate = self;
     self.userActivityTableView.backgroundColor = nil;
@@ -100,27 +101,63 @@
 {
     [super viewDidLayoutSubviews];
     self.userActivityTableView.contentInset = UIEdgeInsetsMake(self.userProfileBannerImageView.bounds.size.height, 0, 0, 0);
-    [self.userActivityTableView setContentOffset:CGPointMake(self.userActivityTableView.contentOffset.y, -(self.userProfileBannerImageView.bounds.size.height))];
+    [self.userActivityTableView setContentOffset:CGPointMake(self.userActivityTableView.contentOffset.y, -(self.userProfileBannerImageView.frame.size.height))];
     self.center = self.userProfileBannerImageView.center;
-    self.cachedSize = self.userProfileBannerImageView.bounds; //CACHED SIZE
+    self.cachedSize = self.userProfileBannerImageView.frame; //CACHED SIZE
+    
+    /*
+    self.fullName = [[UILabel alloc] init];
+    self.fullName.text = @"John Doe"; // HARD_CODED VALUE]
+    self.fullName.textColor = [UIColor blackColor];
+    self.fullName.backgroundColor = [UIColor grayColor];
+    [self.view addSubview:self.fullName];
+    
+    NSLayoutConstraint *c1 = [NSLayoutConstraint constraintWithItem:self.fullName
+                                                 attribute: NSLayoutAttributeCenterX
+                                                 relatedBy:NSLayoutRelationEqual
+                                                 toItem:self.userProfilePicture
+                                                 attribute: NSLayoutAttributeCenterX
+                                                 multiplier:1.0
+                                                constant:0.0];
+    
+    NSLayoutConstraint *c2 = [NSLayoutConstraint constraintWithItem:self.fullName attribute: NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.userProfilePicture attribute: NSLayoutAttributeCenterY multiplier:1.0 constant:0];
+    
+    NSLayoutConstraint *c3 = [NSLayoutConstraint constraintWithItem:self.fullName attribute: NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.userProfilePicture attribute: NSLayoutAttributeHeight multiplier:0.5 constant:0];
+    
+    NSLayoutConstraint *c4 = [NSLayoutConstraint constraintWithItem:self.fullName attribute: NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.userProfilePicture attribute: NSLayoutAttributeWidth multiplier:1.5 constant:0];
+    
+    
+    NSArray *constraints = [NSArray arrayWithObjects:c1,c2,c3,c4, nil];
+    [self.view addConstraints:constraints];
+    */
+    
+    
+    
+    
+    
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight ];
+    self.blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    [self.view addSubview:self.blurEffectView];
+    self.blurEffectView.frame = self.userProfileBannerImageView.frame;
+    [self.view sendSubviewToBack:self.blurEffectView];
+    [self.view sendSubviewToBack:self.userProfileBannerImageView];
     
     self.userProfilePicture.layer.borderWidth = 6.0f;
     self.userProfilePicture.layer.borderColor = [UIColor whiteColor].CGColor; // hmm... interesting short-hand for [-[UIColor c] CGColor];
     self.userProfilePicture.layer.cornerRadius = self.userProfilePicture.bounds.size.width/2.0;
     
-    NSLog(@"cached size in viewDidLayoutSubviews  width %f    height %f", self.cachedSize.size.width, self.cachedSize.size.height);
-    //self.userProfileBannerImageView.image = [UIImage imageNamed:@"venom-landscape"];
 
     [self.view bringSubviewToFront:self.userActivityTableView];
-    //[self.view sendSubviewToBack:self.userProfilePicture];
     
     
-    
-    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.userActivityTableView
-                                                              .frame.size.width, 32)];
-    header.backgroundColor = [UIColor magentaColor];
+    //UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.userActivityTableView.frame.size.width, 32)];
+    UISegmentedControl *header = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Activity",@"About",@"Photos", nil]];
+    header.frame = CGRectMake(0, 0, self.userActivityTableView.frame.size.width, 32);
+    header.backgroundColor = [UIColor whiteColor];
+    header.tintColor = [UIColor colorWithRed:0.0 green:0.21 blue:0.9 alpha:1.0];
     self.userActivityTableView.tableHeaderView = header;
     [self.view bringSubviewToFront:header];
+    [self.view bringSubviewToFront:self.fullName];// <------ IMPORTANT
 }
 
 
@@ -136,13 +173,13 @@
     return 20;
 }
 
-- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+/*- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 22)];
     header.backgroundColor = [UIColor redColor];
     //header.textLabel.text = @"THIS IS THE HEADER VIEW";
     return header;
-}
+}*/
 
 - (UITableViewCell* )tableView:(UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -181,7 +218,7 @@
         //if (self.userProfilePicture.alpha<1 || self.userProfilePicture.alpha>0) {
             
         
-            if(newdelta<0)
+           /* if(newdelta<0)
             {
                 //NSLog(@"EUREKAAAAAAAAAAAAAAAAAAA\n\n");
                 //self.userProfilePicture.alpha = self.userProfilePicture.alpha +(newdelta/50);
@@ -191,17 +228,27 @@
             {
                 //self.userProfilePicture.alpha = self.userProfilePicture.alpha -(newdelta/50);
                 NSLog(@"New delta +VE");
-            }
+            }*/
             self.userProfilePicture.alpha = self.userProfilePicture.alpha -(newdelta/50);
+            self.blurEffectView.alpha = self.blurEffectView.alpha - (newdelta/50);
         
         if (self.userProfilePicture.alpha>1.0) {
             self.userProfilePicture.alpha=1.0;
         }
-        
         else if (self.userProfilePicture.alpha<0.0)
         {
             self.userProfilePicture.alpha=0.0;
         }
+        
+        
+        if (self.blurEffectView.alpha>1.0) {
+            self.blurEffectView.alpha=1.0;
+        }
+        
+        else if (self.blurEffectView.alpha<0.0){
+            self.blurEffectView.alpha=0.0;
+        }
+        
         //}
         
         //self.userProfilePicture.alpha = self.userProfilePicture.alpha +(newdelta/50);
@@ -220,11 +267,15 @@
       */
 
         
-        self.userProfileBannerImageView.frame = CGRectMake(0,0, (self.userProfileBannerImageView.frame.size.width + newdelta), (self.userProfileBannerImageView.frame.size.height+newdelta));
+        self.userProfileBannerImageView.frame = CGRectMake(0,0, (self.userProfileBannerImageView.frame.size.width + newdelta), (self.userProfileBannerImageView.frame.size.height+newdelta)); // Dont Change height.... Acts wierd.
         //self.userProfileBannerImageView.frame = CGRectMake(0, 0, self.cachedSize.size.width+y, self.cachedSize.size.height+y);
         //self.userProfileBannerImageView.center = self.center;
         self.userProfileBannerImageView.center = self.userProfilePicture.center;
         
+        self.blurEffectView.frame = self.userProfileBannerImageView.frame;
+        self.blurEffectView.center = self.userProfilePicture.center;
+        
+        //self.delta ++;
         self.delta =newdelta;
     }
     

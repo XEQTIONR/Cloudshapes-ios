@@ -49,8 +49,9 @@ shouldSelectViewController:(UIViewController *)viewController
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tabBar.backgroundColor = [UIColor lightGrayColor];
-    
+    //self.tabBar.backgroundColor = [UIColor redColor];
+    [self.tabBar setBarTintColor:[UIColor colorWithRed:0.0 green:0.21 blue:0.9 alpha:1.0]];
+    [self.tabBar setTintColor:[UIColor whiteColor]];
     self.delegate = self;
     
     
@@ -60,7 +61,7 @@ shouldSelectViewController:(UIViewController *)viewController
     
     // here we manually add all the tabs including our special center button
     self.viewControllers = [NSArray arrayWithObjects:
-                             [self viewControllerWithTabTitle:@"Explore" image:[UIImage imageNamed:@"Binoculars-32"] storyboardID:@"TESTItem"], //Skyboard Tab
+                             [self viewControllerWithTabTitle:@"Explore" image:[UIImage imageNamed:@"Binoculars-32"] storyboardID:@"TESTitem"], //Skyboard Tab ... use navSkyboard for Navigation Controller
                              dummyViewController, // New Post Tab
                              [self viewControllerWithTabTitle:@"Profile" image:[UIImage imageNamed:@"User Male Circle-32"] storyboardID:@"CSProfile"], // CSProfile is the navigation controller. CSProfile2 is the view
                              nil ];

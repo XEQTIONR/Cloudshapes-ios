@@ -39,7 +39,9 @@
     
     
     
-    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    //[[UINavigationBar appearance] setBarTintColor:[UIColor greenColor]];
+    //[[UINavigationBar appearance] setTintColor:[UIColor orangeColor]];
     
     return YES;
 }

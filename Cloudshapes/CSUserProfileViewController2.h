@@ -13,6 +13,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *userActivityTableView;
 @property (weak, nonatomic) IBOutlet UIImageView *userProfilePicture;
 @property  CGRect cachedSize;
-@property CGPoint center;
+@property CGPoint center;   // this property is obsolete
 @property CGFloat delta;
+@property (strong, nonatomic) UILabel *fullName;
+
+@property (strong, nonatomic) UIVisualEffectView *blurEffectView;
 @end

@@ -41,7 +41,7 @@
            fromLocation:(CLLocation *)oldLocation {
     [self.locationManager stopUpdatingLocation];
     self.location = newLocation;
-    [self startSearchWithString:nil];
+    //[self startSearchWithString:nil];
 }
 
 - (void)locationManager:(CLLocationManager *)manager
@@ -64,7 +64,11 @@
 }
 
 - (void)startSearchWithString:(NSString *)string {
+    
     [self.lastSearchOperation cancel];
+    [self.locationManager startUpdatingLocation];
+    
+    NSLog(@"LONG : %f   LAT : %f", self.location.coordinate.latitude,self.location.coordinate.latitude);
     self.lastSearchOperation = [Foursquare2
                                 venueSearchNearByLatitude:@(self.location.coordinate.latitude)
                                 longitude:@(self.location.coordinate.longitude)

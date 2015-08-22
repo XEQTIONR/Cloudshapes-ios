@@ -196,6 +196,7 @@
     
     ///////////////UNCOMMENT NEXT LINE
     self.tableView.contentInset = UIEdgeInsetsMake(self.mapView.bounds.size.height, 0, 0, 0);
+    [self.tableView setContentOffset:CGPointMake(0, -self.mapView.bounds.size.height)];
     //self.tableView.contentInset = UIEdgeInsetsMake(250, 0, 0, 0);
     NSLog(@"content offset y after layout subviews: %f",self.tableView.contentOffset.y);
     NSLog(@"mapview height is : %f", self.mapView.bounds.size.height);
