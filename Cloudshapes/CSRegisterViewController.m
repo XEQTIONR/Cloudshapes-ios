@@ -41,7 +41,7 @@
         //3. init and setup request
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
     
-        [request setURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/CSregisteruser13_dev.php"]];
+        [request setURL:[NSURL URLWithString:@"http://localhost/scripts/CSregisteruser13.1_dev.php"]];
         [request setHTTPMethod:@"POST"];
         [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -69,6 +69,8 @@
         {NSLog(@"NO ERRORS");}
         if (result == nil)
         {NSLog(@"NIL RESULT");}
+        NSLog(@"RESULT: %@", result);
+        NSLog(@"Error : %@", error.localizedDescription);
     
     }
     
