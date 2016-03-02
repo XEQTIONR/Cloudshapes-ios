@@ -33,7 +33,7 @@
     //3. init and setup request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
     
-    [request setURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/login_printr.php"]]; // current login script works
+    [request setURL:[NSURL URLWithString:@"http://localhost/scripts/login_v3.0.php"]];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -87,20 +87,19 @@
             NSString *userLName = [jsonDictionary
                                    objectForKey:@"userlname"];
             NSString *userName = [jsonDictionary
-                                  objectForKey:@"userdisplayname"];
-            NSString *userPoints = [jsonDictionary
-                                    objectForKey:@"userpoints"];
+                                  objectForKey:@"username"];
+            //NSString *userPoints = [jsonDictionary objectForKey:@"userpoints"];
             
             /// Later get the user profile picture as well
-            NSLog(@"userId:%@ userFName:%@ userLName:%@ userName:%@ userPoints:%@", userId,userFName,userLName,userName,userPoints);
+            NSLog(@"userId:%@ userFName:%@ userLName:%@ userName:%@", userId,userFName,userLName,userName); //userPoints left out
             
             
             
             [appDefaults setObject:userId forKey: @"userid"];
             [appDefaults setObject:userFName forKey:@"userfname"];
             [appDefaults setObject:userLName forKey:@"userlname"];
-            [appDefaults setObject:userName forKey:@"userdisplayname"];
-            [appDefaults setObject:userPoints forKey:@"userpoints"];
+            [appDefaults setObject:userName  forKey:@"username"];
+            //[appDefaults setObject:userPoints forKey:@"userpoints"];
             [appDefaults synchronize];
             
             //Log of the synced values
@@ -108,10 +107,12 @@
                   [appDefaults objectForKey:@"userid"],
                   [appDefaults objectForKey:@"userfname"],
                   [appDefaults objectForKey:@"userlname"],
-                  [appDefaults objectForKey:@"userdisplayname"],
+                  [appDefaults objectForKey:@"username"],
                   [appDefaults objectForKey:@"userpoints"]);
             
             // Enter the app as a logged in user
+            
+            // UNCOMMENT THIS TO GO TO SKYBOARD
             [self performSegueWithIdentifier:@"enterSegue" sender: self];
         }
         else  // jsonData.count = 0 /// No username-password match
