@@ -29,11 +29,14 @@
     
     //[self.tableView registerClass:UITableViewCellStyleDefault forCellReuseIdentifier:@"search cell"];
     
+    //self.locationManager = [[CLLocationManager alloc]init];
+    //self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    //self.locationManager.delegate = self;
+    //[self.locationManager startUpdatingLocation];
     
-    self.locationManager = [[CLLocationManager alloc]init];
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    self.locationManager.delegate = self;
-    [self.locationManager startUpdatingLocation];
+    //self.searchRequest = [[MKLocalSearchRequest alloc]init];
+    //self.searchRequest.region = self.region;
+    
 }
 
 - (void)locationManager:(CLLocationManager *)manager
@@ -60,7 +63,21 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     
     NSLog(@"searchText is    %@", searchText);
-    [self startSearchWithString:searchText];
+    
+    MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
+    request.naturalLanguageQuery = searchText;
+    MKLocalSearch *search = [[MKLocalSearch alloc] initWithRequest:request];
+    
+    [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error)
+     {
+         NSLog(@"Map Items : %@", response.mapItems);
+         //NSLog(@"self.region :%f %f %f %f", self.region.center.latitude, self.region.center.longitude, self.region.span.latitudeDelta, self.region.span.longitudeDelta);
+        if(error)
+        {
+            NSLog(@"error : %@", error.localizedDescription);
+        }
+     }];
+    //[self startSearchWithString:searchText];
 }
 
 - (void)startSearchWithString:(NSString *)string {

@@ -73,8 +73,11 @@
    */
     
     //CSSearchResultsTableViewController *resultsController = [[CSSearchResultsTableViewController alloc] init];
-    
+
     self.searchResultsTableView = [[CSSearchResultsTableViewController alloc] init];
+    
+    // Setting the region on the SearchResultsTableViewController var
+    //self.searchResultsTableView.region = self.mapView.region;
     
     [self.searchResultsTableView.tableView registerClass:UITableViewCellStyleDefault forCellReuseIdentifier:@"search cell"];
     
@@ -86,6 +89,7 @@
     
     
     [self.view addSubview:self.searchController.searchBar];
+    //[self.tableView.tableHeaderView addSubview:self.searchController.searchBar];
     //self.tableView.tableHeaderView = self.searchController.searchBar;
     self.definesPresentationContext = YES;
     [self.searchController.searchBar sizeToFit];

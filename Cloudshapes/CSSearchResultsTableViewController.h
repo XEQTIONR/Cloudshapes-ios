@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface CSSearchResultsTableViewController : UITableViewController<UISearchBarDelegate>//,UISearchResultsUpdating
-
+@interface CSSearchResultsTableViewController : UITableViewController<UISearchBarDelegate, UISearchResultsUpdating>
+@property (strong,nonatomic) MKLocalSearchRequest *searchRequest;
+@property MKCoordinateRegion region;
 @end
