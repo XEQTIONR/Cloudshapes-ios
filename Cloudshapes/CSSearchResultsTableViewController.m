@@ -68,12 +68,17 @@
     
     [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error)
      {
-         NSLog(@"Map Items : %@", response.mapItems);
+         
+         self.venues = response.mapItems;
+         
+         //NSLog(@"Map Items : %@", response.mapItems);
          //NSLog(@"self.region :%f %f %f %f", self.region.center.latitude, self.region.center.longitude, self.region.span.latitudeDelta, self.region.span.longitudeDelta);
          if(error)
          {
              NSLog(@"error : %@", error.localizedDescription);
          }
+         
+         [self.tableView reloadData];
      }];
 
     
@@ -146,7 +151,9 @@
 
     UITableViewCell *cell = [[UITableViewCell alloc] init];
     //}
-    cell.textLabel.text = [self.venues[indexPath.row] name];
+    MKMapItem *aVenue = self.venues[indexPath.row];
+    
+    cell.textLabel.text = [aVenue name];
     return cell;
 }
 
