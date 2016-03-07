@@ -84,7 +84,7 @@
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:self.searchResultsTableView];
     self.searchController.searchResultsUpdater = self.searchResultsTableView;
     self.searchController.dimsBackgroundDuringPresentation = YES;
-    self.searchController.searchBar.delegate = self.searchResultsTableView;
+    //self.searchController.searchBar.delegate = self.searchResultsTableView;
     //self.searchController.searchBar.delegate = self;
     
     
