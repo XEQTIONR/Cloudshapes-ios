@@ -149,11 +149,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];//[[UITableViewCell alloc] init];
+    
     //}
     MKMapItem *aVenue = self.venues[indexPath.row];
     
     cell.textLabel.text = [aVenue name];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@", aVenue.placemark.subThoroughfare, aVenue.placemark.thoroughfare];
     return cell;
 }
 
