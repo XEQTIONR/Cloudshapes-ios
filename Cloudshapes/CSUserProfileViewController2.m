@@ -60,6 +60,7 @@
         
         //3. init and setup request
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        // change this to local host later
         [request setURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/getprofilepicturefilepath.php"]];
         [request setHTTPMethod:@"POST"];
         [request setValue:postLength forHTTPHeaderField:@"Content-Length"];

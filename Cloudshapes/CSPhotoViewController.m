@@ -64,7 +64,9 @@
     NSLog(@"stringFormattedUserId is %@", stringFormattedUserId);
     
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/uploadinsert3.php"]]; //previously uploadinsert.php uploadtest10.php
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://localhost/scripts/uploadinsert3.php"]];
+    // previously http://ec2-54-173-125-187.compute-1.amazonaws.com
+    //previously uploadinsert.php uploadtest10.php
     
     NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
     
