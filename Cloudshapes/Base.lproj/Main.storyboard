@@ -403,7 +403,13 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="aBQ-gM-70R"/>
+                    <navigationItem key="navigationItem" id="aBQ-gM-70R">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="tUl-44-gqZ">
+                            <connections>
+                                <segue destination="Bor-3Y-cQK" kind="show" id="F9b-UT-ndV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="userActivityTableView" destination="LZ0-hJ-l6o" id="m3q-5k-KY5"/>
                         <outlet property="userProfileBannerImageView" destination="S6j-A9-YlE" id="cBM-nk-4Aw"/>
@@ -417,6 +423,7 @@
         <!--Profile-->
         <scene sceneID="cfI-Ot-VV6">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OXi-jW-5Jk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController restorationIdentifier="CSProfile" storyboardIdentifier="CSProfile" automaticallyAdjustsScrollViewInsets="NO" id="vRj-Xt-oym" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" id="YTs-PX-rO7"/>
                     <toolbarItems/>
@@ -429,7 +436,6 @@
                         <segue destination="v1e-X5-OHz" kind="relationship" relationship="rootViewController" id="haM-F9-uAo"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OXi-jW-5Jk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-6439.5" y="-4443"/>
         </scene>
@@ -924,4 +930,7 @@
         <image name="Generic Text-64.png" width="64" height="64"/>
         <image name="cs alternate120square.png" width="120" height="120"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="F9b-UT-ndV"/>
+    </inferredMetricsTieBreakers>
 </document>

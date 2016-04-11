@@ -253,9 +253,9 @@
         //}
         
         //self.userProfilePicture.alpha = self.userProfilePicture.alpha +(newdelta/50);
-        NSLog(@"delta : %f", self.delta);
-        NSLog(@"newdelta : %f", newdelta);
-        NSLog(@"alpha : %f \n\n", self.userProfilePicture.alpha);
+        //NSLog(@"delta : %f", self.delta);
+        //NSLog(@"newdelta : %f", newdelta);
+        //NSLog(@"alpha : %f \n\n", self.userProfilePicture.alpha);
      /*
       //  topLeft = CGPointMake(self.center.x-(self.userProfileBannerImageView.frame.size.width + delta)/2.0, self.center.y-(self.userProfileBannerImageView.frame.size.height + delta)/2.0);
         //topRight = CGPointMake(self.center.x+(self.userProfileBannerImageView.frame.size.width +delta)/2.0,  self.center.y-(self.userProfileBannerImageView.frame.size.height + delta)/2.0);
