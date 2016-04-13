@@ -23,7 +23,7 @@
 @implementation CSSkyboardTableAndMapViewController
 
 
-
+/*
 - (void)getVenuesForLocation:(CLLocation *)location {
     
     [Foursquare2 venueSearchNearByLatitude:@(location.coordinate.latitude)
@@ -50,6 +50,7 @@
                                       }
                                   }];
 }
+*/
 
 - (void)viewDidLoad
 {
@@ -104,7 +105,7 @@
         //3. init and setup request
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
         
-        [request setURL:[NSURL URLWithString:@"http://ec2-54-173-125-187.compute-1.amazonaws.com/scripts/getposts9.php"]]; //previously getskyboarddata2.php
+        [request setURL:[NSURL URLWithString:@"http://localhost/scripts/getposts11.php"]]; //previously getskyboarddata2.php
         [request setHTTPMethod:@"POST"];
         [request setValue:0 forHTTPHeaderField:@"Content-Length"]; // currently passing no body , so length is 0(zero)
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -125,6 +126,7 @@
         }
         
         if (error == nil){NSLog(@"NO ERRORS");}
+        else { NSLog(@"ERROR HAS OCCURED : %@",error.description);}
         
         if (jsonData == nil)
         {
@@ -223,7 +225,7 @@
     NSLog(@"NEW LOCATION:");
     NSLog(@"%@", [locations lastObject]);
     
-    [self getVenuesForLocation:[locations lastObject]];
+    // [self getVenuesForLocation:[locations lastObject]];
     
     [self.locationManager stopUpdatingLocation];
 }
@@ -364,14 +366,14 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
         cell.fullNameLabel.text = [[object objectForKey:@"userfname"] stringByAppendingString: [object objectForKey:@"userlname"]];
     
         cell.profilePictureView.image = [UIImage imageNamed:@"Scarlett-Johansson2-400.jpg"];
-    
+ /*
         NSString *filePath = [object objectForKey:@"mediafilepath"];
         NSString *baseString =@"http://ec2-54-173-125-187.compute-1.amazonaws.com/";
         baseString = [baseString stringByAppendingString:filePath];
     
         NSData *profilePictureData = [NSData dataWithContentsOfURL:[NSURL URLWithString:baseString]];
         UIImage *image = [UIImage imageWithData:profilePictureData];
-        cell.profilePictureView.image = image;
+        cell.profilePictureView.image = image; */
                             // following if block is unnecessary because we change the picture in layoutSubview method of the cell
                             /*if([cell.postType isEqualToString:@"Thought"])
                             {
